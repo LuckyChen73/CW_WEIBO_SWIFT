@@ -17,6 +17,13 @@
 		1F8521091E910CCB00260C16 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 1F8520FB1E910CCB00260C16 /* .gitignore */; };
 		1F85210A1E910CCB00260C16 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 1F8520FD1E910CCB00260C16 /* .gitignore */; };
 		1F85210B1E910CCB00260C16 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 1F8521061E910CCB00260C16 /* .gitignore */; };
+		1F85210E1E910E8C00260C16 /* WBMainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F85210D1E910E8C00260C16 /* WBMainController.swift */; };
+		1F8521101E910EC600260C16 /* WBRootController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F85210F1E910EC600260C16 /* WBRootController.swift */; };
+		1F8521121E9110FC00260C16 /* main.json in Resources */ = {isa = PBXBuildFile; fileRef = 1F8521111E9110FC00260C16 /* main.json */; };
+		1F8521141E911B4700260C16 /* WBHomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8521131E911B4700260C16 /* WBHomeController.swift */; };
+		1F8521161E911B5900260C16 /* WBMessageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8521151E911B5900260C16 /* WBMessageController.swift */; };
+		1F8521181E911B7900260C16 /* WBDiscoverController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8521171E911B7900260C16 /* WBDiscoverController.swift */; };
+		1F85211A1E911B8B00260C16 /* WBProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8521191E911B8B00260C16 /* WBProfileController.swift */; };
 		67179E1939EBAFFA5E876D4C /* Pods_WeiBo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7608C7B377F7D9B05BA881D /* Pods_WeiBo.framework */; };
 /* End PBXBuildFile section */
 
@@ -33,6 +40,13 @@
 		1F8520FB1E910CCB00260C16 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		1F8520FD1E910CCB00260C16 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		1F8521061E910CCB00260C16 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		1F85210D1E910E8C00260C16 /* WBMainController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBMainController.swift; sourceTree = "<group>"; };
+		1F85210F1E910EC600260C16 /* WBRootController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBRootController.swift; sourceTree = "<group>"; };
+		1F8521111E9110FC00260C16 /* main.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = main.json; sourceTree = "<group>"; };
+		1F8521131E911B4700260C16 /* WBHomeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBHomeController.swift; sourceTree = "<group>"; };
+		1F8521151E911B5900260C16 /* WBMessageController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBMessageController.swift; sourceTree = "<group>"; };
+		1F8521171E911B7900260C16 /* WBDiscoverController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBDiscoverController.swift; sourceTree = "<group>"; };
+		1F8521191E911B8B00260C16 /* WBProfileController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBProfileController.swift; sourceTree = "<group>"; };
 		4E7289ED921CA0819BD97ECC /* Pods-WeiBo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeiBo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WeiBo/Pods-WeiBo.debug.xcconfig"; sourceTree = "<group>"; };
 		7F6FDDDA984CB1827CE52D43 /* Pods-WeiBo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeiBo.release.xcconfig"; path = "Pods/Target Support Files/Pods-WeiBo/Pods-WeiBo.release.xcconfig"; sourceTree = "<group>"; };
 		D7608C7B377F7D9B05BA881D /* Pods_WeiBo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WeiBo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -117,11 +131,11 @@
 			isa = PBXGroup;
 			children = (
 				1F8520FD1E910CCB00260C16 /* .gitignore */,
+				1F8521011E910CCB00260C16 /* Main(主控制器) */,
+				1F8521001E910CCB00260C16 /* Home(首页) */,
+				1F8521021E910CCB00260C16 /* Message(消息) */,
 				1F8520FE1E910CCB00260C16 /* Compose(发布) */,
 				1F8520FF1E910CCB00260C16 /* Discover(发现) */,
-				1F8521001E910CCB00260C16 /* Home(首页) */,
-				1F8521011E910CCB00260C16 /* Main(主控制器) */,
-				1F8521021E910CCB00260C16 /* Message(消息) */,
 				1F8521031E910CCB00260C16 /* Profile(我) */,
 				1F8521041E910CCB00260C16 /* Visitor(访客视图) */,
 			);
@@ -138,6 +152,7 @@
 		1F8520FF1E910CCB00260C16 /* Discover(发现) */ = {
 			isa = PBXGroup;
 			children = (
+				1F8521171E911B7900260C16 /* WBDiscoverController.swift */,
 			);
 			path = "Discover(发现)";
 			sourceTree = "<group>";
@@ -145,6 +160,7 @@
 		1F8521001E910CCB00260C16 /* Home(首页) */ = {
 			isa = PBXGroup;
 			children = (
+				1F8521131E911B4700260C16 /* WBHomeController.swift */,
 			);
 			path = "Home(首页)";
 			sourceTree = "<group>";
@@ -152,6 +168,9 @@
 		1F8521011E910CCB00260C16 /* Main(主控制器) */ = {
 			isa = PBXGroup;
 			children = (
+				1F8521111E9110FC00260C16 /* main.json */,
+				1F85210D1E910E8C00260C16 /* WBMainController.swift */,
+				1F85210F1E910EC600260C16 /* WBRootController.swift */,
 			);
 			path = "Main(主控制器)";
 			sourceTree = "<group>";
@@ -159,6 +178,7 @@
 		1F8521021E910CCB00260C16 /* Message(消息) */ = {
 			isa = PBXGroup;
 			children = (
+				1F8521151E911B5900260C16 /* WBMessageController.swift */,
 			);
 			path = "Message(消息)";
 			sourceTree = "<group>";
@@ -166,6 +186,7 @@
 		1F8521031E910CCB00260C16 /* Profile(我) */ = {
 			isa = PBXGroup;
 			children = (
+				1F8521191E911B8B00260C16 /* WBProfileController.swift */,
 			);
 			path = "Profile(我)";
 			sourceTree = "<group>";
@@ -244,6 +265,7 @@
 		1F8520D81E90C46F00260C16 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = WB;
 				LastSwiftUpdateCheck = 0820;
 				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = "陈伟";
@@ -277,6 +299,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F8521121E9110FC00260C16 /* main.json in Resources */,
 				1F85210B1E910CCB00260C16 /* .gitignore in Resources */,
 				1F8521081E910CCB00260C16 /* .gitignore in Resources */,
 				1F85210A1E910CCB00260C16 /* .gitignore in Resources */,
@@ -343,7 +366,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F8521181E911B7900260C16 /* WBDiscoverController.swift in Sources */,
+				1F8521161E911B5900260C16 /* WBMessageController.swift in Sources */,
+				1F85211A1E911B8B00260C16 /* WBProfileController.swift in Sources */,
+				1F85210E1E910E8C00260C16 /* WBMainController.swift in Sources */,
 				1F8520E61E90C46F00260C16 /* ViewController.swift in Sources */,
+				1F8521101E910EC600260C16 /* WBRootController.swift in Sources */,
+				1F8521141E911B4700260C16 /* WBHomeController.swift in Sources */,
 				1F8520E41E90C46F00260C16 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
