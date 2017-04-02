@@ -24,6 +24,7 @@
 		1F8521161E911B5900260C16 /* WBMessageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8521151E911B5900260C16 /* WBMessageController.swift */; };
 		1F8521181E911B7900260C16 /* WBDiscoverController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8521171E911B7900260C16 /* WBDiscoverController.swift */; };
 		1F85211A1E911B8B00260C16 /* WBProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8521191E911B8B00260C16 /* WBProfileController.swift */; };
+		1F85211C1E91246D00260C16 /* UIButton+convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F85211B1E91246D00260C16 /* UIButton+convenience.swift */; };
 		67179E1939EBAFFA5E876D4C /* Pods_WeiBo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7608C7B377F7D9B05BA881D /* Pods_WeiBo.framework */; };
 /* End PBXBuildFile section */
 
@@ -47,6 +48,7 @@
 		1F8521151E911B5900260C16 /* WBMessageController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBMessageController.swift; sourceTree = "<group>"; };
 		1F8521171E911B7900260C16 /* WBDiscoverController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBDiscoverController.swift; sourceTree = "<group>"; };
 		1F8521191E911B8B00260C16 /* WBProfileController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBProfileController.swift; sourceTree = "<group>"; };
+		1F85211B1E91246D00260C16 /* UIButton+convenience.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton+convenience.swift"; sourceTree = "<group>"; };
 		4E7289ED921CA0819BD97ECC /* Pods-WeiBo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeiBo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WeiBo/Pods-WeiBo.debug.xcconfig"; sourceTree = "<group>"; };
 		7F6FDDDA984CB1827CE52D43 /* Pods-WeiBo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeiBo.release.xcconfig"; path = "Pods/Target Support Files/Pods-WeiBo/Pods-WeiBo.release.xcconfig"; sourceTree = "<group>"; };
 		D7608C7B377F7D9B05BA881D /* Pods_WeiBo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WeiBo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -123,6 +125,7 @@
 			isa = PBXGroup;
 			children = (
 				1F8520FB1E910CCB00260C16 /* .gitignore */,
+				1F85211B1E91246D00260C16 /* UIButton+convenience.swift */,
 			);
 			path = "Tools(工具类)";
 			sourceTree = "<group>";
@@ -374,6 +377,7 @@
 				1F8521101E910EC600260C16 /* WBRootController.swift in Sources */,
 				1F8521141E911B4700260C16 /* WBHomeController.swift in Sources */,
 				1F8520E41E90C46F00260C16 /* AppDelegate.swift in Sources */,
+				1F85211C1E91246D00260C16 /* UIButton+convenience.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

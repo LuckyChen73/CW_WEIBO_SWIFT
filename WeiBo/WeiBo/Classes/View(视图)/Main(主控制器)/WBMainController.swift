@@ -26,9 +26,13 @@ class WBMainController: WBRootController {
 // MARK: - 点击事件
 extension WBMainController {
     
+    func composeMessage(button: UIButton) {
+        
+        print("发布微博")
+        
+    }
     
-    
-    
+
 }
 
 
@@ -44,10 +48,24 @@ extension WBMainController {
         //添加子控制器
         addChildVC()
         
-        
+        //添加发布按钮
+        addComposeButton()
         
     }
     
+    //添加发布按钮
+    func addComposeButton() {
+        
+        let button = UIButton(title: nil, target: self, selector: #selector(composeMessage(button:)), events: UIControlEvents.touchUpInside, image: "tabbar_compose_icon_add", bgImage: "tabbar_compose_button")
+        
+        //设置 frame
+        let width = tabBar.frame.width / 5
+        button.frame = tabBar.bounds.insetBy(dx: width*2 - 3, dy: 6)
+        
+        tabBar.addSubview(button)
+        
+    }
+
     
     //添加子控制器
     func addChildVC() {
@@ -72,9 +90,9 @@ extension WBMainController {
     func generateSingleVC(dict: [String: Any]) -> UINavigationController? {
         
         if let clsName = dict["clsName"] {
-            
+            //在 swift 中，字符串转换成类前面要添加类名
             let className = "WeiBo" + "." + "\(clsName as! String)"
-            
+            //as? UIViewController.Type 以什么类型的样式
             if let cls = NSClassFromString(className) as? UIViewController.Type {
                 let controller = cls.init()
 
@@ -95,15 +113,9 @@ extension WBMainController {
                 }
                 return UINavigationController(rootViewController: controller)
             }
-            
         }
- 
         return nil
     }
-    
-    
-    
-    
 }
 
 
