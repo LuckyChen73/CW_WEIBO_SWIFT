@@ -25,8 +25,8 @@ class WBMainController: WBRootController {
 
 // MARK: - 点击事件
 extension WBMainController {
-    
-    func composeMessage(button: UIButton) {
+    ///一旦事件使用了 fileprivate 或 private修饰，就必须加一个 @objc 修饰
+    @objc fileprivate func composeMessage(button: UIButton) {
         
         print("发布微博")
         
@@ -42,7 +42,7 @@ extension WBMainController {
 extension WBMainController {
     
     //创建 UI
-    func setupUI() {
+    fileprivate func setupUI() {
         view.backgroundColor = UIColor.white
         
         //添加子控制器
@@ -54,12 +54,13 @@ extension WBMainController {
     }
     
     //添加发布按钮
-    func addComposeButton() {
+    fileprivate func addComposeButton() {
         
         let button = UIButton(title: nil, target: self, selector: #selector(composeMessage(button:)), events: UIControlEvents.touchUpInside, image: "tabbar_compose_icon_add", bgImage: "tabbar_compose_button")
         
         //设置 frame
         let width = tabBar.frame.width / 5
+        //insetBy：以 tabbar 的中心点为原点，向内或向外扩张，所以此处必须调用 bounds
         button.frame = tabBar.bounds.insetBy(dx: width*2 - 3, dy: 6)
         
         tabBar.addSubview(button)
@@ -68,7 +69,7 @@ extension WBMainController {
 
     
     //添加子控制器
-    func addChildVC() {
+    fileprivate func addChildVC() {
         //解析 json 文件
         if let url = Bundle.main.url(forResource: "main.json", withExtension: nil), let object = try? Data(contentsOf: url), let dictArr = try? JSONSerialization.jsonObject(with: object, options: []) as! [[String: Any]] {
             
@@ -87,7 +88,7 @@ extension WBMainController {
     }
     
     //创建单个子控制器
-    func generateSingleVC(dict: [String: Any]) -> UINavigationController? {
+    fileprivate func generateSingleVC(dict: [String: Any]) -> UINavigationController? {
         
         if let clsName = dict["clsName"] {
             //在 swift 中，字符串转换成类前面要添加类名
