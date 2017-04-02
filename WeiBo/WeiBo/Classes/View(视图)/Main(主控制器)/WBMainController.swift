@@ -78,9 +78,21 @@ extension WBMainController {
             if let cls = NSClassFromString(className) as? UIViewController.Type {
                 let controller = cls.init()
 
-                
                 controller.title = dict["title"] as! String?
+                controller.tabBarItem.setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.gray], for: .normal)
+                //这里设置底部 tabbar 的图标样式的时候，设置的是 button 的样式，所以要根据 button 来设置
+                controller.tabBarItem.setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.orange], for: .selected)
                 
+                
+                if let imageName = dict["imageName"] {
+                    //tabbar_home
+                    let image = UIImage(named: "tabbar_\(imageName)")
+                    controller.tabBarItem.image = image?.withRenderingMode(.alwaysOriginal)
+                    
+                    //tabbar_home_selected
+                    let selectImage = UIImage(named: "tabbar_\(imageName)_selected")
+                    controller.tabBarItem.selectedImage = selectImage?.withRenderingMode(.alwaysOriginal)
+                }
                 return UINavigationController(rootViewController: controller)
             }
             
