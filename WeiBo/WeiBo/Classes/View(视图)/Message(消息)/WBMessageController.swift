@@ -8,12 +8,11 @@
 
 import UIKit
 
-class WBMessageController: UIViewController {
+class WBMessageController: WBRootController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        view.backgroundColor = UIColor.blue
         
     }
 

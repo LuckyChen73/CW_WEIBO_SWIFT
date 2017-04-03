@@ -8,12 +8,11 @@
 
 import UIKit
 
-class WBDiscoverController: UIViewController {
+class WBDiscoverController: WBRootController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        view.backgroundColor = UIColor.brown
     }
 
  

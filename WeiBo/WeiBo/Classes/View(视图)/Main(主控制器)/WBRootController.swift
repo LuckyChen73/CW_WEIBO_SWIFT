@@ -8,14 +8,40 @@
 
 import UIKit
 
-class WBRootController: UITabBarController {
+class WBRootController: UIViewController {
 
+    var visitorView: WBVisitorView?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        view.backgroundColor = UIColor.white
+        setupUI()
     }
 
-    
+
 
 }
+
+
+extension WBRootController {
+    
+    func setupUI() {
+    
+        setupVisitorView()
+        
+    }
+    
+    func setupVisitorView() {
+        
+        //创建访客视图并设置大小
+        visitorView = WBVisitorView(frame: self.view.bounds)
+        
+         self.view.addSubview(visitorView!)
+        
+    }
+    
+    
+    
+}
+
+

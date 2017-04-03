@@ -8,12 +8,12 @@
 
 import UIKit
 
-class WBProfileController: UIViewController {
+class WBProfileController: WBRootController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        view.backgroundColor = UIColor.cyan
+        
     }
 
     

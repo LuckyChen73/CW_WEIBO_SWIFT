@@ -8,12 +8,14 @@
 
 import UIKit
 
-class WBHomeController: UIViewController {
+class WBHomeController: WBRootController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        view.backgroundColor = UIColor.white
+
+    
+    
     }
 
   
