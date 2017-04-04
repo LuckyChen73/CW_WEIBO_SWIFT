@@ -63,6 +63,9 @@
 		1F8521661E913A8700260C16 /* UILayoutSupport+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8521451E913A8700260C16 /* UILayoutSupport+Extensions.swift */; };
 		1F8521681E91432700260C16 /* UIColor+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8521671E91432700260C16 /* UIColor+extension.swift */; };
 		1FC51CDD1E933C0A00C05565 /* WBLogInController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC51CDC1E933C0A00C05565 /* WBLogInController.swift */; };
+		1FC51CDF1E93443100C05565 /* NetworkTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC51CDE1E93443100C05565 /* NetworkTool.swift */; };
+		1FC51CE21E9347F900C05565 /* NetworkTool+Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC51CE11E9347F900C05565 /* NetworkTool+Login.swift */; };
+		1FC51CE41E934ECA00C05565 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC51CE31E934ECA00C05565 /* Common.swift */; };
 		67179E1939EBAFFA5E876D4C /* Pods_WeiBo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7608C7B377F7D9B05BA881D /* Pods_WeiBo.framework */; };
 /* End PBXBuildFile section */
 
@@ -126,6 +129,9 @@
 		1F8521451E913A8700260C16 /* UILayoutSupport+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILayoutSupport+Extensions.swift"; sourceTree = "<group>"; };
 		1F8521671E91432700260C16 /* UIColor+extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+extension.swift"; sourceTree = "<group>"; };
 		1FC51CDC1E933C0A00C05565 /* WBLogInController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBLogInController.swift; sourceTree = "<group>"; };
+		1FC51CDE1E93443100C05565 /* NetworkTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NetworkTool.swift; path = ../NetworkTool.swift; sourceTree = "<group>"; };
+		1FC51CE11E9347F900C05565 /* NetworkTool+Login.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NetworkTool+Login.swift"; sourceTree = "<group>"; };
+		1FC51CE31E934ECA00C05565 /* Common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
 		4E7289ED921CA0819BD97ECC /* Pods-WeiBo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeiBo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WeiBo/Pods-WeiBo.debug.xcconfig"; sourceTree = "<group>"; };
 		7F6FDDDA984CB1827CE52D43 /* Pods-WeiBo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeiBo.release.xcconfig"; path = "Pods/Target Support Files/Pods-WeiBo/Pods-WeiBo.release.xcconfig"; sourceTree = "<group>"; };
 		D7608C7B377F7D9B05BA881D /* Pods_WeiBo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WeiBo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -202,11 +208,13 @@
 		1F8520FA1E910CCB00260C16 /* Tools(工具类) */ = {
 			isa = PBXGroup;
 			children = (
+				1FC51CE01E9347D700C05565 /* NetworkTool(网络中间层) */,
 				1F8520FB1E910CCB00260C16 /* .gitignore */,
 				1F85211B1E91246D00260C16 /* UIButton+convenience.swift */,
 				1F85211F1E9133F700260C16 /* UIImageView+extension.swift */,
 				1F8521211E9135D000260C16 /* UIlabel+convenience.swift */,
 				1F8521671E91432700260C16 /* UIColor+extension.swift */,
+				1FC51CE31E934ECA00C05565 /* Common.swift */,
 			);
 			path = "Tools(工具类)";
 			sourceTree = "<group>";
@@ -352,6 +360,15 @@
 				1FC51CDC1E933C0A00C05565 /* WBLogInController.swift */,
 			);
 			path = "LogIn(登录界面)";
+			sourceTree = "<group>";
+		};
+		1FC51CE01E9347D700C05565 /* NetworkTool(网络中间层) */ = {
+			isa = PBXGroup;
+			children = (
+				1FC51CDE1E93443100C05565 /* NetworkTool.swift */,
+				1FC51CE11E9347F900C05565 /* NetworkTool+Login.swift */,
+			);
+			path = "NetworkTool(网络中间层)";
 			sourceTree = "<group>";
 		};
 		87034A08C8BC96932B748225 /* Frameworks */ = {
@@ -511,9 +528,11 @@
 				1F8521541E913A8700260C16 /* ConstraintMaker.swift in Sources */,
 				1F8521661E913A8700260C16 /* UILayoutSupport+Extensions.swift in Sources */,
 				1F85214B1E913A8700260C16 /* ConstraintDSL.swift in Sources */,
+				1FC51CDF1E93443100C05565 /* NetworkTool.swift in Sources */,
 				1F85215E1E913A8700260C16 /* ConstraintRelation.swift in Sources */,
 				1F8521521E913A8700260C16 /* ConstraintLayoutSupport.swift in Sources */,
 				1F8521481E913A8700260C16 /* ConstraintConfig.swift in Sources */,
+				1FC51CE41E934ECA00C05565 /* Common.swift in Sources */,
 				1F8521161E911B5900260C16 /* WBMessageController.swift in Sources */,
 				1F8521681E91432700260C16 /* UIColor+extension.swift in Sources */,
 				1F8521551E913A8700260C16 /* ConstraintMakerEditable.swift in Sources */,
@@ -531,6 +550,7 @@
 				1F85214D1E913A8700260C16 /* ConstraintInsetTarget.swift in Sources */,
 				1F8521101E910EC600260C16 /* WBRootController.swift in Sources */,
 				1F8521141E911B4700260C16 /* WBHomeController.swift in Sources */,
+				1FC51CE21E9347F900C05565 /* NetworkTool+Login.swift in Sources */,
 				1F8520E41E90C46F00260C16 /* AppDelegate.swift in Sources */,
 				1F8521641E913A8700260C16 /* LayoutConstraint.swift in Sources */,
 				1F85214C1E913A8700260C16 /* ConstraintInsets.swift in Sources */,
