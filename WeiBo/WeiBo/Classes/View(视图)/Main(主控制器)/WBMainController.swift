@@ -94,7 +94,7 @@ extension WBMainController {
             //在 swift 中，字符串转换成类前面要添加类名
             let className = "WeiBo" + "." + "\(clsName as! String)"
             //as? UIViewController.Type 以什么类型的样式
-            if let cls = NSClassFromString(className) as? UIViewController.Type {
+            if let cls = NSClassFromString(className) as? WBRootController.Type {
                 let controller = cls.init()
 
                 controller.title = dict["title"] as! String?
@@ -112,6 +112,9 @@ extension WBMainController {
                     let selectImage = UIImage(named: "tabbar_\(imageName)_selected")
                     controller.tabBarItem.selectedImage = selectImage?.withRenderingMode(.alwaysOriginal)
                 }
+                //将访客视图文本和图标的信息赋值给 controller
+                controller.visitorDic = dict["visitorInfo"] as? [String: Any]
+                
                 return UINavigationController(rootViewController: controller)
             }
         }

@@ -38,6 +38,30 @@ class WBVisitorView: UIView {
     lazy var logInButton: UIButton = UIButton(title: "登录", target: self, selector: #selector(logInButton(button:)), events: UIControlEvents.touchUpInside, bgImage: "common_button_white_disable")
     
     
+    /// 图标，文本信息
+    var visitorInfo: [String: Any]?{
+        //属性监听器
+        didSet{
+            //给属性赋值
+            iconImageView.image = UIImage(named: visitorInfo?["imageName"] as! String)
+            textLab.text = visitorInfo?["message"] as? String
+            
+            
+            /// 此处使用 as! 会报错，提示要使用一个 optional type 可选属性
+            // _ 忽略的值是 isAnimation 后面没有用到
+            if let _ = visitorInfo?["isAnimation"] as? Bool{
+                //为 true 则显示
+                circleImageView.isHidden = false
+            } else {
+                circleImageView.isHidden = true
+            }
+        }
+    }
+    
+    
+    
+    
+    
     //构造函数，重写 init 方法
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -121,7 +145,25 @@ extension WBVisitorView {
             make.size.equalTo(CGSize(width: 80, height: 30))
         }
         
+        //添加动画
+        addAnimation()
     }
+    
+    
+    //旋转动画
+    func addAnimation() {
+        let animation = CABasicAnimation(keyPath: "transform.rotation") // 设置旋转动画
+        animation.toValue = 2 * M_PI //旋转角度
+        animation.duration = 5 //动画时长
+        animation.repeatCount = MAXFLOAT //设置执行次数，无限大
+        animation.isRemovedOnCompletion = false //当切换页面之后，再跳转回来，是否移除动画
+        
+        //给控件添加动画
+        circleImageView.layer.add(animation, forKey: nil)
+    }
+    
+    
+    
     
     
 }
