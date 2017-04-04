@@ -105,7 +105,7 @@ extension WBLogInController: UIWebViewDelegate {
                 NetworkTool.shared.requestToken(code: code, callBack: { (tokenDict) in
                     //空合运算符，如果 tokenDict 没有值就会打印 ?? 后面的值
                     print(tokenDict ?? "没有token")
-                    
+
                     //获取用户名和头像
                     if let tokenDict = tokenDict as? [String: Any] {
                         let uid = tokenDict["uid"] as! String
@@ -114,8 +114,17 @@ extension WBLogInController: UIWebViewDelegate {
                         //调用网络中间层的分类中获取用户信息的方法
                         NetworkTool.shared.requestUser(uid: uid, accessToken: token, callBack: { (userDict) in
                             print(userDict ?? "没有用户信息")
+                            
+                            //判断 userDict 是否有值
+                            if var userDict = userDict as? [String: Any] {
+                                //有值就合并
+                                for (k, v) in tokenDict {
+                                    userDict[k] = v
+                                }
+                                //保存信息
+                                WBUserAccount.shared.save(dict: userDict)
+                            }
                         })
-                        
                         //保存信息
                     }
                 })
@@ -134,6 +143,7 @@ extension WBLogInController: UIWebViewDelegate {
     //webView加载完成之后执行
     func webViewDidFinishLoad(_ webView: UIWebView) {
         
+        webView.stringByEvaluatingJavaScript(from: "document.getElementById('userId').value='2102657566@qq.com';document.getElementById('passwd').value='cW2102657566iLU")
     }
     
     

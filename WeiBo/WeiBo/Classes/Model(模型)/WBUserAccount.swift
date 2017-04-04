@@ -21,7 +21,6 @@ class WBUserAccount: NSObject {
     /// 过期秒数
     var expire_in: Double = 0 {
         didSet{
-            
             expires_date = Date(timeIntervalSinceNow: expire_in)
         }
     }
