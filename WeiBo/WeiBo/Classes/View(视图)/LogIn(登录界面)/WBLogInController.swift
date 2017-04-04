@@ -123,15 +123,20 @@ extension WBLogInController: UIWebViewDelegate {
                                 }
                                 //保存信息
                                 WBUserAccount.shared.save(dict: userDict)
+                                //退出登录界面
+                                self.dismiss()
                             }
                         })
-                        //保存信息
+                        
+                    } else {
+                        //没有获取到信息，退出登录界面
+                        self.dismiss()
                     }
                 })
                 
             } else {
                 //点击的是取消
-                
+                dismiss()
             }
             //不加载
             return false
@@ -144,6 +149,10 @@ extension WBLogInController: UIWebViewDelegate {
     func webViewDidFinishLoad(_ webView: UIWebView) {
         
         webView.stringByEvaluatingJavaScript(from: "document.getElementById('userId').value='2102657566@qq.com';document.getElementById('passwd').value='cW2102657566iLU")
+    }
+    
+    func dismiss() {
+        dismiss(animated: true, completion: nil)
     }
     
     
