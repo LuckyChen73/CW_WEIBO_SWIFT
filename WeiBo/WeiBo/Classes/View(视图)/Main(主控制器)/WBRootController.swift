@@ -26,6 +26,7 @@ class WBRootController: UIViewController {
 }
 
 
+// MARK: - 创建 UI
 extension WBRootController {
     
     func setupUI() {
@@ -39,6 +40,9 @@ extension WBRootController {
         //创建访客视图并设置大小
         visitorView = WBVisitorView(frame: self.view.bounds)
         
+        //设置代理
+        visitorView?.delegate = self
+        
         //给访客视图的文本，图标信息赋值
         //visitorInfo 可空链式调用，如果前面有值，调用后面属性就有效果，反之
         visitorView?.visitorInfo = self.visitorDic
@@ -46,9 +50,28 @@ extension WBRootController {
          self.view.addSubview(visitorView!)
         
     }
-    
+
+}
+
+
+// MARK: - 代理方法
+extension WBRootController: WBVisitorViewDelegate {
+    //实现代理方法
+    func logIn() {
+        //点击登录按钮后，跳转到登录控制器
+        let wbLoginVC = WBLogInController()
+        let navLoginVC = UINavigationController(rootViewController: wbLoginVC)
+        present(navLoginVC, animated: true, completion: nil)
+        
+    }
     
     
 }
+
+
+
+
+
+
 
 

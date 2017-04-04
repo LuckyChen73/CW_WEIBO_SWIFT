@@ -17,8 +17,21 @@ import UIKit
  5. 在setupUI的方法中, 添加控件, 设置控件, 自动布局
  */
 
+
+/// 创建一个点击的代理
+protocol WBVisitorViewDelegate: NSObjectProtocol {
+    //代理方法
+    func logIn()
+}
+
+
+
 class WBVisitorView: UIView {
 
+    //点击代理属性
+    weak var delegate: WBVisitorViewDelegate?
+    
+    
     //大图标
     lazy var iconImageView: UIImageView = UIImageView(imageName: "visitordiscover_feed_image_house")
     
@@ -32,7 +45,7 @@ class WBVisitorView: UIView {
     lazy var textLab: UILabel = UILabel(title: "登录后，别人评论你的微博，发给你的消息，都会在这里收到通知", titleColor: UIColor.lightGray, fontSize: 14, alignment: .center, numOflines: 0)
 
     //注册按钮
-    lazy var signupButton: UIButton = UIButton(title: "注册", target: self, selector: #selector(signUpButton(button:)), events: UIControlEvents.touchUpInside, bgImage: "common_button_white_disable")
+    lazy var signupButton: UIButton = UIButton(title: "注册", target: self, selector: #selector(logInButton(button:)), events: UIControlEvents.touchUpInside, bgImage: "common_button_white_disable")
     
     //登录按钮
     lazy var logInButton: UIButton = UIButton(title: "登录", target: self, selector: #selector(logInButton(button:)), events: UIControlEvents.touchUpInside, bgImage: "common_button_white_disable")
@@ -81,16 +94,13 @@ class WBVisitorView: UIView {
 // MARK: - 点击事件
 extension WBVisitorView {
     
-    //注册
-    func signUpButton(button: UIButton) {
-        
-        print("注册")
-    }
-    
     //登录
     func logInButton(button: UIButton) {
+        //点击登录按钮跳转到登录界面
         
-        print(" 登录")
+        //是否实现代理方法
+        delegate?.logIn()
+        
     }
     
 }
