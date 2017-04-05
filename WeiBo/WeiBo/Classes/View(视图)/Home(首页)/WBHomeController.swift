@@ -24,16 +24,13 @@ class WBHomeController: WBRootController {
         loadData()
     
     }
-
-  
-
 }
 
 
 // MARK: - 获取数据
 extension WBHomeController {
     //加载数据
-    func loadData() {
+    override func loadData() {
         NetworkTool.shared.requsetStatus { (responseObject) in
           //对 responseObject做可选绑定
             if let statusModelArr = responseObject as? [WBStatusModel] {

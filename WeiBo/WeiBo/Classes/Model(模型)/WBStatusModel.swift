@@ -12,9 +12,9 @@ import YYModel
 class WBStatusModel: NSObject {
 
     /// 微博发布时间
-    var created_at: Int64 = 0
+    var created_at: String?
     /// 微博的id
-    var id: String?
+    var id: Int64 = 0
     /// 微博的来源
     var source: String?
     /// 微博的正文

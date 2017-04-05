@@ -7,10 +7,15 @@
 //
 
 import UIKit
+import MJRefresh
 
 fileprivate let identifier = "identifer"
 
 class WBRootController: UIViewController {
+    
+    /// 上下拉刷新控件
+    lazy var refreshHeader: MJRefreshNormalHeader = MJRefreshNormalHeader(refreshingTarget: self, refreshingAction: #selector(loadData))
+    lazy var refreshFooter: MJRefreshAutoNormalFooter = MJRefreshAutoNormalFooter(refreshingTarget: self, refreshingAction: #selector(loadData))
     
     lazy var tableView: UITableView = {
         let tableView = UITableView()
@@ -41,8 +46,19 @@ class WBRootController: UIViewController {
     }
     
     
-
+    
 }
+
+// MARK: - 加载数据
+extension WBRootController {
+    
+    func loadData() {
+        
+        print("刷新了")
+    }
+    
+}
+
 
 
 // MARK: - 创建 UI
@@ -54,6 +70,10 @@ extension WBRootController {
         setupTableView()
         
         setupVisitorView()
+        
+        //添加上下拉刷新
+        tableView.mj_header = refreshHeader
+        tableView.mj_footer = refreshFooter
         
     }
     
