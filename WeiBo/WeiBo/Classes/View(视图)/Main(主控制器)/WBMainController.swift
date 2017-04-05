@@ -16,6 +16,38 @@ class WBMainController: UITabBarController {
         //创建及设置 UI
         setupUI()
         
+        //设置tabbar的阴影线条
+        setupShadowImage()
+        
+        //添加新特性和欢迎页
+        addNewFeatureAndWelcomeView()
+    }
+
+    //添加新特性和欢迎页
+    func addNewFeatureAndWelcomeView() {
+        var isNewFeature = false
+        
+        //判断是否是新特性界面
+        if (WBUserAccount.shared.isLogIn == true) {
+            if isNewFeature == true {
+                //展示新特性界面
+                let newFeatureView = WBNewFetureView()
+                newFeatureView.backgroundColor = UIColor.yellow
+                self.view.addSubview(newFeatureView)
+                
+            }else {
+                //展示欢迎页
+                let welcomeView = WBWelcomeView()
+                welcomeView.backgroundColor = UIColor.purple
+                self.view.addSubview(welcomeView)
+            }
+        }
+    }
+    
+    /// 设置tabbar的阴影线条, 下面的两个属性必须都要设
+    func setupShadowImage () {
+        tabBar.backgroundImage = UIImage(named: "tabbar_background")
+        tabBar.shadowImage = UIImage.pureImage(color: UIColor(white: 0.9, alpha: 0.9))
     }
 
    
