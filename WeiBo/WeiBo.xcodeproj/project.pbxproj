@@ -10,6 +10,7 @@
 		1F0370DC1E95065700C701A1 /* WBNewFetureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0370DB1E95065700C701A1 /* WBNewFetureView.swift */; };
 		1F0370DE1E95066500C701A1 /* WBWelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0370DD1E95066500C701A1 /* WBWelcomeView.swift */; };
 		1F0370E01E95097700C701A1 /* UIIamge+draw.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0370DF1E95097700C701A1 /* UIIamge+draw.swift */; };
+		1F0370E21E950AD900C701A1 /* Bundle+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0370E11E950AD900C701A1 /* Bundle+extension.swift */; };
 		1F8520E41E90C46F00260C16 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8520E31E90C46F00260C16 /* AppDelegate.swift */; };
 		1F8520E61E90C46F00260C16 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8520E51E90C46F00260C16 /* ViewController.swift */; };
 		1F8520E91E90C46F00260C16 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F8520E71E90C46F00260C16 /* Main.storyboard */; };
@@ -77,6 +78,7 @@
 		1F0370DB1E95065700C701A1 /* WBNewFetureView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBNewFetureView.swift; sourceTree = "<group>"; };
 		1F0370DD1E95066500C701A1 /* WBWelcomeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBWelcomeView.swift; sourceTree = "<group>"; };
 		1F0370DF1E95097700C701A1 /* UIIamge+draw.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIIamge+draw.swift"; sourceTree = "<group>"; };
+		1F0370E11E950AD900C701A1 /* Bundle+extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Bundle+extension.swift"; sourceTree = "<group>"; };
 		1F8520E01E90C46F00260C16 /* WeiBo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeiBo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F8520E31E90C46F00260C16 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1F8520E51E90C46F00260C16 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -234,6 +236,7 @@
 				1F8521671E91432700260C16 /* UIColor+extension.swift */,
 				1FC51CE31E934ECA00C05565 /* Common.swift */,
 				1F0370DF1E95097700C701A1 /* UIIamge+draw.swift */,
+				1F0370E11E950AD900C701A1 /* Bundle+extension.swift */,
 			);
 			path = "Tools(工具类)";
 			sourceTree = "<group>";
@@ -540,6 +543,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1F8521601E913A8700260C16 /* ConstraintView.swift in Sources */,
+				1F0370E21E950AD900C701A1 /* Bundle+extension.swift in Sources */,
 				1F85215A1E913A8700260C16 /* ConstraintMultiplierTarget.swift in Sources */,
 				1F8521181E911B7900260C16 /* WBDiscoverController.swift in Sources */,
 				1F85214A1E913A8700260C16 /* ConstraintDescription.swift in Sources */,

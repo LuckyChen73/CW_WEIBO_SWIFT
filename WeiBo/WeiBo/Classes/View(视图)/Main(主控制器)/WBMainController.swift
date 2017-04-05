@@ -25,8 +25,8 @@ class WBMainController: UITabBarController {
 
     //添加新特性和欢迎页
     func addNewFeatureAndWelcomeView() {
-        var isNewFeature = false
         
+        let isNewFeature = Bundle.main.isNewFeature //判断是否有新特性
         //判断是否是新特性界面
         if (WBUserAccount.shared.isLogIn == true) {
             if isNewFeature == true {
@@ -50,8 +50,6 @@ class WBMainController: UITabBarController {
         tabBar.shadowImage = UIImage.pureImage(color: UIColor(white: 0.9, alpha: 0.9))
     }
 
-   
-
 }
 
 
@@ -59,11 +57,9 @@ class WBMainController: UITabBarController {
 extension WBMainController {
     ///一旦事件使用了 fileprivate 或 private修饰，就必须加一个 @objc 修饰
     @objc fileprivate func composeMessage(button: UIButton) {
-        
         print("发布微博")
         
     }
-    
 
 }
 
