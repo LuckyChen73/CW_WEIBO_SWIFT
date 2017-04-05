@@ -69,7 +69,7 @@ extension WBNewFetureView {
         }
     
         //设置 scrollView 的滚动大小
-        scroolView.contentSize = CGSize(width: screenWidh*4, height: 0)
+        scroolView.contentSize = CGSize(width: screenWidh*5, height: 0)
     }
 }
 
@@ -83,7 +83,7 @@ extension WBNewFetureView: UIScrollViewDelegate {
         let offsetX = scroolView.contentOffset.x
         
         //计算当前页数
-        let page = offsetX / screenWidh + 0.499999
+        let page = offsetX / screenWidh + 0.5
         
         pageControl.currentPage = Int(page)
         

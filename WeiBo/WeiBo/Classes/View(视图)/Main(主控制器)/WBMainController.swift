@@ -33,7 +33,6 @@ class WBMainController: UITabBarController {
             if isNewFeature == true {
                 //展示新特性界面
                 let newFeatureView = WBNewFetureView()
-                newFeatureView.backgroundColor = UIColor.yellow
                 self.view.addSubview(newFeatureView)
                 
             }else {

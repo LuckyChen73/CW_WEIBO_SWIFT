@@ -117,7 +117,6 @@ extension WBLogInController: UIWebViewDelegate {
                             if var userDict = userDict as? [String: Any] {
                                 //有值就合并
                                 for (k, v) in tokenDict {
-                                    print("-----------\(k)")
                                     userDict[k] = v
                                 }
                                 //保存信息
