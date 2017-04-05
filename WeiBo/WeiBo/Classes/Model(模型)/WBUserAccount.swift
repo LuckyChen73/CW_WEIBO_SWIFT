@@ -23,7 +23,7 @@ class WBUserAccount: NSObject {
     
     var expires_in: Double = 0 {
         didSet{
-            expires_date = Date(timeIntervalSince1970: expires_in)
+            expires_date = Date(timeIntervalSinceNow: expires_in)
         }
     }
     
@@ -67,7 +67,7 @@ class WBUserAccount: NSObject {
         //先给对象的属性赋值
         setValuesForKeys(dict)
         //将模型转成字典
-        let userDic = dictionaryWithValues(forKeys: ["access_token", "uid", "screen_name", "avatar_large"])
+        let userDic = dictionaryWithValues(forKeys: ["access_token", "uid", "expires_date", "screen_name", "avatar_large"])
         //保存字典
         UserDefaults.standard.set(userDic, forKey: userAccountKey)
         

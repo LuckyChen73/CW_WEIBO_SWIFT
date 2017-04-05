@@ -39,7 +39,6 @@ class WBMainController: UITabBarController {
             }else {
                 //展示欢迎页
                 let welcomeView = WBWelcomeView()
-                welcomeView.backgroundColor = UIColor.purple
                 self.view.addSubview(welcomeView)
             }
         }
