@@ -7,11 +7,12 @@
 //
 
 import UIKit
+import YYModel
 
 class WBStatusModel: NSObject {
 
     /// 微博发布时间
-    var created_at: String?
+    var created_at: Int64 = 0
     /// 微博的id
     var id: String?
     /// 微博的来源
@@ -19,7 +20,7 @@ class WBStatusModel: NSObject {
     /// 微博的正文
     var text: String?
     /// 微博的图片
-    var pic_urls: [WBPictureModel]?
+    var pic_urls: [WBPictureModel]? //在 YYModel 中被定义为容器属性的类
     /// 发微博的用户
     var user: WBUserModel?
     /// 转发微博的数据
@@ -30,8 +31,11 @@ class WBStatusModel: NSObject {
         return self.yy_modelDescription()
     }
 
-    
-    
-    
+    ///  类方法模型容器属性
+    ///
+    /// - Returns: 返回包着图片模型的容器字典
+    class func modelContainerPropertyGenericClass() -> [String: Any] {
+        return ["pic_urls": WBPictureModel.self]
+    }
  
 }

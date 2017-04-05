@@ -69,6 +69,7 @@
 		1F9053C71E953D5200B65122 /* WBPictureModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9053C61E953D5200B65122 /* WBPictureModel.swift */; };
 		1F9053C91E953D6400B65122 /* WBStatusModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9053C81E953D6400B65122 /* WBStatusModel.swift */; };
 		1F9053CB1E953D7400B65122 /* WBUserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9053CA1E953D7400B65122 /* WBUserModel.swift */; };
+		1F9053CD1E953FCE00B65122 /* NewworkTool+status.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9053CC1E953FCE00B65122 /* NewworkTool+status.swift */; };
 		1FC51CDD1E933C0A00C05565 /* WBLogInController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC51CDC1E933C0A00C05565 /* WBLogInController.swift */; };
 		1FC51CDF1E93443100C05565 /* NetworkTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC51CDE1E93443100C05565 /* NetworkTool.swift */; };
 		1FC51CE21E9347F900C05565 /* NetworkTool+Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC51CE11E9347F900C05565 /* NetworkTool+Login.swift */; };
@@ -143,6 +144,7 @@
 		1F9053C61E953D5200B65122 /* WBPictureModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBPictureModel.swift; sourceTree = "<group>"; };
 		1F9053C81E953D6400B65122 /* WBStatusModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBStatusModel.swift; sourceTree = "<group>"; };
 		1F9053CA1E953D7400B65122 /* WBUserModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBUserModel.swift; sourceTree = "<group>"; };
+		1F9053CC1E953FCE00B65122 /* NewworkTool+status.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "NewworkTool+status.swift"; path = "../../ThirdLib(第三方框架)/NewworkTool+status.swift"; sourceTree = "<group>"; };
 		1FC51CDC1E933C0A00C05565 /* WBLogInController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBLogInController.swift; sourceTree = "<group>"; };
 		1FC51CDE1E93443100C05565 /* NetworkTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NetworkTool.swift; path = ../NetworkTool.swift; sourceTree = "<group>"; };
 		1FC51CE11E9347F900C05565 /* NetworkTool+Login.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NetworkTool+Login.swift"; sourceTree = "<group>"; };
@@ -397,6 +399,7 @@
 		1FC51CE01E9347D700C05565 /* NetworkTool(网络中间层) */ = {
 			isa = PBXGroup;
 			children = (
+				1F9053CC1E953FCE00B65122 /* NewworkTool+status.swift */,
 				1FC51CDE1E93443100C05565 /* NetworkTool.swift */,
 				1FC51CE11E9347F900C05565 /* NetworkTool+Login.swift */,
 			);
@@ -556,6 +559,7 @@
 				1F85215A1E913A8700260C16 /* ConstraintMultiplierTarget.swift in Sources */,
 				1F8521181E911B7900260C16 /* WBDiscoverController.swift in Sources */,
 				1F85214A1E913A8700260C16 /* ConstraintDescription.swift in Sources */,
+				1F9053CD1E953FCE00B65122 /* NewworkTool+status.swift in Sources */,
 				1FC51CDD1E933C0A00C05565 /* WBLogInController.swift in Sources */,
 				1F85215F1E913A8700260C16 /* ConstraintView+Extensions.swift in Sources */,
 				1F8521541E913A8700260C16 /* ConstraintMaker.swift in Sources */,
