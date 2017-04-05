@@ -76,8 +76,6 @@ extension WBLogInController {
         self.dismiss(animated: true, completion: nil)
     }
     
-    
-    
 }
 
 
@@ -123,11 +121,15 @@ extension WBLogInController: UIWebViewDelegate {
                                 }
                                 //保存信息
                                 WBUserAccount.shared.save(dict: userDict)
+                                
+                                //登录成功之后发送通知
+                                NotificationCenter.default.post(name: loginSuccessNotification, object: nil)
+                                
+                                
                                 //退出登录界面
                                 self.dismiss()
                             }
                         })
-                        
                     } else {
                         //没有获取到信息，退出登录界面
                         self.dismiss()

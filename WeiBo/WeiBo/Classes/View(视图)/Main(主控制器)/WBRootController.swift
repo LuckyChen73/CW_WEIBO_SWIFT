@@ -19,9 +19,17 @@ class WBRootController: UIViewController {
         super.viewDidLoad()
 
         setupUI()
+        
+        //接收通知
+        NotificationCenter.default.addObserver(self, selector: #selector(loginSuccess), name: loginSuccessNotification, object: self)
     }
 
-
+    deinit {
+        //移除通知
+        NotificationCenter.default.removeObserver(self)
+    }
+    
+    
 
 }
 
@@ -69,7 +77,17 @@ extension WBRootController: WBVisitorViewDelegate {
 }
 
 
-
+// MARK: - 接收通知
+extension WBRootController {
+    //接收通知后的事件
+    func loginSuccess() {
+        
+         print("你好")
+        
+    }
+    
+    
+}
 
 
 

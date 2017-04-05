@@ -9,15 +9,28 @@
 import UIKit
 
 
-let appKey = "1620204925"
-let appSecret = "02adb5207f87e25eb91e7d6e62357f3b"
+//MARK: - 登录相关
+let appKey = "2733110831"
+let appSecret = "4b054ea7bfd1d91db3ae435f2a3fcd9a"
 let redirectURL = "http://www.baidu.com"
 
 let wbUserName = "BEACUSEYOU50405"
 //qq登录
 
 
+//MARK: - 和rect相关
+let screenBounds = UIScreen.main.bounds
+let screenWidh = screenBounds.width
+let screenHeight = screenBounds.height
+let screenScale = UIScreen.main.scale //缩放比例
 
+//MARK: - UI相关
+let globalColor: UIColor = UIColor.orange
+
+
+//MARK: - 通知
+//登录成功通知
+let loginSuccessNotification = Notification.Name(rawValue: "loginSuccessNotification")
 
 
 
