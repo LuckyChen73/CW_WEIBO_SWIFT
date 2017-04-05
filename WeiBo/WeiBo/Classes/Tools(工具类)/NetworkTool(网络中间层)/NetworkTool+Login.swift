@@ -18,8 +18,8 @@ extension NetworkTool{
     func requestToken(code: String, callBack: @escaping (Any?)->()){
         
         let parameters = ["client_id": appKey,
-                          "client_serect": appSecret,
-                          "grant_type": "authorization_code",
+                          "client_secret": appSecret,
+                          "grant_type":"authorization_code",
                           "code": code,
                           "redirect_uri": redirectURL]
         
@@ -37,8 +37,8 @@ extension NetworkTool{
     ///   - callBack:  完成回调
     func requestUser(uid: String, accessToken: String, callBack: @escaping (Any?)->()) {
         
-        let parameters = ["uid": uid,
-                          "access_token": accessToken]
+        let parameters = ["access_token":accessToken,
+                          "uid":uid]
         requeset(url: "https://api.weibo.com/2/users/show.json", method: "GET", parameters: parameters) { (responseData) in
             callBack(responseData)
         }

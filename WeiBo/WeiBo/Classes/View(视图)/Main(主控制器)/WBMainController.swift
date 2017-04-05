@@ -26,8 +26,8 @@ class WBMainController: UITabBarController {
     //添加新特性和欢迎页
     func addNewFeatureAndWelcomeView() {
         
-//        let isNewFeature = Bundle.main.isNewFeature //判断是否有新特性
-        let isNewFeature = true
+        let isNewFeature = Bundle.main.isNewFeature //判断是否有新特性
+//        let isNewFeature = true
         //判断是否是新特性界面
         if (WBUserAccount.shared.isLogIn == true) {
             if isNewFeature == true {

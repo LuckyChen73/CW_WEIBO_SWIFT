@@ -84,7 +84,7 @@ extension WBLogInController: UIWebViewDelegate {
     //webView 代理方法
     func webView(_ webView: UIWebView, shouldStartLoadWith request: URLRequest, navigationType: UIWebViewNavigationType) -> Bool {
         print("=========")
-        print("\(request.url?.absoluteString)") //打印请求的 url 字符串
+        print(request.url?.absoluteString) //打印请求的 url 字符串
         print("---------")
         
         //result = request.url?.absoluteString.hasPrefix("http://www.baidu.com")
@@ -117,6 +117,7 @@ extension WBLogInController: UIWebViewDelegate {
                             if var userDict = userDict as? [String: Any] {
                                 //有值就合并
                                 for (k, v) in tokenDict {
+                                    print("-----------\(k)")
                                     userDict[k] = v
                                 }
                                 //保存信息
@@ -124,8 +125,7 @@ extension WBLogInController: UIWebViewDelegate {
                                 
                                 //登录成功之后发送通知
                                 NotificationCenter.default.post(name: loginSuccessNotification, object: nil)
-                                
-                                
+
                                 //退出登录界面
                                 self.dismiss()
                             }
@@ -150,7 +150,7 @@ extension WBLogInController: UIWebViewDelegate {
     //webView加载完成之后执行
     func webViewDidFinishLoad(_ webView: UIWebView) {
         
-        webView.stringByEvaluatingJavaScript(from: "document.getElementById('userId').value='2102657566@qq.com';document.getElementById('passwd').value='cW2102657566iLU")
+        webView.stringByEvaluatingJavaScript(from: "document.getElementById('userId').value='15773399189';document.getElementById('passwd').value='CW19951120")
     }
     
     func dismiss() {

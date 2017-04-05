@@ -19,9 +19,11 @@ class WBUserAccount: NSObject {
     var access_token: String?
     
     /// 过期秒数
-    var expire_in: Double = 0 {
+    
+    
+    var expires_in: Double = 0 {
         didSet{
-            expires_date = Date(timeIntervalSinceNow: expire_in)
+            expires_date = Date(timeIntervalSince1970: expires_in)
         }
     }
     
@@ -41,7 +43,8 @@ class WBUserAccount: NSObject {
     // override 对应的 super     convenience 对应的 self
     override init(){
         super.init()
-        
+        //读取信息
+        read()
         
     }
     
@@ -54,6 +57,7 @@ class WBUserAccount: NSObject {
         //access_token != nil  access_token没有过期
 //        return access_token != nil && Date().timeIntervalSince(expires_date!) < 0 //token不等于 nil，并且过期日期到现在时间的差值小于0，小于0说明没有过期
         
+        print(expires_date)
         //token 不等于 nil，并且当前日期与过期日期比较，结果为升序
         return access_token != nil && Date().compare(expires_date!) == .orderedAscending
     }
