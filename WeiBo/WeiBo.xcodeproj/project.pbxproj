@@ -66,6 +66,9 @@
 		1F8521651E913A8700260C16 /* LayoutConstraintItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8521431E913A8700260C16 /* LayoutConstraintItem.swift */; };
 		1F8521661E913A8700260C16 /* UILayoutSupport+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8521451E913A8700260C16 /* UILayoutSupport+Extensions.swift */; };
 		1F8521681E91432700260C16 /* UIColor+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8521671E91432700260C16 /* UIColor+extension.swift */; };
+		1F9053C71E953D5200B65122 /* WBPictureModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9053C61E953D5200B65122 /* WBPictureModel.swift */; };
+		1F9053C91E953D6400B65122 /* WBStatusModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9053C81E953D6400B65122 /* WBStatusModel.swift */; };
+		1F9053CB1E953D7400B65122 /* WBUserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9053CA1E953D7400B65122 /* WBUserModel.swift */; };
 		1FC51CDD1E933C0A00C05565 /* WBLogInController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC51CDC1E933C0A00C05565 /* WBLogInController.swift */; };
 		1FC51CDF1E93443100C05565 /* NetworkTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC51CDE1E93443100C05565 /* NetworkTool.swift */; };
 		1FC51CE21E9347F900C05565 /* NetworkTool+Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC51CE11E9347F900C05565 /* NetworkTool+Login.swift */; };
@@ -137,6 +140,9 @@
 		1F8521441E913A8700260C16 /* SnapKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SnapKit.h; sourceTree = "<group>"; };
 		1F8521451E913A8700260C16 /* UILayoutSupport+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILayoutSupport+Extensions.swift"; sourceTree = "<group>"; };
 		1F8521671E91432700260C16 /* UIColor+extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+extension.swift"; sourceTree = "<group>"; };
+		1F9053C61E953D5200B65122 /* WBPictureModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBPictureModel.swift; sourceTree = "<group>"; };
+		1F9053C81E953D6400B65122 /* WBStatusModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBStatusModel.swift; sourceTree = "<group>"; };
+		1F9053CA1E953D7400B65122 /* WBUserModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBUserModel.swift; sourceTree = "<group>"; };
 		1FC51CDC1E933C0A00C05565 /* WBLogInController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBLogInController.swift; sourceTree = "<group>"; };
 		1FC51CDE1E93443100C05565 /* NetworkTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NetworkTool.swift; path = ../NetworkTool.swift; sourceTree = "<group>"; };
 		1FC51CE11E9347F900C05565 /* NetworkTool+Login.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NetworkTool+Login.swift"; sourceTree = "<group>"; };
@@ -212,6 +218,9 @@
 			children = (
 				1F8520F71E910CCB00260C16 /* .gitignore */,
 				1FC51CE51E9394E500C05565 /* WBUserAccount.swift */,
+				1F9053C61E953D5200B65122 /* WBPictureModel.swift */,
+				1F9053C81E953D6400B65122 /* WBStatusModel.swift */,
+				1F9053CA1E953D7400B65122 /* WBUserModel.swift */,
 			);
 			path = "Model(模型)";
 			sourceTree = "<group>";
@@ -556,6 +565,7 @@
 				1F85215E1E913A8700260C16 /* ConstraintRelation.swift in Sources */,
 				1F8521521E913A8700260C16 /* ConstraintLayoutSupport.swift in Sources */,
 				1F8521481E913A8700260C16 /* ConstraintConfig.swift in Sources */,
+				1F9053CB1E953D7400B65122 /* WBUserModel.swift in Sources */,
 				1FC51CE41E934ECA00C05565 /* Common.swift in Sources */,
 				1F8521161E911B5900260C16 /* WBMessageController.swift in Sources */,
 				1F8521681E91432700260C16 /* UIColor+extension.swift in Sources */,
@@ -569,6 +579,7 @@
 				1F0370E01E95097700C701A1 /* UIIamge+draw.swift in Sources */,
 				1F85214F1E913A8700260C16 /* ConstraintLayoutGuide+Extensions.swift in Sources */,
 				1F8521581E913A8700260C16 /* ConstraintMakerPriortizable.swift in Sources */,
+				1F9053C71E953D5200B65122 /* WBPictureModel.swift in Sources */,
 				1F8521651E913A8700260C16 /* LayoutConstraintItem.swift in Sources */,
 				1F85215C1E913A8700260C16 /* ConstraintPriorityTarget.swift in Sources */,
 				1F8521611E913A8700260C16 /* ConstraintViewDSL.swift in Sources */,
@@ -585,6 +596,7 @@
 				1F85214E1E913A8700260C16 /* ConstraintItem.swift in Sources */,
 				1F8521471E913A8700260C16 /* ConstraintAttributes.swift in Sources */,
 				1F8521571E913A8700260C16 /* ConstraintMakerFinalizable.swift in Sources */,
+				1F9053C91E953D6400B65122 /* WBStatusModel.swift in Sources */,
 				1F8521201E9133F700260C16 /* UIImageView+extension.swift in Sources */,
 				1F8521621E913A8700260C16 /* Debugging.swift in Sources */,
 				1F8521501E913A8700260C16 /* ConstraintLayoutGuide.swift in Sources */,
