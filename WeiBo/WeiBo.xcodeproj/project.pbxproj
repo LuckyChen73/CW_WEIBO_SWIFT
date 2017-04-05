@@ -70,6 +70,11 @@
 		1F9053C91E953D6400B65122 /* WBStatusModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9053C81E953D6400B65122 /* WBStatusModel.swift */; };
 		1F9053CB1E953D7400B65122 /* WBUserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9053CA1E953D7400B65122 /* WBUserModel.swift */; };
 		1F9053CD1E953FCE00B65122 /* NewworkTool+status.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9053CC1E953FCE00B65122 /* NewworkTool+status.swift */; };
+		1F9053D01E9548D500B65122 /* WBOriginalStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9053CF1E9548D500B65122 /* WBOriginalStatusView.swift */; };
+		1F9053D21E9548EE00B65122 /* WBRetweetedStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9053D11E9548EE00B65122 /* WBRetweetedStatusView.swift */; };
+		1F9053D41E95490F00B65122 /* WBStatusCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9053D31E95490F00B65122 /* WBStatusCell.swift */; };
+		1F9053D61E95492900B65122 /* WBStatusPictureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9053D51E95492900B65122 /* WBStatusPictureView.swift */; };
+		1F9053D81E95493A00B65122 /* WBStatusToolBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9053D71E95493A00B65122 /* WBStatusToolBar.swift */; };
 		1FC51CDD1E933C0A00C05565 /* WBLogInController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC51CDC1E933C0A00C05565 /* WBLogInController.swift */; };
 		1FC51CDF1E93443100C05565 /* NetworkTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC51CDE1E93443100C05565 /* NetworkTool.swift */; };
 		1FC51CE21E9347F900C05565 /* NetworkTool+Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC51CE11E9347F900C05565 /* NetworkTool+Login.swift */; };
@@ -145,6 +150,11 @@
 		1F9053C81E953D6400B65122 /* WBStatusModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBStatusModel.swift; sourceTree = "<group>"; };
 		1F9053CA1E953D7400B65122 /* WBUserModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBUserModel.swift; sourceTree = "<group>"; };
 		1F9053CC1E953FCE00B65122 /* NewworkTool+status.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "NewworkTool+status.swift"; path = "../../ThirdLib(第三方框架)/NewworkTool+status.swift"; sourceTree = "<group>"; };
+		1F9053CF1E9548D500B65122 /* WBOriginalStatusView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBOriginalStatusView.swift; sourceTree = "<group>"; };
+		1F9053D11E9548EE00B65122 /* WBRetweetedStatusView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBRetweetedStatusView.swift; sourceTree = "<group>"; };
+		1F9053D31E95490F00B65122 /* WBStatusCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBStatusCell.swift; sourceTree = "<group>"; };
+		1F9053D51E95492900B65122 /* WBStatusPictureView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBStatusPictureView.swift; sourceTree = "<group>"; };
+		1F9053D71E95493A00B65122 /* WBStatusToolBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBStatusToolBar.swift; sourceTree = "<group>"; };
 		1FC51CDC1E933C0A00C05565 /* WBLogInController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBLogInController.swift; sourceTree = "<group>"; };
 		1FC51CDE1E93443100C05565 /* NetworkTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NetworkTool.swift; path = ../NetworkTool.swift; sourceTree = "<group>"; };
 		1FC51CE11E9347F900C05565 /* NetworkTool+Login.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NetworkTool+Login.swift"; sourceTree = "<group>"; };
@@ -287,6 +297,7 @@
 		1F8521001E910CCB00260C16 /* Home(首页) */ = {
 			isa = PBXGroup;
 			children = (
+				1F9053CE1E9548B500B65122 /* StatusesCell */,
 				1F8521131E911B4700260C16 /* WBHomeController.swift */,
 			);
 			path = "Home(首页)";
@@ -386,6 +397,18 @@
 				1F8521451E913A8700260C16 /* UILayoutSupport+Extensions.swift */,
 			);
 			path = SnapKit;
+			sourceTree = "<group>";
+		};
+		1F9053CE1E9548B500B65122 /* StatusesCell */ = {
+			isa = PBXGroup;
+			children = (
+				1F9053CF1E9548D500B65122 /* WBOriginalStatusView.swift */,
+				1F9053D11E9548EE00B65122 /* WBRetweetedStatusView.swift */,
+				1F9053D31E95490F00B65122 /* WBStatusCell.swift */,
+				1F9053D51E95492900B65122 /* WBStatusPictureView.swift */,
+				1F9053D71E95493A00B65122 /* WBStatusToolBar.swift */,
+			);
+			path = StatusesCell;
 			sourceTree = "<group>";
 		};
 		1FC51CDB1E933BF200C05565 /* LogIn(登录界面) */ = {
@@ -576,6 +599,9 @@
 				1F8521551E913A8700260C16 /* ConstraintMakerEditable.swift in Sources */,
 				1F8521511E913A8700260C16 /* ConstraintLayoutGuideDSL.swift in Sources */,
 				1F85211A1E911B8B00260C16 /* WBProfileController.swift in Sources */,
+				1F9053D41E95490F00B65122 /* WBStatusCell.swift in Sources */,
+				1F9053D01E9548D500B65122 /* WBOriginalStatusView.swift in Sources */,
+				1F9053D21E9548EE00B65122 /* WBRetweetedStatusView.swift in Sources */,
 				1F85210E1E910E8C00260C16 /* WBMainController.swift in Sources */,
 				1F8521561E913A8700260C16 /* ConstraintMakerExtendable.swift in Sources */,
 				1F85211E1E91309900260C16 /* WBVisitorView.swift in Sources */,
@@ -597,6 +623,7 @@
 				1F85214C1E913A8700260C16 /* ConstraintInsets.swift in Sources */,
 				1F0370DC1E95065700C701A1 /* WBNewFetureView.swift in Sources */,
 				1F85215B1E913A8700260C16 /* ConstraintOffsetTarget.swift in Sources */,
+				1F9053D81E95493A00B65122 /* WBStatusToolBar.swift in Sources */,
 				1F85214E1E913A8700260C16 /* ConstraintItem.swift in Sources */,
 				1F8521471E913A8700260C16 /* ConstraintAttributes.swift in Sources */,
 				1F8521571E913A8700260C16 /* ConstraintMakerFinalizable.swift in Sources */,
@@ -609,6 +636,7 @@
 				1F8521531E913A8700260C16 /* ConstraintLayoutSupportDSL.swift in Sources */,
 				1F85211C1E91246D00260C16 /* UIButton+convenience.swift in Sources */,
 				1F8521461E913A8700260C16 /* Constraint.swift in Sources */,
+				1F9053D61E95492900B65122 /* WBStatusPictureView.swift in Sources */,
 				1F85215D1E913A8700260C16 /* ConstraintRelatableTarget.swift in Sources */,
 				1F0370DE1E95066500C701A1 /* WBWelcomeView.swift in Sources */,
 				1F8521491E913A8700260C16 /* ConstraintConstantTarget.swift in Sources */,
