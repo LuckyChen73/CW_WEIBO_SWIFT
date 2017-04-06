@@ -32,7 +32,13 @@ class WBOriginalStatusView: UIView {
             
             //微博发布时间
             timeLable.text = statusViewModel?.timeStr
-            
+         
+            //处理用户头像
+            SDWebImageManager.shared().downloadImage(with: url, options: [], progress: nil) { (image, _, _, _, _) in
+                image?.createCircleImage(size: CGSize(width: 35, height: 35), callBack: { (circleImage) in
+                    self.userIcon.image = circleImage
+                })
+            }
         }
     }
     
