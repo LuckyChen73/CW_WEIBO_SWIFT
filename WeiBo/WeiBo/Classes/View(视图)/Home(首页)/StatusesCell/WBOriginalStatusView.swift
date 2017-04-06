@@ -21,10 +21,14 @@ class WBOriginalStatusView: UIView {
             //微博正文
             statusLabel.text = statusViewModel?.statusModel.text
             
-            let vipURL = URL(string: "\(statusViewModel?.vipImage)!")
-            vipIcon.sd_setImage(with: vipURL)
+            //来源
+            sourceLable.text = statusViewModel?.sourceStr
             
+            //vip 图标
+            vipIcon.image = statusViewModel?.vipImage
             
+            //皇冠
+            levelIcon.image = statusViewModel?.levelImage
         }
     }
     
