@@ -24,7 +24,7 @@ class WBHomeController: WBRootController {
         tableView.estimatedRowHeight = 200
         
         //判断用户是否为登录状态
-        if WBUserAccount.shared.isLogIn {
+        if WBUserAccount.shared.isLogIn == true {
             //加载数据
             loadData()
         }
@@ -57,8 +57,11 @@ extension WBHomeController {
                     //拼在新数据的后面
                     self.dataSourceArr = statusModelArr + self.dataSourceArr
                 }else { //上拉刷新
-                    //去除第一条新数据，再拼接在原来数据的后面
-                    statusModelArr.removeFirst()
+                    //如果返回的数据大于1条, 则将第一条数据删除, 避免数据重复
+                    if statusModelArr.count > 1 {
+                        //去除第一条新数据，再拼接在原来数据的后面
+                        statusModelArr.removeFirst()
+                    }
                     self.dataSourceArr += statusModelArr
                 }
                 //刷新数据
