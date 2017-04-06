@@ -83,10 +83,7 @@ extension WBLogInController {
 extension WBLogInController: UIWebViewDelegate {
     //webView 代理方法
     func webView(_ webView: UIWebView, shouldStartLoadWith request: URLRequest, navigationType: UIWebViewNavigationType) -> Bool {
-        print("=========")
-        print(request.url?.absoluteString) //打印请求的 url 字符串
-        print("---------")
-        
+
         //result = request.url?.absoluteString.hasPrefix("http://www.baidu.com")
         // query 是获取网址后所有的字符串
         if let urlString = request.url?.absoluteString, urlString.hasPrefix("http://www.baidu.com") == true, let query = request.url?.query {

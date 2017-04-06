@@ -31,13 +31,41 @@ class WBHomeController: WBRootController {
 extension WBHomeController {
     //加载数据
     override func loadData() {
-        NetworkTool.shared.requsetStatus { (responseObject) in
+        var since_id: Int64 = 0  //返回比微博 id 大的微博数据
+        var max_id: Int64 = 0 //返回等于或小于当前微博 id 的微博数据
+        
+        //是否下拉
+        var isPullDown = true
+        
+        //正在下拉，since_id 要传值，max_id 要传0
+        if refreshHeader.isRefreshing() == true {
+            since_id = dataSourceArr.first?.id ?? 0
+        }else {
+            max_id = dataSourceArr.last?.id ?? 0
+            isPullDown = false
+        }
+        //请求模型数据
+        NetworkTool.shared.requsetStatus(sinceId: since_id, maxId: max_id) { (responseObject) in
           //对 responseObject做可选绑定
-            if let statusModelArr = responseObject as? [WBStatusModel] {
-                //模型数据拼接
-                self.dataSourceArr += statusModelArr
+            if var statusModelArr = responseObject as? [WBStatusModel] {
+                if isPullDown == true { //下拉刷新
+                    //拼在新数据的后面
+                    self.dataSourceArr = statusModelArr + self.dataSourceArr
+                }else { //上拉刷新
+                    //去除第一条新数据，再拼接在原来数据的后面
+                    statusModelArr.removeFirst()
+                    self.dataSourceArr += statusModelArr
+                }
                 //刷新数据
                 self.tableView.reloadData()
+                
+                //判断是上拉还是下拉，结束菊花转动
+                if isPullDown == true {
+                    self.refreshHeader.endRefreshing()
+                }else {
+                    self.refreshFooter.endRefreshing()
+                }
+                
             }
         }
     }

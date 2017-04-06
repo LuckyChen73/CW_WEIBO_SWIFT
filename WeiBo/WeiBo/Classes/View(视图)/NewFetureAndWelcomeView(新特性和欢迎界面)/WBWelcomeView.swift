@@ -30,7 +30,6 @@ class WBWelcomeView: UIView {
         
     }
 
-    
     override init(frame: CGRect) {
         super.init(frame: screenBounds)
         

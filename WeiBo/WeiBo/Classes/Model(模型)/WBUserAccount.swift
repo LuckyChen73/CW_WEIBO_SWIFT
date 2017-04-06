@@ -56,8 +56,6 @@ class WBUserAccount: NSObject {
     var isLogIn: Bool{
         //access_token != nil  access_token没有过期
 //        return access_token != nil && Date().timeIntervalSince(expires_date!) < 0 //token不等于 nil，并且过期日期到现在时间的差值小于0，小于0说明没有过期
-        
-        print(expires_date)
         //token 不等于 nil，并且当前日期与过期日期比较，结果为升序
         return access_token != nil && Date().compare(expires_date!) == .orderedAscending
     }

@@ -98,8 +98,13 @@ extension WBMainController {
     //添加子控制器
     fileprivate func addChildVC() {
         //解析 json 文件
-        if let url = Bundle.main.url(forResource: "main.json", withExtension: nil), let object = try? Data(contentsOf: url), let dictArr = try? JSONSerialization.jsonObject(with: object, options: []) as! [[String: Any]] {
-            
+        //获取  json 文件
+        if let url = Bundle.main.url(forResource: "main.json", withExtension: nil),
+            //将 url 文件转化成数据
+            let object = try? Data(contentsOf: url),
+            //反序列化得到可选Any值，进行强转成字典数组
+            let dictArr = try? JSONSerialization.jsonObject(with: object, options: []) as! [[String: Any]] {
+            //存储导航控制器的数组
             var viewControllers: [UINavigationController] = []
             for dict in dictArr {
                 
