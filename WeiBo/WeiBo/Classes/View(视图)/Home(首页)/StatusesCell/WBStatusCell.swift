@@ -21,6 +21,8 @@ class WBStatusCell: UITableViewCell {
     //cell底部 tabbar
     lazy var statusToolBar: WBStatusToolBar = WBStatusToolBar()
     
+  
+    
     //重写指定构造方法
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -41,34 +43,37 @@ class WBStatusCell: UITableViewCell {
 extension WBStatusCell {
     
     func setupUI() {
+        
         //添加到 cell
         self.contentView.addSubview(originalStatusView)
         self.contentView.addSubview(retweetedStatusView)
         self.contentView.addSubview(statusToolBar)
         
-        originalStatusView.backgroundColor = UIColor.purple
+        
         retweetedStatusView.backgroundColor = UIColor.yellow
         statusToolBar.backgroundColor = UIColor.brown
         
         //布局
         originalStatusView.snp.makeConstraints { (make) in
             make.left.top.right.equalTo(self.contentView)
-            make.height.equalTo(50)
+//            make.height.equalTo(50)
             make.bottom.equalTo(self.contentView)
         }
         
-        retweetedStatusView.snp.makeConstraints { (make) in
-            make.left.right.equalTo(self.contentView)
-            make.top.equalTo(originalStatusView.snp.bottom)
-            make.height.equalTo(80)
-        }
-        
-        statusToolBar.snp.makeConstraints { (make) in
-            make.left.right.equalTo(self.contentView)
-            make.top.equalTo(retweetedStatusView.snp.bottom)
-            make.height.equalTo(36)
-            make.bottom.equalTo(self.contentView)
-        }
+//        retweetedStatusView.snp.makeConstraints { (make) in
+//            make.left.right.equalTo(self.contentView)
+//            make.top.equalTo(originalStatusView.snp.bottom)
+//            make.height.equalTo(80)
+//        }
+//        
+//        statusToolBar.snp.makeConstraints { (make) in
+//            make.left.right.equalTo(self.contentView)
+//            make.top.equalTo(retweetedStatusView.snp.bottom)
+//            make.height.equalTo(36)
+//            make.bottom.equalTo(self.contentView)
+//        }
+     
+
         
     }
     

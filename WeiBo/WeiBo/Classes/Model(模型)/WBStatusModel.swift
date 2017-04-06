@@ -30,7 +30,8 @@ class WBStatusModel: NSObject {
     override var description: String {
         return self.yy_modelDescription()
     }
-
+    
+    //当返回的模型的字典中有数组, 而数组中又放了字典, 并且需要将该字典转模型, 就需要指定一下该数组中的在字典对应的什么模型
     ///  类方法模型容器属性
     ///
     /// - Returns: 返回包着图片模型的容器字典

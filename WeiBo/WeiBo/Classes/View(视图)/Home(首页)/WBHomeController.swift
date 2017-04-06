@@ -23,6 +23,7 @@ class WBHomeController: WBRootController {
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 200
         
+        
         //加载数据
         loadData()
     
@@ -82,7 +83,7 @@ extension WBHomeController {
         let cell = tableView.dequeueReusableCell(withIdentifier: identifer, for: indexPath) as! WBStatusCell
         //获取模型
         let model = dataSourceArr[indexPath.row]
-        cell.textLabel?.text = model.text
+//        cell.textLabel?.text = model.text
         return cell
     }
     
