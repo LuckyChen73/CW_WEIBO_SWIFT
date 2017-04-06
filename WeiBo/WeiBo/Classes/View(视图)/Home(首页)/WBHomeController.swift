@@ -13,7 +13,7 @@ fileprivate let identifer = "homeCell"
 class WBHomeController: WBRootController {
 
     //保存微博数据的模型数组
-    var dataSourceArr: [WBStatusModel] = []
+    var dataSourceArr: [WBStatusViewModel] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,25 +44,34 @@ extension WBHomeController {
         
         //正在下拉，since_id 要传值，max_id 要传0
         if refreshHeader.isRefreshing() == true {
-            since_id = dataSourceArr.first?.id ?? 0
-        }else {
-            max_id = dataSourceArr.last?.id ?? 0
+            since_id = dataSourceArr.first?.statusModel.id ?? 0
+        }else { // dataSourceArr.last? 取出来是 statusViewModel
+            max_id = dataSourceArr.last?.statusModel.id ?? 0
             isPullDown = false
         }
         //请求模型数据
         NetworkTool.shared.requsetStatus(sinceId: since_id, maxId: max_id) { (responseObject) in
           //对 responseObject做可选绑定
-            if var statusModelArr = responseObject as? [WBStatusModel] {
+            if let statusModelArr = responseObject as? [WBStatusModel] {
+                //创建一个保存 WBStatusViewModel的空数组
+                var viewModelArr: [WBStatusViewModel] = []
+                
+                for statusModel in statusModelArr {
+                    //将 statusModel外面包一层 statusViewModel
+                    let viewModel = WBStatusViewModel(statusModel: statusModel)
+                    viewModelArr.append(viewModel)
+                }
+                
                 if isPullDown == true { //下拉刷新
                     //拼在新数据的后面
-                    self.dataSourceArr = statusModelArr + self.dataSourceArr
+                    self.dataSourceArr = viewModelArr + self.dataSourceArr
                 }else { //上拉刷新
                     //如果返回的数据大于1条, 则将第一条数据删除, 避免数据重复
-                    if statusModelArr.count > 1 {
+                    if viewModelArr.count > 1 {
                         //去除第一条新数据，再拼接在原来数据的后面
-                        statusModelArr.removeFirst()
+                        viewModelArr.removeFirst()
                     }
-                    self.dataSourceArr += statusModelArr
+                    self.dataSourceArr += viewModelArr
                 }
                 //刷新数据
                 self.tableView.reloadData()
@@ -84,11 +93,15 @@ extension WBHomeController {
 // MARK: - 数据源方法
 extension WBHomeController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: identifer, for: indexPath) as! WBStatusCell
         //获取模型
-        let model = dataSourceArr[indexPath.row]
+        let viewModel = dataSourceArr[indexPath.row]
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: identifer, for: indexPath) as! WBStatusCell
+        
+        cell.statusViewModel = viewModel
+       
 //        cell.textLabel?.text = model.text
-        cell.statusesModel = model
+        
         return cell
     }
     

@@ -11,6 +11,8 @@
 		1F0370DE1E95066500C701A1 /* WBWelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0370DD1E95066500C701A1 /* WBWelcomeView.swift */; };
 		1F0370E01E95097700C701A1 /* UIIamge+draw.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0370DF1E95097700C701A1 /* UIIamge+draw.swift */; };
 		1F0370E21E950AD900C701A1 /* Bundle+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0370E11E950AD900C701A1 /* Bundle+extension.swift */; };
+		1F7634921E9679F500E0A906 /* WBStatusViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7634911E9679F500E0A906 /* WBStatusViewModel.swift */; };
+		1F7634941E967D5700E0A906 /* Date+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7634931E967D5700E0A906 /* Date+extension.swift */; };
 		1F8520E41E90C46F00260C16 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8520E31E90C46F00260C16 /* AppDelegate.swift */; };
 		1F8520E61E90C46F00260C16 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8520E51E90C46F00260C16 /* ViewController.swift */; };
 		1F8520E91E90C46F00260C16 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F8520E71E90C46F00260C16 /* Main.storyboard */; };
@@ -88,6 +90,8 @@
 		1F0370DD1E95066500C701A1 /* WBWelcomeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBWelcomeView.swift; sourceTree = "<group>"; };
 		1F0370DF1E95097700C701A1 /* UIIamge+draw.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIIamge+draw.swift"; sourceTree = "<group>"; };
 		1F0370E11E950AD900C701A1 /* Bundle+extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Bundle+extension.swift"; sourceTree = "<group>"; };
+		1F7634911E9679F500E0A906 /* WBStatusViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBStatusViewModel.swift; sourceTree = "<group>"; };
+		1F7634931E967D5700E0A906 /* Date+extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Date+extension.swift"; path = "NetworkTool(网络中间层)/Date+extension.swift"; sourceTree = "<group>"; };
 		1F8520E01E90C46F00260C16 /* WeiBo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeiBo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F8520E31E90C46F00260C16 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1F8520E51E90C46F00260C16 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -249,8 +253,8 @@
 		1F8520FA1E910CCB00260C16 /* Tools(工具类) */ = {
 			isa = PBXGroup;
 			children = (
-				1FC51CE01E9347D700C05565 /* NetworkTool(网络中间层) */,
 				1F8520FB1E910CCB00260C16 /* .gitignore */,
+				1FC51CE01E9347D700C05565 /* NetworkTool(网络中间层) */,
 				1F85211B1E91246D00260C16 /* UIButton+convenience.swift */,
 				1F85211F1E9133F700260C16 /* UIImageView+extension.swift */,
 				1F8521211E9135D000260C16 /* UIlabel+convenience.swift */,
@@ -258,6 +262,7 @@
 				1FC51CE31E934ECA00C05565 /* Common.swift */,
 				1F0370DF1E95097700C701A1 /* UIIamge+draw.swift */,
 				1F0370E11E950AD900C701A1 /* Bundle+extension.swift */,
+				1F7634931E967D5700E0A906 /* Date+extension.swift */,
 			);
 			path = "Tools(工具类)";
 			sourceTree = "<group>";
@@ -341,6 +346,7 @@
 			isa = PBXGroup;
 			children = (
 				1F8521061E910CCB00260C16 /* .gitignore */,
+				1F7634911E9679F500E0A906 /* WBStatusViewModel.swift */,
 			);
 			path = "ViewModel(视图模型)";
 			sourceTree = "<group>";
@@ -584,6 +590,7 @@
 				1F85214A1E913A8700260C16 /* ConstraintDescription.swift in Sources */,
 				1F9053CD1E953FCE00B65122 /* NewworkTool+status.swift in Sources */,
 				1FC51CDD1E933C0A00C05565 /* WBLogInController.swift in Sources */,
+				1F7634941E967D5700E0A906 /* Date+extension.swift in Sources */,
 				1F85215F1E913A8700260C16 /* ConstraintView+Extensions.swift in Sources */,
 				1F8521541E913A8700260C16 /* ConstraintMaker.swift in Sources */,
 				1F8521661E913A8700260C16 /* UILayoutSupport+Extensions.swift in Sources */,
@@ -604,6 +611,7 @@
 				1F9053D21E9548EE00B65122 /* WBRetweetedStatusView.swift in Sources */,
 				1F85210E1E910E8C00260C16 /* WBMainController.swift in Sources */,
 				1F8521561E913A8700260C16 /* ConstraintMakerExtendable.swift in Sources */,
+				1F7634921E9679F500E0A906 /* WBStatusViewModel.swift in Sources */,
 				1F85211E1E91309900260C16 /* WBVisitorView.swift in Sources */,
 				1F8520E61E90C46F00260C16 /* ViewController.swift in Sources */,
 				1F0370E01E95097700C701A1 /* UIIamge+draw.swift in Sources */,

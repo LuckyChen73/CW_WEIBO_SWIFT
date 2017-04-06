@@ -11,12 +11,20 @@ import SDWebImage
 
 class WBOriginalStatusView: UIView {
     //真实数据赋值
-    var statusesModel: WBStatusModel? {
+    var statusViewModel: WBStatusViewModel? {
         didSet{
-            let url = URL(string: (statusesModel?.user?.avatar_large)!)
+            let url = URL(string: (statusViewModel?.statusModel.user?.avatar_large)!)
+            //头像
             userIcon.sd_setImage(with: url!, placeholderImage: UIImage(named: "avatar_default_big"))
-            userNameLable.text = statusesModel?.user?.screen_name
-            statusLabel.text = statusesModel?.text
+            //昵称
+            userNameLable.text = statusViewModel?.statusModel.user?.screen_name
+            //微博正文
+            statusLabel.text = statusViewModel?.statusModel.text
+            
+            let vipURL = URL(string: "\(statusViewModel?.vipImage)!")
+            vipIcon.sd_setImage(with: vipURL)
+            
+            
         }
     }
     

@@ -12,9 +12,9 @@ import UIKit
 
 class WBStatusCell: UITableViewCell {
     //模型数据赋值
-    var statusesModel: WBStatusModel? {
+    var statusViewModel: WBStatusViewModel? {
         didSet{
-            originalStatusView.statusesModel = statusesModel
+            originalStatusView.statusViewModel = statusViewModel
         }
         
     }
