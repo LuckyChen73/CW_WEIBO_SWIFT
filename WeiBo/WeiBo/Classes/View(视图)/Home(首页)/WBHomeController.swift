@@ -18,8 +18,11 @@ class WBHomeController: WBRootController {
     override func viewDidLoad() {
         super.viewDidLoad()
         //注册
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: identifer)
+        tableView.register(WBStatusCell.self, forCellReuseIdentifier: identifer)
 
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 200
+        
         //加载数据
         loadData()
     
@@ -76,7 +79,7 @@ extension WBHomeController {
 // MARK: - 数据源方法
 extension WBHomeController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: identifer, for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: identifer, for: indexPath) as! WBStatusCell
         //获取模型
         let model = dataSourceArr[indexPath.row]
         cell.textLabel?.text = model.text
@@ -89,6 +92,15 @@ extension WBHomeController {
 }
 
 
-
+// MARK: - UITableViewDelegate
+extension WBHomeController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+    }
+    
+    
+}
 
 

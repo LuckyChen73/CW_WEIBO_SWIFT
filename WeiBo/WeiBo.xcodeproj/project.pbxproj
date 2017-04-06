@@ -402,9 +402,9 @@
 		1F9053CE1E9548B500B65122 /* StatusesCell */ = {
 			isa = PBXGroup;
 			children = (
+				1F9053D31E95490F00B65122 /* WBStatusCell.swift */,
 				1F9053CF1E9548D500B65122 /* WBOriginalStatusView.swift */,
 				1F9053D11E9548EE00B65122 /* WBRetweetedStatusView.swift */,
-				1F9053D31E95490F00B65122 /* WBStatusCell.swift */,
 				1F9053D51E95492900B65122 /* WBStatusPictureView.swift */,
 				1F9053D71E95493A00B65122 /* WBStatusToolBar.swift */,
 			);
