@@ -23,10 +23,11 @@ class WBHomeController: WBRootController {
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 200
         
-        
-        //加载数据
-        loadData()
-    
+        //判断用户是否为登录状态
+        if WBUserAccount.shared.isLogIn {
+            //加载数据
+            loadData()
+        }
     }
 }
 

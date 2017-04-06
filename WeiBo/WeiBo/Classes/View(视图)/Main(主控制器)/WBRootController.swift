@@ -136,6 +136,9 @@ extension WBRootController {
         visitorView?.removeFromSuperview()
         
         visitorView = nil
+        
+        //加载数据
+        loadData()
     }
     
     
