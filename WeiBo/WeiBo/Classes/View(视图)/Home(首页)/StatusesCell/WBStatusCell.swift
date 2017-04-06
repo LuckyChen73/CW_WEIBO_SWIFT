@@ -11,7 +11,15 @@ import UIKit
 
 
 class WBStatusCell: UITableViewCell {
-
+    //模型数据赋值
+    var statusesModel: WBStatusModel? {
+        didSet{
+            originalStatusView.statusesModel = statusesModel
+        }
+        
+    }
+    
+    
     /// 原创微博部分
     lazy var originalStatusView: WBOriginalStatusView = WBOriginalStatusView()
     
@@ -46,8 +54,8 @@ extension WBStatusCell {
         
         //添加到 cell
         self.contentView.addSubview(originalStatusView)
-        self.contentView.addSubview(retweetedStatusView)
-        self.contentView.addSubview(statusToolBar)
+//        self.contentView.addSubview(retweetedStatusView)
+//        self.contentView.addSubview(statusToolBar)
         
         
         retweetedStatusView.backgroundColor = UIColor.yellow
@@ -64,8 +72,9 @@ extension WBStatusCell {
 //            make.left.right.equalTo(self.contentView)
 //            make.top.equalTo(originalStatusView.snp.bottom)
 //            make.height.equalTo(80)
+//            make.bottom.equalTo(self.contentView)
 //        }
-//        
+        
 //        statusToolBar.snp.makeConstraints { (make) in
 //            make.left.right.equalTo(self.contentView)
 //            make.top.equalTo(retweetedStatusView.snp.bottom)

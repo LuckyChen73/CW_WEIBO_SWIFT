@@ -7,8 +7,20 @@
 //
 
 import UIKit
+import SDWebImage
 
 class WBOriginalStatusView: UIView {
+    //真实数据赋值
+    var statusesModel: WBStatusModel? {
+        didSet{
+            let url = URL(string: (statusesModel?.user?.avatar_large)!)
+            userIcon.sd_setImage(with: url!, placeholderImage: UIImage(named: "avatar_default_big"))
+            userNameLable.text = statusesModel?.user?.screen_name
+            statusLabel.text = statusesModel?.text
+        }
+    }
+    
+    
     /// 用户头像
     lazy var userIcon: UIImageView = UIImageView(imageName: "avatar_default_big")
     
@@ -89,6 +101,7 @@ extension WBOriginalStatusView {
             make.bottom.equalTo(userIcon)
         }
         
+        statusLabel.numberOfLines = 0
         statusLabel.snp.makeConstraints { (make) in
             make.top.equalTo(userIcon.snp.bottom).offset(10)
             make.left.equalTo(userIcon)
@@ -97,7 +110,7 @@ extension WBOriginalStatusView {
         }
         
         
-        statusLabel.numberOfLines = 0
+        
         //测试用的值:
         var string = "苍井波多哦哦哦, 感觉自己蒙蒙的;"
         let randomCount = arc4random() % 20 + 1 //获取1到20的随机数

@@ -88,6 +88,7 @@ extension WBHomeController {
         //获取模型
         let model = dataSourceArr[indexPath.row]
 //        cell.textLabel?.text = model.text
+        cell.statusesModel = model
         return cell
     }
     
@@ -104,6 +105,10 @@ extension WBHomeController: UITableViewDelegate {
         tableView.deselectRow(at: indexPath, animated: true)
         
     }
+    
+//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+//        return 10.05
+//    }
     
     
 }
