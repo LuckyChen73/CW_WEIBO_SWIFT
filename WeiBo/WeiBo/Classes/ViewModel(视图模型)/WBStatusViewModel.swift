@@ -21,7 +21,7 @@ class WBStatusViewModel: NSObject {
     /// 处理过的皇冠等级的图片
     var levelImage: UIImage?
     
-    /// 处理过的来源字符串
+    /// 处理时间字符串
     var timeStr: String?
 
     //构造函数，viewModel创建时，就将函数中的事件处理完

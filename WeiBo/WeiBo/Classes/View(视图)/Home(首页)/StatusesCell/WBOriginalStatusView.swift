@@ -29,6 +29,10 @@ class WBOriginalStatusView: UIView {
             
             //皇冠
             levelIcon.image = statusViewModel?.levelImage
+            
+            //微博发布时间
+            timeLable.text = statusViewModel?.timeStr
+            
         }
     }
     
