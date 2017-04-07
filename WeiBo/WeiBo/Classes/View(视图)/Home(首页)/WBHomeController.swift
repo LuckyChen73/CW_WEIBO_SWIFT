@@ -8,7 +8,8 @@
 
 import UIKit
 
-fileprivate let identifer = "homeCell"
+fileprivate let statusIdentifer = "statusIdentifer"
+fileprivate let retweetedIdentifer = "retweetedIdentifer"
 
 class WBHomeController: WBRootController {
 
@@ -18,8 +19,10 @@ class WBHomeController: WBRootController {
     override func viewDidLoad() {
         super.viewDidLoad()
         //注册
-        tableView.register(WBStatusCell.self, forCellReuseIdentifier: identifer)
-
+        tableView.register(WBStatusCell.self, forCellReuseIdentifier: statusIdentifer)
+        tableView.register(WBRetweetedStatusCell.self, forCellReuseIdentifier: retweetedIdentifer)
+        
+        
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 200
         
@@ -92,22 +95,33 @@ extension WBHomeController {
 
 // MARK: - 数据源方法
 extension WBHomeController {
+
+    //多少行
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return dataSourceArr.count
+    }
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //获取模型
         let viewModel = dataSourceArr[indexPath.row]
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: identifer, for: indexPath) as! WBStatusCell
+        //如果有转发微博
+        if let _ = viewModel.statusModel.retweeted_status {
+    
+            let cell = tableView.dequeueReusableCell(withIdentifier: retweetedIdentifer, for: indexPath) as! WBRetweetedStatusCell
+            cell.statusViewModel = viewModel
+            return cell
+
+        }else {
+            
+            let cell = tableView.dequeueReusableCell(withIdentifier: statusIdentifer, for: indexPath) as! WBStatusCell
+            cell.statusViewModel = viewModel
+            return cell
+        }
         
-        cell.statusViewModel = viewModel
-       
-//        cell.textLabel?.text = model.text
-        
-        return cell
     }
     
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dataSourceArr.count
-    }
+    
 }
 
 
@@ -116,12 +130,8 @@ extension WBHomeController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        
+
     }
-    
-//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        return 10.05
-//    }
     
     
 }

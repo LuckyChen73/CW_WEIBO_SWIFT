@@ -23,9 +23,6 @@ class WBStatusCell: UITableViewCell {
     /// 原创微博部分
     lazy var originalStatusView: WBOriginalStatusView = WBOriginalStatusView()
     
-    /// 转发微博部分
-    lazy var retweetedStatusView: WBRetweetedStatusView = WBRetweetedStatusView()
-    
     //cell底部 tabbar
     lazy var statusToolBar: WBStatusToolBar = WBStatusToolBar()
     
@@ -54,12 +51,10 @@ extension WBStatusCell {
         
         //添加到 cell
         self.contentView.addSubview(originalStatusView)
-//        self.contentView.addSubview(retweetedStatusView)
 //        self.contentView.addSubview(statusToolBar)
+
         
-        
-        retweetedStatusView.backgroundColor = UIColor.yellow
-        statusToolBar.backgroundColor = UIColor.brown
+//        statusToolBar.backgroundColor = UIColor.brown
         
         //布局
         originalStatusView.snp.makeConstraints { (make) in
@@ -67,13 +62,6 @@ extension WBStatusCell {
 //            make.height.equalTo(50)
             make.bottom.equalTo(self.contentView)
         }
-        
-//        retweetedStatusView.snp.makeConstraints { (make) in
-//            make.left.right.equalTo(self.contentView)
-//            make.top.equalTo(originalStatusView.snp.bottom)
-//            make.height.equalTo(80)
-//            make.bottom.equalTo(self.contentView)
-//        }
         
 //        statusToolBar.snp.makeConstraints { (make) in
 //            make.left.right.equalTo(self.contentView)

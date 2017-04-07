@@ -130,18 +130,7 @@ extension WBOriginalStatusView {
             make.right.equalTo(self).offset(-10)
             make.bottom.equalTo(self).offset(-10)
         }
-        
-        
-        
-        //测试用的值:
-        var string = "苍井波多哦哦哦, 感觉自己蒙蒙的;"
-        let randomCount = arc4random() % 20 + 1 //获取1到20的随机数
-        for _ in 0..<randomCount {
-            string += "苍井波多哦哦哦, 感觉自己蒙蒙的"
-        }
-        
-        statusLabel.text = string
-
+    
         
     }
     

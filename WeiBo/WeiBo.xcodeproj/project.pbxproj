@@ -13,6 +13,7 @@
 		1F0370E21E950AD900C701A1 /* Bundle+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0370E11E950AD900C701A1 /* Bundle+extension.swift */; };
 		1F7634921E9679F500E0A906 /* WBStatusViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7634911E9679F500E0A906 /* WBStatusViewModel.swift */; };
 		1F7634941E967D5700E0A906 /* Date+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7634931E967D5700E0A906 /* Date+extension.swift */; };
+		1F7634961E9726DE00E0A906 /* WBRetweetedStatusCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7634951E9726DE00E0A906 /* WBRetweetedStatusCell.swift */; };
 		1F8520E41E90C46F00260C16 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8520E31E90C46F00260C16 /* AppDelegate.swift */; };
 		1F8520E61E90C46F00260C16 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8520E51E90C46F00260C16 /* ViewController.swift */; };
 		1F8520E91E90C46F00260C16 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F8520E71E90C46F00260C16 /* Main.storyboard */; };
@@ -92,6 +93,7 @@
 		1F0370E11E950AD900C701A1 /* Bundle+extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Bundle+extension.swift"; sourceTree = "<group>"; };
 		1F7634911E9679F500E0A906 /* WBStatusViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBStatusViewModel.swift; sourceTree = "<group>"; };
 		1F7634931E967D5700E0A906 /* Date+extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Date+extension.swift"; path = "NetworkTool(网络中间层)/Date+extension.swift"; sourceTree = "<group>"; };
+		1F7634951E9726DE00E0A906 /* WBRetweetedStatusCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBRetweetedStatusCell.swift; sourceTree = "<group>"; };
 		1F8520E01E90C46F00260C16 /* WeiBo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeiBo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F8520E31E90C46F00260C16 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1F8520E51E90C46F00260C16 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -409,6 +411,7 @@
 			isa = PBXGroup;
 			children = (
 				1F9053D31E95490F00B65122 /* WBStatusCell.swift */,
+				1F7634951E9726DE00E0A906 /* WBRetweetedStatusCell.swift */,
 				1F9053CF1E9548D500B65122 /* WBOriginalStatusView.swift */,
 				1F9053D11E9548EE00B65122 /* WBRetweetedStatusView.swift */,
 				1F9053D51E95492900B65122 /* WBStatusPictureView.swift */,
@@ -583,6 +586,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F7634961E9726DE00E0A906 /* WBRetweetedStatusCell.swift in Sources */,
 				1F8521601E913A8700260C16 /* ConstraintView.swift in Sources */,
 				1F0370E21E950AD900C701A1 /* Bundle+extension.swift in Sources */,
 				1F85215A1E913A8700260C16 /* ConstraintMultiplierTarget.swift in Sources */,
