@@ -35,7 +35,7 @@ extension UIImageView {
         
         if let url = url, let placeHoldImage = placeHoldImage {
             
-            return sd_setImage(with: url, placeholderImage: placeHoldImage)
+             self.sd_setImage(with: url, placeholderImage: placeHoldImage)
         }
         
     }

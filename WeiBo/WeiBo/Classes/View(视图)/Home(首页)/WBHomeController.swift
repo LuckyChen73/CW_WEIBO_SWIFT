@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 fileprivate let statusIdentifer = "statusIdentifer"
 fileprivate let retweetedIdentifer = "retweetedIdentifer"
@@ -86,7 +87,73 @@ extension WBHomeController {
                     self.refreshFooter.endRefreshing()
                 }
                 
+                
+                //在reload TableView之前, 先下载所有的单张图片
+                self.dealWithSinglePicture(viewModelArr: viewModelArr, callBack: { (isSuccess) in
+                    
+                    self.tableView.reloadData()
+                    
+                    //判断是上拉还是下拉，结束菊花转动
+                    if isPullDown == true {
+                        self.refreshHeader.endRefreshing()
+                    }else {
+                        self.refreshFooter.endRefreshing()
+                    }
+   
+                })
             }
+        }
+    }
+    
+    
+    /// 处理所有的单张图片
+    ///
+    /// - Parameters:
+    ///   - viewModelArr: 视图模型数组
+    ///   - callBack: 完成回调
+    func dealWithSinglePicture(viewModelArr: [WBStatusViewModel], callBack: @escaping (Bool)->()) {
+        
+        //创建一个调度组
+        let group = DispatchGroup()
+        
+        //1.遍历视图模型数组,找到单张图片
+        for viewModel in viewModelArr {
+            //判断是不是单张图片
+            if let pic_urls = viewModel.pic_urls, pic_urls.count == 1 {
+                //入组
+                group.enter()
+                
+                //图片url
+                let urlStr = pic_urls[0].thumbnail_pic
+                let url = URL(string: urlStr!)
+                
+                SDWebImageManager.shared().downloadImage(with: url!, options: [], progress: nil, completed: { (singleImage, _, _, _, _) in
+                    //计算单张图片的 size，并更新 viewModel
+                    if let singleImage = singleImage {
+                        
+                        var singleImageSize = singleImage.size
+                        //如果图片超过屏幕宽度
+                        let newWidth = screenWidh - 40
+                        //如果超过配图的宽度
+                        if singleImageSize.width > screenWidh - 20 {
+                            // 新高/新宽 = 原高/原宽
+                             singleImageSize.height = singleImageSize.height * newWidth / singleImageSize.width
+                            
+                            singleImageSize.width = newWidth
+                        }
+                        //把单张图片的大小传过去
+                        viewModel.picSize = singleImageSize
+                        
+                        //离组
+                        group.leave()
+                    }
+                })
+            }
+        }
+        
+        //完成组中所有操作，调用的方法
+        group.notify(queue: DispatchQueue.main) { 
+            callBack(true)
         }
     }
 }

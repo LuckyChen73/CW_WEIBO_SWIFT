@@ -29,6 +29,19 @@ class WBStatusPictureView: UIView {
                     //添加图片
                     imageView?.wb_setImage(urlStr: pictureModel.thumbnail_pic!, placeHolderImage: "common_icon_membership_expired")
                     
+                    //单张图片的处理
+                    if index == 0 && pic_urls.count == 1 {
+                        //图片的 frame
+                        imageView?.frame = CGRect(origin: CGPoint.zero, size: (statusViewModel?.picSize)!)
+                    }
+                    //如果是第一张图片, 但是不止一张图片, 图片的宽高就按照九宫格的正方形大小显示
+                    else if index == 0 && pic_urls.count != 1{
+                        let imageWH = (screenWidh-40)/3
+                        imageView?.frame = CGRect(x: 0, y: 0, width: imageWH, height: imageWH)
+                        
+                    }
+ 
+                    //四张图片的处理
                     if pic_urls.count == 4 && index == 1 {
                         index += 1
                     }
@@ -91,19 +104,21 @@ extension WBStatusPictureView {
             imageView.contentMode = .scaleAspectFill
             imageView.clipsToBounds = true
             
+            //给imageView添加点击事件
+            imageView.isUserInteractionEnabled = true
+            let tap = UITapGestureRecognizer(target: self, action: #selector(imageClicked(tap:)))
+            imageView.addGestureRecognizer(tap)
+            
         }
-        
-        
-        
-        
-        
     }
-    
-    
-    
 }
 
-
+// MARK: - 事件处理
+extension WBStatusPictureView {
+    @objc func imageClicked(tap: UITapGestureRecognizer) {
+        print(tap)
+    }
+}
 
 
 

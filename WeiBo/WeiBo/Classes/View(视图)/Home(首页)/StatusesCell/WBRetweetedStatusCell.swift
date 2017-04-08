@@ -36,6 +36,8 @@ class WBRetweetedStatusCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
         setupUI()
+        
+        self.selectionStyle = .none
     }
     
     required init?(coder aDecoder: NSCoder) {
