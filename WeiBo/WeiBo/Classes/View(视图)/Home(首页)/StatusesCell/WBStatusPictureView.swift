@@ -7,36 +7,35 @@
 //
 
 import UIKit
+import SDWebImage
 
-let baseTag = 888888
+let baseTag = 888
 
 class WBStatusPictureView: UIView {
 
     //接收传过来的statusViewModel模型数据
     var statusViewModel: WBStatusViewModel? {
         didSet{
-            //先把所有的配图隐藏
-            for i in 0..<9 {
-                // self.viewWithTag(i + baseTag)通过这个属性和下标取到对应的子视图
-                let imageView = self.viewWithTag(i + baseTag)
-                imageView?.isHidden = true
-            }
-            
+
+
             //如果有图片
             if let pic_urls = statusViewModel?.pic_urls, pic_urls.count > 0 {
                 
                 var index = 0
-                
-                for _ in pic_urls { // _ pictureModel
-                    let imageView = self.viewWithTag(index + baseTag)
+                for pictureModel in pic_urls { // _ pictureModel
+                    let imageView = self.viewWithTag(index + baseTag) as? UIImageView
                     imageView?.isHidden = false
-                
+                    
+                    //添加图片
+                    imageView?.wb_setImage(urlStr: pictureModel.thumbnail_pic!, placeHolderImage: "common_icon_membership_expired")
+                    
+                    if pic_urls.count == 4 && index == 1 {
+                        index += 1
+                    }
+
                     index += 1
                 }
             }
-            
-            
-            
         }
     }
     
@@ -83,9 +82,15 @@ extension WBStatusPictureView {
             let col = i % 3
             
             //计算 frame
-            imageView.frame = firstImageViewFrame.offsetBy(dx: CGFloat(row) * gap, dy: CGFloat(col) * gap)
+            imageView.frame = firstImageViewFrame.offsetBy(dx: CGFloat(col) * gap, dy: CGFloat(row) * gap)
             
             addSubview(imageView)
+            imageView.isHidden = true
+            
+            //设置图片的填充模式
+            imageView.contentMode = .scaleAspectFill
+            imageView.clipsToBounds = true
+            
         }
         
         

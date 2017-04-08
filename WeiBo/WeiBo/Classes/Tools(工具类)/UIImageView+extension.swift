@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 extension UIImageView {
 
@@ -16,6 +17,33 @@ extension UIImageView {
         let image = UIImage(named: imageName)
         
         self.image = image
+        
     }
+    
+    
+    
+    
+    /// 网络图片的中间层
+    ///
+    /// - Parameters:
+    ///   - urlStr:  url 字符串
+    ///   - placeHolderImage: 占位图
+    func wb_setImage(urlStr: String, placeHolderImage: String) {
+        
+        let url = URL(string: urlStr)
+        let placeHoldImage = UIImage(named: placeHolderImage)
+        
+        if let url = url, let placeHoldImage = placeHoldImage {
+            
+            return sd_setImage(with: url, placeholderImage: placeHoldImage)
+        }
+        
+    }
+    
+    
+    
+    
+    
+    
 
 }
