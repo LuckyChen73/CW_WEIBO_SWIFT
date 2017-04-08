@@ -24,6 +24,14 @@ class WBStatusViewModel: NSObject {
     /// 处理时间字符串
     var timeStr: String?
 
+    
+    /// 配图数组
+    var pic_urls: [WBPictureModel]? = []
+    
+    /// 配图的 size
+    var picSize: CGSize = CGSize.zero
+    
+    
     //构造函数，viewModel创建时，就将函数中的事件处理完
     init(statusModel: WBStatusModel) {
         self.statusModel = statusModel
@@ -37,12 +45,52 @@ class WBStatusViewModel: NSObject {
         dealWithLevelIcon()
         //时间处理
         dealWithTime()
+        
+        //给配图数组赋值
+        setValueToPicUrls()
+        
+        //计算配图的 size
+        caculatePictureViewSize()
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
    
+    
+    /// 给配图数组赋值
+    func setValueToPicUrls() {
+        //如果原创有视图，转发没有视图
+        if let count = self.statusModel.pic_urls?.count, count > 0 {
+            pic_urls = self.statusModel.pic_urls
+            print("*****\(statusModel.pic_urls?.count)****")
+            return //有视图后面就不需判断了
+        }
+        
+        //如果原创没有视图，判断转发有没有视图
+        if let count = self.statusModel.retweeted_status?.pic_urls?.count, count > 0 {
+            
+            pic_urls = self.statusModel.retweeted_status?.pic_urls
+            print("=====\(statusModel.retweeted_status?.pic_urls?.count)====")
+        }
+        
+    }
+    
+    /// 计算配图的大小
+    func caculatePictureViewSize() {
+        //图片的高宽
+        let imageWH = (screenWidh - 40) / 3
+        
+        //图片的行数
+        if let count = pic_urls?.count, count > 0 {
+            let rows = (count - 1) / 3 + 1 //分页算法
+            
+            //计算配图的size
+            picSize = CGSize(width: screenWidh - 20, height: CGFloat(rows)*imageWH + CGFloat(rows - 1) * 10)
+        }
+    }
+    
+    
     /// 将服务器返回的来源字符串, 处理成需求的来源字符串
     func dealWithSource() {
         //"<a href=\"http://weibo.com/\" rel=\"nofollow\">iPhone 7 Plus</a>"

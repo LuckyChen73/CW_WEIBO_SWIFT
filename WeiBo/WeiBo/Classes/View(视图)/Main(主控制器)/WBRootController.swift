@@ -20,6 +20,7 @@ class WBRootController: UIViewController {
     lazy var tableView: UITableView = {
         let tableView = UITableView()
         tableView.dataSource = self
+        tableView.delegate = self
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: identifier)
         return tableView
     }()
@@ -157,6 +158,18 @@ extension WBRootController: UITableViewDataSource {
     }
 }
 
+
+// MARK: - UITableViewDelegate
+extension WBRootController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+    }
+    
+    
+    
+}
 
 
 

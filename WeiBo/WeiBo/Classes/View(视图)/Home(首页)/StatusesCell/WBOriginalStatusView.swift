@@ -46,14 +46,16 @@ class WBOriginalStatusView: UIView {
                 //有配图，更新配图的约束
                 statusPictureView.snp.updateConstraints({ (make) in
                     make.top.equalTo(statusLabel.snp.bottom).offset(10)
-                    make.height.equalTo(150)
+//                    make.height.equalTo(150)
+                    make.size.equalTo(statusViewModel!.picSize)
                 })
                 
             }else {
                 //没有配图
                 statusPictureView.snp.updateConstraints({ (make) in
                     make.top.equalTo(statusLabel.snp.bottom)
-                    make.height.equalTo(0)
+//                    make.height.equalTo(0)
+                    make.size.equalTo(CGSize.zero)
                 })
             }
  
@@ -158,7 +160,9 @@ extension WBOriginalStatusView {
         statusPictureView.snp.makeConstraints { (make) in
             make.top.equalTo(statusLabel.snp.bottom).offset(10)
             make.left.equalTo(self).offset(10)
-            make.size.equalTo(200)
+//            make.right.equalTo(-10)
+//            make.height.equalTo(150)
+            make.size.equalTo(CGSize.zero)
             make.bottom.equalTo(self).offset(-10)
         }
         
