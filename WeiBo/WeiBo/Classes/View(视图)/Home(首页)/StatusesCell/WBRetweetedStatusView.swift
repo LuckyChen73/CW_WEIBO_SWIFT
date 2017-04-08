@@ -14,7 +14,9 @@ class WBRetweetedStatusView: UIView {
     var statusViewModel: WBStatusViewModel? {
         didSet{
             retweetedStatusLabel.text = statusViewModel?.statusModel.retweeted_status?.text
-
+            //给配图视图的视图模型赋值
+            statusPictureView.statusViewModel = statusViewModel
+            
             //判断是否有配图，决定是否需要显示配图
             if let count = statusViewModel?.statusModel.retweeted_status?.pic_urls?.count, count > 0 {
                 //有配图，更新配图的约束

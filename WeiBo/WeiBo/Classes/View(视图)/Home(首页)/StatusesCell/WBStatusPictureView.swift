@@ -8,8 +8,39 @@
 
 import UIKit
 
+let baseTag = 888888
+
 class WBStatusPictureView: UIView {
 
+    //接收传过来的statusViewModel模型数据
+    var statusViewModel: WBStatusViewModel? {
+        didSet{
+            //先把所有的配图隐藏
+            for i in 0..<9 {
+                // self.viewWithTag(i + baseTag)通过这个属性和下标取到对应的子视图
+                let imageView = self.viewWithTag(i + baseTag)
+                imageView?.isHidden = true
+            }
+            
+            //如果有图片
+            if let pic_urls = statusViewModel?.pic_urls, pic_urls.count > 0 {
+                
+                var index = 0
+                
+                for _ in pic_urls { // _ pictureModel
+                    let imageView = self.viewWithTag(index + baseTag)
+                    imageView?.isHidden = false
+                
+                    index += 1
+                }
+            }
+            
+            
+            
+        }
+    }
+    
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -44,6 +75,8 @@ extension WBStatusPictureView {
             //创建
             let imageView = UIImageView()
             imageView.backgroundColor = UIColor.red
+            
+            imageView.tag = i + baseTag
             
             //计算行数和列数
             let row = i / 3

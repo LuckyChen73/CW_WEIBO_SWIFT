@@ -70,8 +70,9 @@ extension WBRetweetedStatusCell {
             make.top.equalTo(originalStatusView.snp.bottom)
         }
         
+        /// .priority(800) 解决报约束冲突的问题
         statusToolBar.snp.makeConstraints { (make) in
-            make.left.right.bottom.equalTo(self.contentView)
+            make.left.right.bottom.equalTo(self.contentView).priority(800)
             make.top.equalTo(retweetedStatusView.snp.bottom)
             make.height.equalTo(36)
         }
