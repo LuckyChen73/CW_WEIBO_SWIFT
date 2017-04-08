@@ -222,9 +222,9 @@
 		1F8520F51E910CCB00260C16 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				1F8520F61E910CCB00260C16 /* Model(模型) */,
 				1F8520F81E910CCB00260C16 /* ThirdLib(第三方框架) */,
 				1F8520FA1E910CCB00260C16 /* Tools(工具类) */,
+				1F8520F61E910CCB00260C16 /* Model(模型) */,
 				1F8520FC1E910CCB00260C16 /* View(视图) */,
 				1F8521051E910CCB00260C16 /* ViewModel(视图模型) */,
 			);

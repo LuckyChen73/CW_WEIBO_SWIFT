@@ -59,19 +59,15 @@ extension WBRetweetedStatusCell {
         
         
         retweetedStatusView.backgroundColor = UIColor(white: 0.9, alpha: 1)
-//        statusToolBar.backgroundColor = UIColor.brown
         
         //布局
         originalStatusView.snp.makeConstraints { (make) in
             make.left.top.right.equalTo(self.contentView)
-            //            make.height.equalTo(50)
         }
         
         retweetedStatusView.snp.makeConstraints { (make) in
             make.left.right.equalTo(self.contentView)
             make.top.equalTo(originalStatusView.snp.bottom)
-            //            make.height.equalTo(80)
-//            make.bottom.equalTo(self.contentView)
         }
         
         statusToolBar.snp.makeConstraints { (make) in
