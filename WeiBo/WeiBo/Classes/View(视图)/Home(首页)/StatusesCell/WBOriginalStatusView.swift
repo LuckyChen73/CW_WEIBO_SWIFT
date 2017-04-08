@@ -63,6 +63,10 @@ class WBOriginalStatusView: UIView {
     //添加一个微博正文的label
     lazy var statusLabel: UILabel = UILabel(title: nil)
     
+    //添加配图视图
+    let statusPictureView: WBStatusPictureView = WBStatusPictureView()
+    
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -81,6 +85,7 @@ class WBOriginalStatusView: UIView {
 extension WBOriginalStatusView {
     
     func setupUI() {
+        
         //1.添加子控件
         addSubview(userIcon)
         addSubview(vipIcon)
@@ -89,6 +94,8 @@ extension WBOriginalStatusView {
         addSubview(sourceLable)
         addSubview(timeLable)
         addSubview(statusLabel)
+        addSubview(statusPictureView)
+        
         
         //2. 自动布局(自上而下, 从左到右, 依次布局, 当子控件较多时, 添加一两个就要测试)
         userIcon.snp.makeConstraints { (make) in
@@ -128,9 +135,19 @@ extension WBOriginalStatusView {
             make.top.equalTo(userIcon.snp.bottom).offset(10)
             make.left.equalTo(userIcon)
             make.right.equalTo(self).offset(-10)
-            make.bottom.equalTo(self).offset(-10)
+//            make.bottom.equalTo(self).offset(-10)
         }
     
+        statusPictureView.snp.makeConstraints { (make) in
+            make.top.equalTo(statusLabel.snp.bottom).offset(10)
+            make.left.equalTo(self).offset(10)
+            make.right.equalTo(self).offset(-10)
+            make.height.equalTo(150)
+            make.bottom.equalTo(self).offset(-10)
+        }
+        
+        
+        
         
     }
     

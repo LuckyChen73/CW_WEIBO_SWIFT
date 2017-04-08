@@ -22,6 +22,9 @@ class WBRetweetedStatusView: UIView {
     //添加一个微博正文的label
     lazy var statusLabel: UILabel = UILabel(title: nil)
     
+    //添加配图视图
+    let statusPictureView: WBStatusPictureView = WBStatusPictureView()
+    
     
     /// 构造方法
     ///
@@ -45,15 +48,28 @@ class WBRetweetedStatusView: UIView {
 extension WBRetweetedStatusView {
     
     func setupUI() {
+        
         //1.添加子控件
         addSubview(statusLabel)
-
+        addSubview(statusPictureView)
+        
+        
         statusLabel.numberOfLines = 0
         statusLabel.snp.makeConstraints { (make) in
             make.top.left.equalTo(self).offset(10)
             make.right.equalTo(self).offset(-10)
+//            make.bottom.equalTo(self).offset(-10)
+        }
+        
+        statusPictureView.snp.makeConstraints { (make) in
+            make.top.equalTo(statusLabel.snp.bottom).offset(10)
+            make.left.equalTo(self).offset(10)
+            make.size.equalTo(CGSize(width: screenWidh, height: 150))
             make.bottom.equalTo(self).offset(-10)
         }
+        
+        
+        
     }
     
     
