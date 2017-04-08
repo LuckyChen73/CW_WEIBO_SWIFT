@@ -50,6 +50,8 @@ class WBHomeController: WBRootController {
 extension WBHomeController {
     func showPhotoBroser (notification: Notification) {
         //创建图片轮播控制器
+        let userInfo = notification.userInfo
+        
         let photoBroser = WBPhotoBroserController()
         present(photoBroser, animated: false, completion: nil)
     }
