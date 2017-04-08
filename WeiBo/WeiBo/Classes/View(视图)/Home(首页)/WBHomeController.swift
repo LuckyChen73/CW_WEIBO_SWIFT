@@ -52,7 +52,10 @@ extension WBHomeController {
         //创建图片轮播控制器
         let userInfo = notification.userInfo
         
-        let photoBroser = WBPhotoBroserController()
+        let index = userInfo?["index"] as! Int
+        let pic_urls = userInfo?["urls"] as! [String]
+        
+        let photoBroser = WBPhotoBroserController(index: index, pic_urls: pic_urls)
         present(photoBroser, animated: false, completion: nil)
     }
 }
