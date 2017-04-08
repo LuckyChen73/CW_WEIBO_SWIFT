@@ -17,6 +17,10 @@ class WBHomeController: WBRootController {
     //保存微博数据的模型数组
     var dataSourceArr: [WBStatusViewModel] = []
     
+    deinit{
+        NotificationCenter.default.removeObserver(self)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         //注册
@@ -32,8 +36,25 @@ class WBHomeController: WBRootController {
             //加载数据
             loadData()
         }
+        
+        
+        //接收微博首页的图片点击的通知
+        NotificationCenter.default.addObserver(self, selector: #selector(showPhotoBroser (notification:)), name: pictureViewClickedNotification, object: nil)
+        
+        
+        
     }
 }
+
+// MARK: - 事件处理
+extension WBHomeController {
+    func showPhotoBroser (notification: Notification) {
+        let photoBroser = WBPhotoBroserController()
+        present(photoBroser, animated: false, completion: nil)
+    }
+}
+
+
 
 
 // MARK: - 获取数据

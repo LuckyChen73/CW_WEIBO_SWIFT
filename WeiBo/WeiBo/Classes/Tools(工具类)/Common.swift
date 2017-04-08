@@ -32,5 +32,12 @@ let globalColor: UIColor = UIColor.orange
 //登录成功通知
 let loginSuccessNotification = Notification.Name(rawValue: "loginSuccessNotification")
 
+let pictureViewClickedNotification = Notification.Name(rawValue: "pictureViewClickedNotification")
+
+
+
+
+
+
 
 
