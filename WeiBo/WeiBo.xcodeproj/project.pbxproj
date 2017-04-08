@@ -15,6 +15,7 @@
 		1F7634941E967D5700E0A906 /* Date+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7634931E967D5700E0A906 /* Date+extension.swift */; };
 		1F7634961E9726DE00E0A906 /* WBRetweetedStatusCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7634951E9726DE00E0A906 /* WBRetweetedStatusCell.swift */; };
 		1F7634F11E993E2500E0A906 /* WBPhotoBroserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7634F01E993E2500E0A906 /* WBPhotoBroserController.swift */; };
+		1F7634F31E99495C00E0A906 /* WBPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7634F21E99495C00E0A906 /* WBPhotoViewController.swift */; };
 		1F8520E41E90C46F00260C16 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8520E31E90C46F00260C16 /* AppDelegate.swift */; };
 		1F8520E61E90C46F00260C16 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8520E51E90C46F00260C16 /* ViewController.swift */; };
 		1F8520E91E90C46F00260C16 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F8520E71E90C46F00260C16 /* Main.storyboard */; };
@@ -96,6 +97,7 @@
 		1F7634931E967D5700E0A906 /* Date+extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Date+extension.swift"; path = "NetworkTool(网络中间层)/Date+extension.swift"; sourceTree = "<group>"; };
 		1F7634951E9726DE00E0A906 /* WBRetweetedStatusCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBRetweetedStatusCell.swift; sourceTree = "<group>"; };
 		1F7634F01E993E2500E0A906 /* WBPhotoBroserController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBPhotoBroserController.swift; sourceTree = "<group>"; };
+		1F7634F21E99495C00E0A906 /* WBPhotoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBPhotoViewController.swift; sourceTree = "<group>"; };
 		1F8520E01E90C46F00260C16 /* WeiBo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeiBo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F8520E31E90C46F00260C16 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1F8520E51E90C46F00260C16 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -198,6 +200,7 @@
 			isa = PBXGroup;
 			children = (
 				1F7634F01E993E2500E0A906 /* WBPhotoBroserController.swift */,
+				1F7634F21E99495C00E0A906 /* WBPhotoViewController.swift */,
 			);
 			path = "PhotoBroser(图片浏览器)";
 			sourceTree = "<group>";
@@ -621,6 +624,7 @@
 				1F8521681E91432700260C16 /* UIColor+extension.swift in Sources */,
 				1F8521551E913A8700260C16 /* ConstraintMakerEditable.swift in Sources */,
 				1F8521511E913A8700260C16 /* ConstraintLayoutGuideDSL.swift in Sources */,
+				1F7634F31E99495C00E0A906 /* WBPhotoViewController.swift in Sources */,
 				1F85211A1E911B8B00260C16 /* WBProfileController.swift in Sources */,
 				1F9053D41E95490F00B65122 /* WBStatusCell.swift in Sources */,
 				1F9053D01E9548D500B65122 /* WBOriginalStatusView.swift in Sources */,
