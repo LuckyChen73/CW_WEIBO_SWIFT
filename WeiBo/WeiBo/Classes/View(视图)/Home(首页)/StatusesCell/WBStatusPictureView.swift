@@ -59,6 +59,9 @@ class WBStatusPictureView: UIView {
         setupUI()
         
         
+        
+        
+        
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -117,6 +120,25 @@ extension WBStatusPictureView {
 extension WBStatusPictureView {
     @objc func imageClicked(tap: UITapGestureRecognizer) {
         print(tap)
+        
+        //需要将当前的配图视图的所有图片的 url 数组和被点击的图片的 index 传给图片视图控制浏览器
+        var index = tap.view!.tag - baseTag
+        //如果有四张图片, 图片是2*2显示的, 当到第三张图片时, 应该将index - 1
+        if let pic_urls = statusViewModel?.pic_urls, pic_urls.count == 4, index > 2{
+            index -= 1
+        }
+        
+        //获取所有的url的字符串数组
+        //从一个模型数组中, 取到属性数组; 这是oc中的类有相关的api, 而swift的数组没有这个api
+        let urlStrs = ((statusViewModel?.pic_urls)! as NSArray).value(forKeyPath: "thumbnail_pic") as! [String]
+        //参数：把字典通过通知的参数传过去
+        let userInfo: [String: Any] = ["index": index, "urls": urlStrs]
+        
+        //创建通知
+        let notification = Notification(name: pictureViewClickedNotification, object: nil, userInfo: userInfo)
+        //发送通知
+        NotificationCenter.default.post(notification)
+
     }
 }
 

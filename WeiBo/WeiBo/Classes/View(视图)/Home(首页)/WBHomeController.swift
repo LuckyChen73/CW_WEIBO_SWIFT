@@ -49,6 +49,7 @@ class WBHomeController: WBRootController {
 // MARK: - 事件处理
 extension WBHomeController {
     func showPhotoBroser (notification: Notification) {
+        //创建图片轮播控制器
         let photoBroser = WBPhotoBroserController()
         present(photoBroser, animated: false, completion: nil)
     }
