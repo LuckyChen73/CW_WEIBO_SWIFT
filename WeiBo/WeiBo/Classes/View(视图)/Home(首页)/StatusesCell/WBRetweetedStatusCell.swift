@@ -71,10 +71,9 @@ extension WBRetweetedStatusCell {
         }
         
         statusToolBar.snp.makeConstraints { (make) in
-            make.left.right.equalTo(self.contentView)
+            make.left.right.bottom.equalTo(self.contentView)
             make.top.equalTo(retweetedStatusView.snp.bottom)
             make.height.equalTo(36)
-            make.bottom.equalTo(self.contentView)
         }
         
 

@@ -39,6 +39,24 @@ class WBOriginalStatusView: UIView {
                     self.userIcon.image = circleImage
                 })
             }
+            
+            
+            //判断是否有配图，决定是否需要显示配图
+            if let count = statusViewModel?.statusModel.pic_urls?.count, count > 0 {
+                //有配图，更新配图的约束
+                statusPictureView.snp.updateConstraints({ (make) in
+                    make.top.equalTo(statusLabel.snp.bottom).offset(10)
+                    make.height.equalTo(150)
+                })
+                
+            }else {
+                //没有配图
+                statusPictureView.snp.updateConstraints({ (make) in
+                    make.top.equalTo(statusLabel.snp.bottom)
+                    make.height.equalTo(0)
+                })
+            }
+ 
         }
     }
     
@@ -91,12 +109,12 @@ extension WBOriginalStatusView {
         addSubview(vipIcon)
         addSubview(userNameLable)
         addSubview(levelIcon)
-        addSubview(sourceLable)
         addSubview(timeLable)
+        addSubview(sourceLable)
         addSubview(statusLabel)
         addSubview(statusPictureView)
         
-        
+        statusLabel.numberOfLines = 0
         //2. 自动布局(自上而下, 从左到右, 依次布局, 当子控件较多时, 添加一两个就要测试)
         userIcon.snp.makeConstraints { (make) in
             make.left.top.equalTo(self).offset(10)
@@ -130,19 +148,17 @@ extension WBOriginalStatusView {
             make.bottom.equalTo(userIcon)
         }
         
-        statusLabel.numberOfLines = 0
         statusLabel.snp.makeConstraints { (make) in
             make.top.equalTo(userIcon.snp.bottom).offset(10)
             make.left.equalTo(userIcon)
             make.right.equalTo(self).offset(-10)
-//            make.bottom.equalTo(self).offset(-10)
         }
+
     
         statusPictureView.snp.makeConstraints { (make) in
             make.top.equalTo(statusLabel.snp.bottom).offset(10)
             make.left.equalTo(self).offset(10)
-            make.right.equalTo(self).offset(-10)
-            make.height.equalTo(150)
+            make.size.equalTo(200)
             make.bottom.equalTo(self).offset(-10)
         }
         

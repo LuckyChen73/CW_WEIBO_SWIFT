@@ -51,22 +51,16 @@ extension WBStatusCell {
         //添加到 cell
         self.contentView.addSubview(originalStatusView)
         self.contentView.addSubview(statusToolBar)
-
-        
-//        statusToolBar.backgroundColor = UIColor.brown
         
         //布局
         originalStatusView.snp.makeConstraints { (make) in
             make.left.top.right.equalTo(self.contentView)
-//            make.height.equalTo(50)
-//            make.bottom.equalTo(self.contentView)
         }
         
         statusToolBar.snp.makeConstraints { (make) in
-            make.left.right.equalTo(self.contentView)
+            make.left.right.bottom.equalTo(self.contentView)
             make.top.equalTo(originalStatusView.snp.bottom)
             make.height.equalTo(36)
-            make.bottom.equalTo(self.contentView)
         }
      
 

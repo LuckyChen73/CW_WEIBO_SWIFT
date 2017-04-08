@@ -13,14 +13,30 @@ class WBRetweetedStatusView: UIView {
     //真实数据赋值
     var statusViewModel: WBStatusViewModel? {
         didSet{
-            statusLabel.text = statusViewModel?.statusModel.retweeted_status?.text
+            retweetedStatusLabel.text = statusViewModel?.statusModel.retweeted_status?.text
+
+            //判断是否有配图，决定是否需要显示配图
+            if let count = statusViewModel?.statusModel.retweeted_status?.pic_urls?.count, count > 0 {
+                //有配图，更新配图的约束
+                statusPictureView.snp.updateConstraints({ (make) in
+                    make.top.equalTo(retweetedStatusLabel.snp.bottom).offset(10)
+                    make.height.equalTo(150)
+                })
+                
+            }else {
+                //没有配图
+                statusPictureView.snp.updateConstraints({ (make) in
+                    make.top.equalTo(retweetedStatusLabel.snp.bottom)
+                    make.height.equalTo(0)
+                })
+            }
 
         }
     }
 
     
     //添加一个微博正文的label
-    lazy var statusLabel: UILabel = UILabel(title: nil)
+    lazy var retweetedStatusLabel: UILabel = UILabel(title: nil)
     
     //添加配图视图
     let statusPictureView: WBStatusPictureView = WBStatusPictureView()
@@ -50,21 +66,20 @@ extension WBRetweetedStatusView {
     func setupUI() {
         
         //1.添加子控件
-        addSubview(statusLabel)
+        addSubview(retweetedStatusLabel)
         addSubview(statusPictureView)
         
         
-        statusLabel.numberOfLines = 0
-        statusLabel.snp.makeConstraints { (make) in
+        retweetedStatusLabel.numberOfLines = 0
+        retweetedStatusLabel.snp.makeConstraints { (make) in
             make.top.left.equalTo(self).offset(10)
             make.right.equalTo(self).offset(-10)
-//            make.bottom.equalTo(self).offset(-10)
         }
         
         statusPictureView.snp.makeConstraints { (make) in
-            make.top.equalTo(statusLabel.snp.bottom).offset(10)
-            make.left.equalTo(self).offset(10)
-            make.size.equalTo(CGSize(width: screenWidh, height: 150))
+           make.top.equalTo(retweetedStatusLabel.snp.bottom).offset(10)
+            make.left.equalTo(retweetedStatusLabel)
+            make.size.equalTo(200)
             make.bottom.equalTo(self).offset(-10)
         }
         
