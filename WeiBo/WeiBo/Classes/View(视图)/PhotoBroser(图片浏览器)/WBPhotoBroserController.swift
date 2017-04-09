@@ -19,7 +19,7 @@ class WBPhotoBroserController: UIViewController {
     /// 重载构造函数
     init(index: Int, pic_urls: [String]) {
         super.init(nibName: nil, bundle: nil)
-        
+//        print("======\(index, pic_urls)---------")
         self.index = index
         self.pic_urls = pic_urls
     }
@@ -37,7 +37,7 @@ class WBPhotoBroserController: UIViewController {
         
         setupUI()
         
-        print("index: \(index), urls: \(pic_urls)")
+        
     }
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -47,6 +47,7 @@ class WBPhotoBroserController: UIViewController {
 
 }
 
+// MARK: - 创建 UI
 extension WBPhotoBroserController {
     
     func setupUI() {
@@ -60,7 +61,7 @@ extension WBPhotoBroserController {
         pageViewController.didMove(toParentViewController: self)
         
         //3. 设置pageviewController的子控制器
-        let photoViewer = WBPhotoViewController()
+        let photoViewer = WBPhotoViewController(index: index, pic_urls: pic_urls)
         pageViewController.setViewControllers([photoViewer], direction: .forward, animated: true, completion: nil)
         
         //4. 设置数据源并实现数据源方法
@@ -71,21 +72,18 @@ extension WBPhotoBroserController {
         pageViewController.view.addGestureRecognizer(tap)
         self.view.gestureRecognizers = pageViewController.gestureRecognizers
         
-        
-        
     }
     
+    /// 点击手势执行的方法
     func back() {
         
         dismiss(animated: true, completion: nil)
         
     }
-    
-    
-    
 }
 
 
+// MARK: - UIPageViewControllerDataSource
 extension WBPhotoBroserController: UIPageViewControllerDataSource {
     
     /// 返回上一个控制器
@@ -95,26 +93,40 @@ extension WBPhotoBroserController: UIPageViewControllerDataSource {
     ///   - viewController: 当前显示的子控制器
     /// - Returns: 将要展示的前一个控制器
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
-        let photoViewer = WBPhotoViewController() as UIViewController
+        //先取到当前下标
+        let currentIndex = (viewController as! WBPhotoViewController).index
+        //再判断
+        if currentIndex == 0 {
+            print("到头了")
+            return nil
+        }
+        
+        let photoViewer = WBPhotoViewController(index: currentIndex - 1, pic_urls: pic_urls) as UIViewController
         return photoViewer
+
     }
     
-    /// 返回上一个控制器
+    /// 返回下一个控制器
     ///
     /// - Parameters:
     ///   - pageViewController: 当前的pageViewControler
     ///   - viewController: 当前显示的子控制器
     /// - Returns: 将要展示的后一个控制器
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
-        let photoViewer = WBPhotoViewController() as UIViewController
-        return photoViewer
-        
-    }
-    
-    
-    
-}
+        //当前下标
+        let currentIndex = (viewController as! WBPhotoViewController).index
+        //判断是否到尾
+        if currentIndex == pic_urls.count - 1 {
+            print("到尾了")
+            return nil
 
+        }
+        
+        let photoViewer = WBPhotoViewController(index: currentIndex + 1, pic_urls: pic_urls) as UIViewController
+        return photoViewer
+    }
+
+}
 
 
 
