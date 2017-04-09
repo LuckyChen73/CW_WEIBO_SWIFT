@@ -101,23 +101,10 @@ extension WBPhotoViewController {
                     self.scrollView.contentSize = imageSize
                 }
                 
-                
-                
             }
-            
         }
-        
-        
-        
-        
-        
-        
+
     }
-    
-    
-    
-    
-    
 }
 
 
