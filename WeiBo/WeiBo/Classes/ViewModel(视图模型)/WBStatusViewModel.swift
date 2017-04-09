@@ -63,7 +63,7 @@ class WBStatusViewModel: NSObject {
         //如果原创有视图，转发没有视图
         if let count = self.statusModel.pic_urls?.count, count > 0 {
             pic_urls = self.statusModel.pic_urls
-            print("*****\(statusModel.pic_urls?.count)****")
+//            print("*****\(statusModel.pic_urls?.count)****")
             return //有视图后面就不需判断了
         }
         
@@ -71,7 +71,7 @@ class WBStatusViewModel: NSObject {
         if let count = self.statusModel.retweeted_status?.pic_urls?.count, count > 0 {
             
             pic_urls = self.statusModel.retweeted_status?.pic_urls
-            print("=====\(statusModel.retweeted_status?.pic_urls?.count)====")
+//            print("=====\(statusModel.retweeted_status?.pic_urls?.count)====")
         }
         
     }

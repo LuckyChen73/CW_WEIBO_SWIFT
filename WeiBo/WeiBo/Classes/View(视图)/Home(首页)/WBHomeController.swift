@@ -151,7 +151,7 @@ extension WBHomeController {
                 group.enter()
                 
                 //图片url
-                let urlStr = pic_urls[0].thumbnail_pic
+                let urlStr = pic_urls[0].bmiddle_pic
                 let url = URL(string: urlStr!)
                 
                 SDWebImageManager.shared().downloadImage(with: url!, options: [], progress: nil, completed: { (singleImage, _, _, _, _) in

@@ -16,8 +16,6 @@ class WBStatusPictureView: UIView {
     //接收传过来的statusViewModel模型数据
     var statusViewModel: WBStatusViewModel? {
         didSet{
-
-
             //如果有图片
             if let pic_urls = statusViewModel?.pic_urls, pic_urls.count > 0 {
                 
@@ -27,7 +25,7 @@ class WBStatusPictureView: UIView {
                     imageView?.isHidden = false
                     
                     //添加图片
-                    imageView?.wb_setImage(urlStr: pictureModel.thumbnail_pic!, placeHolderImage: "common_icon_membership_expired")
+                    imageView?.wb_setImage(urlStr: pictureModel.bmiddle_pic!, placeHolderImage: "common_icon_membership_expired")
                     
                     //单张图片的处理
                     if index == 0 && pic_urls.count == 1 {
@@ -37,8 +35,7 @@ class WBStatusPictureView: UIView {
                     //如果是第一张图片, 但是不止一张图片, 图片的宽高就按照九宫格的正方形大小显示
                     else if index == 0 && pic_urls.count != 1{
                         let imageWH = (screenWidh-40)/3
-                        imageView?.frame = CGRect(x: 0, y: 0, width: imageWH, height: imageWH)
-                        
+                        imageView?.frame = CGRect(x: 0, y: 0, width: imageWH, height: imageWH) 
                     }
  
                     //四张图片的处理
@@ -130,7 +127,7 @@ extension WBStatusPictureView {
         
         //获取所有的url的字符串数组
         //从一个模型数组中, 取到属性数组; 这是oc中的类有相关的api, 而swift的数组没有这个api
-        let urlStrs = ((statusViewModel?.pic_urls)! as NSArray).value(forKeyPath: "thumbnail_pic") as! [String]
+        let urlStrs = ((statusViewModel?.pic_urls)! as NSArray).value(forKeyPath: "bmiddle_pic") as! [String]
         //参数：把字典通过通知的参数传过去
         let userInfo: [String: Any] = ["index": index, "urls": urlStrs]
         

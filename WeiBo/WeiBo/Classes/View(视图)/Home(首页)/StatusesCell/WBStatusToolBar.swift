@@ -9,8 +9,6 @@
 import UIKit
 
 class WBStatusToolBar: UIView {
-
-//    lazy var retweetedBtn: UIButton = UIButton(title: nil, target: self, selector: #selector(retweeted(button:)), events: UIControlEvents.touchUpInside, image: "timeline_icon_retweet", bgImage: "timeline_card_bottom_background")
     
     /// 转发的button
     lazy var retweetButton: UIButton = UIButton(title: "30", titleColor: UIColor.lightGray, fontSize: 11, image: "timeline_icon_retweet")
@@ -31,10 +29,6 @@ class WBStatusToolBar: UIView {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    
-    
-    
 }
 
 
@@ -44,9 +38,6 @@ extension WBStatusToolBar {
     func retweeted(button: UIButton) {
         print("转发微博")
     }
-    
-    
-    
 }
 
 
