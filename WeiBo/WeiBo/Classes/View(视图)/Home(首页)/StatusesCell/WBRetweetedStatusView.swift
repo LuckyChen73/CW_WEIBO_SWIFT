@@ -56,9 +56,7 @@ class WBRetweetedStatusView: UIView {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    
-    
+
 }
 
 
@@ -71,6 +69,8 @@ extension WBRetweetedStatusView {
         addSubview(retweetedStatusLabel)
         addSubview(statusPictureView)
         
+        self.backgroundColor = UIColor.init(white: 0.9, alpha: 1)
+        
         
         retweetedStatusLabel.numberOfLines = 0
         retweetedStatusLabel.snp.makeConstraints { (make) in
@@ -81,17 +81,10 @@ extension WBRetweetedStatusView {
         statusPictureView.snp.makeConstraints { (make) in
            make.top.equalTo(retweetedStatusLabel.snp.bottom).offset(10)
             make.left.equalTo(retweetedStatusLabel)
-//            make.right.equalTo(retweetedStatusLabel)
-//            make.height.equalTo(150)
             make.size.equalTo(CGSize.zero)
             make.bottom.equalTo(self).offset(-10)
         }
-        
-        
-        
+
     }
-    
-    
-    
 }
 

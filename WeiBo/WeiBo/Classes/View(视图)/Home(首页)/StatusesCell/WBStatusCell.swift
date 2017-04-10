@@ -16,7 +16,6 @@ class WBStatusCell: UITableViewCell {
         didSet{
             originalStatusView.statusViewModel = statusViewModel
         }
-        
     }
     
     /// 原创微博部分
@@ -30,10 +29,10 @@ class WBStatusCell: UITableViewCell {
     //重写指定构造方法
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        
+        self.selectionStyle = .none
         setupUI()
         
-        self.selectionStyle = .none
+        
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -50,19 +49,24 @@ extension WBStatusCell {
     
     func setupUI() {
         
+        
         //添加到 cell
         self.contentView.addSubview(originalStatusView)
         self.contentView.addSubview(statusToolBar)
         
         //布局
         originalStatusView.snp.makeConstraints { (make) in
-            make.left.top.right.equalTo(self.contentView)
+            make.top.equalTo(self.contentView).offset(5)
+            make.left.equalTo(self.contentView)
+            make.right.equalTo(self.contentView)
         }
         
         statusToolBar.snp.makeConstraints { (make) in
-            make.left.right.bottom.equalTo(self.contentView).priority(800)
             make.top.equalTo(originalStatusView.snp.bottom)
+            make.left.equalTo(self.contentView)
+            make.right.equalTo(self.contentView)
             make.height.equalTo(36)
+            make.bottom.equalTo(self.contentView).priority(800)
         }
      
 

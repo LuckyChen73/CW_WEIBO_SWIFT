@@ -116,7 +116,6 @@ extension WBHomeController {
         
         //如果有转发微博
         if let _ = viewModel.statusModel.retweeted_status {
-    
             let cell = tableView.dequeueReusableCell(withIdentifier: retweetedIdentifer, for: indexPath) as! WBRetweetedStatusCell
             cell.statusViewModel = viewModel
             return cell

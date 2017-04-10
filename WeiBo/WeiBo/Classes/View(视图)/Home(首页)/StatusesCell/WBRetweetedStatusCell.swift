@@ -34,10 +34,11 @@ class WBRetweetedStatusCell: UITableViewCell {
     //重写指定构造方法
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        self.selectionStyle = .none
         
         setupUI()
         
-        self.selectionStyle = .none
+        
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -64,19 +65,24 @@ extension WBRetweetedStatusCell {
         
         //布局
         originalStatusView.snp.makeConstraints { (make) in
-            make.left.top.right.equalTo(self.contentView)
+            make.top.equalTo(self.contentView).offset(5)
+            make.left.equalTo(self.contentView)
+            make.right.equalTo(self.contentView)
         }
         
         retweetedStatusView.snp.makeConstraints { (make) in
-            make.left.right.equalTo(self.contentView)
             make.top.equalTo(originalStatusView.snp.bottom)
+            make.left.right.equalTo(self.contentView)
+            
         }
         
         /// .priority(800) 解决报约束冲突的问题
         statusToolBar.snp.makeConstraints { (make) in
-            make.left.right.bottom.equalTo(self.contentView).priority(800)
+            make.left.equalTo(self.contentView)
+            make.right.equalTo(self.contentView)
             make.top.equalTo(retweetedStatusView.snp.bottom)
             make.height.equalTo(36)
+            make.bottom.equalTo(self.contentView).priority(800)
         }
         
 

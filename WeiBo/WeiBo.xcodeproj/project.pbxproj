@@ -320,8 +320,8 @@
 		1F8521001E910CCB00260C16 /* Home(首页) */ = {
 			isa = PBXGroup;
 			children = (
-				1F9053CE1E9548B500B65122 /* StatusesCell */,
 				1F8521131E911B4700260C16 /* WBHomeController.swift */,
+				1F9053CE1E9548B500B65122 /* StatusesCell */,
 			);
 			path = "Home(首页)";
 			sourceTree = "<group>";

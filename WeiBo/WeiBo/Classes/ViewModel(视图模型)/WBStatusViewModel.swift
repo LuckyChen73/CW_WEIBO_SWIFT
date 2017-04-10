@@ -63,15 +63,12 @@ class WBStatusViewModel: NSObject {
         //如果原创有视图，转发没有视图
         if let count = self.statusModel.pic_urls?.count, count > 0 {
             pic_urls = self.statusModel.pic_urls
-//            print("*****\(statusModel.pic_urls?.count)****")
             return //有视图后面就不需判断了
         }
         
         //如果原创没有视图，判断转发有没有视图
         if let count = self.statusModel.retweeted_status?.pic_urls?.count, count > 0 {
-            
             pic_urls = self.statusModel.retweeted_status?.pic_urls
-//            print("=====\(statusModel.retweeted_status?.pic_urls?.count)====")
         }
         
     }
@@ -83,7 +80,7 @@ class WBStatusViewModel: NSObject {
         
         //图片的行数
         if let count = pic_urls?.count, count > 0 {
-            let rows = (count - 1) / 3 + 1 //分页算法
+            let rows = (count - 1)/3 + 1 //分页算法
             
             //计算配图的size
             picSize = CGSize(width: screenWidh - 20, height: CGFloat(rows)*imageWH + CGFloat(rows - 1) * 10)

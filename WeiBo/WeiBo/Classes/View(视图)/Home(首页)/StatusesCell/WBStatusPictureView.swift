@@ -122,7 +122,7 @@ extension WBStatusPictureView {
         var index = tap.view!.tag - baseTag
         //如果有四张图片, 图片是2*2显示的, 当到第三张图片时, 应该将index - 1
         if let pic_urls = statusViewModel?.pic_urls, pic_urls.count == 4, index > 2{
-            index -= 1
+            index += 1
         }
         
         //获取所有的url的字符串数组
