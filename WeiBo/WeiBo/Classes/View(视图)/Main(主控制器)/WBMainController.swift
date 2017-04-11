@@ -56,7 +56,11 @@ class WBMainController: UITabBarController {
 extension WBMainController {
     ///一旦事件使用了 fileprivate 或 private修饰，就必须加一个 @objc 修饰
     @objc fileprivate func composeMessage(button: UIButton) {
-        print("发布微博")
+//        print("发布微博")
+        
+        let composeVC = WBComposeViewController()
+        let nav = UINavigationController(rootViewController: composeVC)
+        present(nav, animated: true, completion: nil)
         
     }
 

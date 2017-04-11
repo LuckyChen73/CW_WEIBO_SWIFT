@@ -53,7 +53,7 @@ extension WBPhotoBroserController {
     func setupUI() {
         //设置 pageViewController
         //1. 创建pageViewController
-        let pageViewController = UIPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: [UIPageViewControllerOptionInterPageSpacingKey: 20])
+        let pageViewController = UIPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: [UIPageViewControllerOptionInterPageSpacingKey: 0])
         
         //2. 将pageViewController添加到当前控制器
         self.addChildViewController(pageViewController)
