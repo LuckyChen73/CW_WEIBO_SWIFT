@@ -36,6 +36,9 @@ class WBTextView: UITextView {
         setupUI()
         
         self.font = UIFont.systemFont(ofSize: 14)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(textDidChange), name: NSNotification.Name.UITextViewTextDidChange, object: nil)
+        
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -44,6 +47,23 @@ class WBTextView: UITextView {
     
 
 }
+
+
+// MARK: - 通知代理做法
+extension WBTextView {
+    
+    /// 文本发生变动
+    func textDidChange() {
+        //隐藏占位符
+        plabel.isHidden = self.text.characters.count > 0
+        
+    }
+    
+    
+}
+
+
+
 
 // MARK: - 搭建 UI
 extension WBTextView {
