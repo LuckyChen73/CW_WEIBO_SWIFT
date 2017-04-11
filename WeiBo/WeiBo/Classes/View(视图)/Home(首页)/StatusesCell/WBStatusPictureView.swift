@@ -16,6 +16,15 @@ class WBStatusPictureView: UIView {
     //接收传过来的statusViewModel模型数据
     var statusViewModel: WBStatusViewModel? {
         didSet{
+            //MARK: - 必须要在显示之前的时候全部把它隐藏，不能在创建imageView 的时候隐藏
+            for i in 0..<9 {
+                let imageView = self.viewWithTag(i + baseTag)
+                imageView?.isHidden = true
+            }
+            
+            //图片宽高
+            let imageWH = (screenWidh-40)/3
+            
             //如果有图片
             if let pic_urls = statusViewModel?.pic_urls, pic_urls.count > 0 {
                 
@@ -34,31 +43,22 @@ class WBStatusPictureView: UIView {
                     }
                     //如果是第一张图片, 但是不止一张图片, 图片的宽高就按照九宫格的正方形大小显示
                     else if index == 0 && pic_urls.count != 1{
-                        let imageWH = (screenWidh-40)/3
-                        imageView?.frame = CGRect(x: 0, y: 0, width: imageWH, height: imageWH) 
+                        imageView?.frame = CGRect(x: 0, y: 0, width: imageWH, height: imageWH)
                     }
- 
+                    
                     //四张图片的处理
                     if pic_urls.count == 4 && index == 1 {
                         index += 1
                     }
-
                     index += 1
                 }
             }
         }
     }
     
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
         setupUI()
-        
-        
-        
-        
-        
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -71,10 +71,8 @@ extension WBStatusPictureView {
     
     func setupUI() {
         self.backgroundColor = UIColor.yellow
-        
         //裁剪超出配图部分
         self.clipsToBounds = true
-        
         //imageView 的宽高
         let imageWH = (screenWidh - 40) / 3
         
@@ -87,18 +85,14 @@ extension WBStatusPictureView {
             //创建
             let imageView = UIImageView()
             imageView.backgroundColor = UIColor.red
-            
             imageView.tag = i + baseTag
-            
             //计算行数和列数
             let row = i / 3
             let col = i % 3
             
             //计算 frame
             imageView.frame = firstImageViewFrame.offsetBy(dx: CGFloat(col) * gap, dy: CGFloat(row) * gap)
-            
             addSubview(imageView)
-            imageView.isHidden = true
             
             //设置图片的填充模式
             imageView.contentMode = .scaleAspectFill
@@ -108,7 +102,6 @@ extension WBStatusPictureView {
             imageView.isUserInteractionEnabled = true
             let tap = UITapGestureRecognizer(target: self, action: #selector(imageClicked(tap:)))
             imageView.addGestureRecognizer(tap)
-            
         }
     }
 }
@@ -135,7 +128,6 @@ extension WBStatusPictureView {
         let notification = Notification(name: pictureViewClickedNotification, object: nil, userInfo: userInfo)
         //发送通知
         NotificationCenter.default.post(notification)
-
     }
 }
 
