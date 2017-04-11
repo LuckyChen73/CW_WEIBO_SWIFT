@@ -23,8 +23,9 @@ class WBComposeViewController: UIViewController {
 extension WBComposeViewController {
     
     func setupUI() {
-        self.view.backgroundColor = UIColor.yellow
-        
+        self.view.backgroundColor = UIColor.white
+        // 设置自动调整布局为 false，默认是 true
+        self.automaticallyAdjustsScrollViewInsets = false
         // 添加取消按钮
          addNavigationBarButton()
         // 添加文本视图

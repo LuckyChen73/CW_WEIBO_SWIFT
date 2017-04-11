@@ -16,13 +16,26 @@ class WBTextView: UITextView {
         }
     }
     
+    override var font: UIFont? {
+        didSet{
+            plabel.font = font
+        }
+    }
+    
     /// 占位符
-    fileprivate lazy var plabel: UILabel = UILabel(title: nil, titleColor: UIColor.lightGray, fontSize: 13)
+    fileprivate lazy var plabel: UILabel = {
+        let label = UILabel(title: nil, titleColor: UIColor.lightGray, fontSize: 14)
+        label.font = self.font
+        return label
+    }()
+    
     
     override init(frame: CGRect, textContainer: NSTextContainer?) {
         super.init(frame: frame, textContainer: textContainer)
         
         setupUI()
+        
+        self.font = UIFont.systemFont(ofSize: 14)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -36,9 +49,27 @@ class WBTextView: UITextView {
 extension WBTextView {
     
     func setupUI() {
+        addSubview(plabel)
         
+        //scrollView的自动布局的问题, 默认情况下, right和bottom代表的是contentSize的width和height; 在一开始的时, 需要创建一个和scrollView一样的大小的view, 将scrollView撑开
+        let view = UIView()
+        insertSubview(view, at: 0)
+        view.snp.makeConstraints { (make) in
+            make.edges.equalTo(self) //相当于同时设top,right, bottom, left
+            make.width.equalTo(self)
+            make.height.equalTo(self)
+        }
+        
+        //占位label, 调整点位label的布局,让其与textView的文字对齐
+        plabel.snp.makeConstraints { (make) in
+            make.top.equalTo(self).offset(8)
+            make.left.equalTo(self).offset(5)
+            make.right.equalTo(self).offset(-5)
+        }
         
     }
+    
+    
     
 }
 
