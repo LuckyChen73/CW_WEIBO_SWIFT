@@ -41,6 +41,9 @@ extension WBComposeViewController {
          addNavigationBarButton()
         // 添加文本视图
         setupTextView()
+        // 添加 toolBar
+        addToolBar()
+        
     }
     
     /// 添加取消按钮
@@ -91,6 +94,43 @@ extension WBComposeViewController {
     }
     
     
+    /// 添加 toolBar
+    func addToolBar() {
+        //1. 创建一个toolBar
+        let toolBar = UIToolbar()
+        self.view.addSubview(toolBar)
+        
+        //设置toolBar的自动布局
+        //toolBar有默认高度, 所以不需要设高度
+        toolBar.snp.makeConstraints { (make) in
+            make.bottom.left.right.equalTo(self.view)
+        }
+        
+        //创建toolBar的items的参数字典字数组
+        let dicArray: [[String: Any]] = [["image":"compose_mentionbutton_background", "selector": #selector(changeKeyBoard)], ["image":"compose_trendbutton_background", "selector": #selector(changeKeyBoard)], ["image":"compose_camerabutton_background", "selector": #selector(changeKeyBoard)], ["image":"compose_emoticonbutton_background", "selector": #selector(changeKeyBoard)], ["image":"compose_keyboardbutton_background", "selector": #selector(changeKeyBoard)]]
+        
+        var items: [UIBarButtonItem] = []
+        //遍历字典数组
+        for dic in dicArray {
+            let button = UIButton(title: nil, target: self, selector: dic["selector"] as! Selector?, events: UIControlEvents.touchUpInside, image: dic["image"] as! String?)
+            button.sizeToFit()
+            let item = UIBarButtonItem(customView: button)
+            //弹簧间隔
+            let flexibleItem = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil)
+            
+            items.append(item)
+            items.append(flexibleItem)
+        }
+        //移除最后一个
+        items.removeLast()
+        toolBar.items = items
+    }
+    
+    
+    
+    
+    
+    
 }
 
 // MARK: - 点击事件
@@ -106,6 +146,14 @@ extension WBComposeViewController {
     func compose() {
         print("发布微博")
     }
+    
+    /// 改变键盘
+    func changeKeyBoard() {
+        print("改变键盘")
+    }
+    
+    
+    
     
 }
 
