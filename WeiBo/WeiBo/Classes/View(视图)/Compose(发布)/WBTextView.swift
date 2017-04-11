@@ -10,6 +10,7 @@ import UIKit
 
 class WBTextView: UITextView {
 
+    
     var placeHolder: String = "请输入微博......" {
         didSet{
             plabel.text = "请输入微博......";
@@ -29,15 +30,17 @@ class WBTextView: UITextView {
         return label
     }()
     
-    
     override init(frame: CGRect, textContainer: NSTextContainer?) {
         super.init(frame: frame, textContainer: textContainer)
-        
         setupUI()
         
         self.font = UIFont.systemFont(ofSize: 14)
         
         NotificationCenter.default.addObserver(self, selector: #selector(textDidChange), name: NSNotification.Name.UITextViewTextDidChange, object: nil)
+        
+        //下拉和键盘回弹
+        self.alwaysBounceVertical = true
+        self.keyboardDismissMode = .onDrag
         
     }
     

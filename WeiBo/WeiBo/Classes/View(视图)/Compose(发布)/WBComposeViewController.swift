@@ -10,6 +10,17 @@ import UIKit
 
 class WBComposeViewController: UIViewController {
 
+    lazy var composeBtn: UIButton = {
+        //右侧
+        let composeBtn = UIButton(title: "发布", titleColor:  UIColor.white, fontSize: 13, target: self, selector: #selector(compose), events: UIControlEvents.touchUpInside, bgImage: "tabbar_compose_button")
+        //设置按钮失效状态
+        composeBtn.setBackgroundImage(UIImage(named: "common_button_white_disable"), for: .disabled)
+        composeBtn.setTitleColor(UIColor.darkGray, for: .disabled)
+        
+        return composeBtn
+    }()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
@@ -34,19 +45,14 @@ extension WBComposeViewController {
     
     /// 添加取消按钮
     func addNavigationBarButton() {
-        //左侧
+        //取消按钮
         let cancelBtn = UIButton(title: "取消", titleColor:  UIColor.white, fontSize: 13, target: self, selector: #selector(cancel), events: UIControlEvents.touchUpInside, bgImage: "tabbar_compose_button")
         cancelBtn.frame = CGRect(x: 0, y: 0, width: 70, height: 30)
         let left = UIBarButtonItem(customView: cancelBtn)
         self.navigationItem.leftBarButtonItem = left
         
-        //右侧
-        let composeBtn = UIButton(title: "发布", titleColor:  UIColor.white, fontSize: 13, target: self, selector: #selector(compose), events: UIControlEvents.touchUpInside, bgImage: "tabbar_compose_button")
-        //设置按钮失效状态
-        composeBtn.setBackgroundImage(UIImage(named: "common_button_white_disable"), for: .disabled)
-        composeBtn.setTitleColor(UIColor.darkGray, for: .disabled)
-        
-        composeBtn.frame = CGRect(x: 0, y: 0, width: 55, height: 30)
+        //发布按钮
+        composeBtn.frame = CGRect(x: 0, y: 0, width: 70, height: 30)
         let right = UIBarButtonItem(customView: composeBtn)
         self.navigationItem.rightBarButtonItem = right
         //取消按钮的点击
@@ -74,6 +80,8 @@ extension WBComposeViewController {
         let textView = WBTextView()
         textView.placeHolder = "hello, world....."
         
+        textView.delegate = self
+        
         self.view.addSubview(textView)
         textView.snp.makeConstraints { (make) in
             make.top.equalTo(self.view).offset(64)
@@ -90,20 +98,29 @@ extension WBComposeViewController {
     
     /// 点击取消按钮
     func cancel() {
-        
         dismiss(animated: true, completion: nil)
-        
+
     }
     
     /// 发布微博
     func compose() {
-        
         print("发布微博")
-        
     }
     
 }
 
+extension WBComposeViewController: UITextViewDelegate {
+    
+    /// 文本变动
+    ///
+    /// - Parameter textView: textView
+    func textViewDidChange(_ textView: UITextView) {
+        //发布跟随文本视图的联动
+        composeBtn.isEnabled = textView.text.characters.count > 0
+    }
+    
+    
+}
 
 
 
