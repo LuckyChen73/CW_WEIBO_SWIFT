@@ -8,8 +8,10 @@
 
 import UIKit
 
-class WBComposeViewController: UIViewController {
+private let identifier = "identifier"
 
+class WBComposeViewController: UIViewController {
+    /// 发布按钮
     lazy var composeBtn: UIButton = {
         //右侧
         let composeBtn = UIButton(title: "发布", titleColor:  UIColor.white, fontSize: 13, target: self, selector: #selector(compose), events: UIControlEvents.touchUpInside, bgImage: "tabbar_compose_button")
@@ -20,8 +22,29 @@ class WBComposeViewController: UIViewController {
         return composeBtn
     }()
     
-    //1. 创建一个toolBar
+    /// textView 自定义类定义对象时需要标识类型
+    lazy var textView: WBTextView = WBTextView()
+    
+    /// 创建一个toolBar
     lazy var toolBar = UIToolbar()
+    
+    /// 配图视图的collectionView
+    lazy var pictureView: UICollectionView = {
+        //设置layout
+        let layout = UICollectionViewFlowLayout()
+        let cellWH = (screenWidh - 40)/3
+        layout.itemSize = CGSize(width: cellWH, height: cellWH)
+        layout.minimumLineSpacing = 10
+        layout.minimumInteritemSpacing = 10
+
+        let collectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout)
+        
+        collectionView.dataSource = self
+        collectionView.delegate = self
+        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: identifier)
+        
+        return collectionView
+    }()
     
     // 释放通知
     deinit {
@@ -52,6 +75,8 @@ extension WBComposeViewController {
         setupTextView()
         // 添加 toolBar
         addToolBar()
+        // 添加配图视图
+        addPictureView()
         
     }
     
@@ -89,7 +114,6 @@ extension WBComposeViewController {
     
     /// 添加文本视图
     func setupTextView () {
-        let textView = WBTextView()
         textView.placeHolder = "hello, world....."
         
         textView.delegate = self
@@ -101,7 +125,6 @@ extension WBComposeViewController {
             make.bottom.equalTo(self.view)
         }
     }
-    
     
     /// 添加 toolBar
     func addToolBar() {
@@ -139,11 +162,44 @@ extension WBComposeViewController {
     }
     
     
-    
+    /// 设置配图视图
+    func addPictureView() {
+        pictureView.backgroundColor = UIColor.yellow
+        textView.addSubview(pictureView)
+        pictureView.snp.makeConstraints { (make) in
+            make.left.equalTo(textView).offset(10)
+            make.top.equalTo(textView).offset(100)
+            make.size.equalTo(CGSize(width: screenWidh-20, height: screenWidh-20))
+        }
+    }
     
     
     
 }
+
+// MARK: - UICollectionViewDelegate, UICollectionViewDataSource
+extension WBComposeViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+    
+    /// 返回每一个 item
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath)
+        cell.backgroundColor = UIColor.randomColor()
+        return cell
+    }
+    
+    /// 多少个 item
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 9
+    }
+    
+    /// 选中 item 时会调用
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print(indexPath.item)
+    }
+    
+}
+
+
 
 // MARK: - 点击事件
 extension WBComposeViewController {
@@ -185,8 +241,6 @@ extension WBComposeViewController {
             })
             
         }
-        
-        
     }
     
     

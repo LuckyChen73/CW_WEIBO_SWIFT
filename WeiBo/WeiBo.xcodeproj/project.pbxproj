@@ -19,6 +19,7 @@
 		1F7634F51E9A584200E0A906 /* WBStatusListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7634F41E9A584200E0A906 /* WBStatusListViewModel.swift */; };
 		1F7636641E9CEC8C00E0A906 /* WBComposeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7636631E9CEC8C00E0A906 /* WBComposeViewController.swift */; };
 		1F7636661E9CF9B700E0A906 /* WBTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7636651E9CF9B700E0A906 /* WBTextView.swift */; };
+		1F7636681E9E498000E0A906 /* WBComposePicCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7636671E9E498000E0A906 /* WBComposePicCell.swift */; };
 		1F8520E41E90C46F00260C16 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8520E31E90C46F00260C16 /* AppDelegate.swift */; };
 		1F8520E61E90C46F00260C16 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8520E51E90C46F00260C16 /* ViewController.swift */; };
 		1F8520E91E90C46F00260C16 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F8520E71E90C46F00260C16 /* Main.storyboard */; };
@@ -104,6 +105,7 @@
 		1F7634F41E9A584200E0A906 /* WBStatusListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBStatusListViewModel.swift; sourceTree = "<group>"; };
 		1F7636631E9CEC8C00E0A906 /* WBComposeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBComposeViewController.swift; sourceTree = "<group>"; };
 		1F7636651E9CF9B700E0A906 /* WBTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBTextView.swift; sourceTree = "<group>"; };
+		1F7636671E9E498000E0A906 /* WBComposePicCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBComposePicCell.swift; sourceTree = "<group>"; };
 		1F8520E01E90C46F00260C16 /* WeiBo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeiBo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F8520E31E90C46F00260C16 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1F8520E51E90C46F00260C16 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -311,6 +313,7 @@
 			children = (
 				1F7636631E9CEC8C00E0A906 /* WBComposeViewController.swift */,
 				1F7636651E9CF9B700E0A906 /* WBTextView.swift */,
+				1F7636671E9E498000E0A906 /* WBComposePicCell.swift */,
 			);
 			path = "Compose(发布)";
 			sourceTree = "<group>";
@@ -661,6 +664,7 @@
 				1F8521641E913A8700260C16 /* LayoutConstraint.swift in Sources */,
 				1F85214C1E913A8700260C16 /* ConstraintInsets.swift in Sources */,
 				1F7636661E9CF9B700E0A906 /* WBTextView.swift in Sources */,
+				1F7636681E9E498000E0A906 /* WBComposePicCell.swift in Sources */,
 				1F0370DC1E95065700C701A1 /* WBNewFetureView.swift in Sources */,
 				1F85215B1E913A8700260C16 /* ConstraintOffsetTarget.swift in Sources */,
 				1F9053D81E95493A00B65122 /* WBStatusToolBar.swift in Sources */,
