@@ -48,6 +48,13 @@ class WBComposeViewController: UIViewController {
         return collectionView
     }()
     
+    
+    /// 数据源数组
+    var dataSourceArr: [UIImage] = []
+    
+    /// 选中 item 下标
+    var selectedIndex: Int = 0
+    
     // 释放通知
     deinit {
         NotificationCenter.default.removeObserver(self)
@@ -62,9 +69,7 @@ class WBComposeViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChangeFrame(notification:)), name: NSNotification.Name.UIKeyboardWillChangeFrame, object: nil)
     }
 
-    /// 数据源数组
-    var dataSourceArr: [UIImage] = [UIImage(named:"compose_toolbar_picture_highlighted")!, UIImage(named:"compose_toolbar_picture_highlighted")!]
-    
+
 }
 
 // MARK: - 搭建 UI
@@ -187,17 +192,54 @@ extension WBComposeViewController {
 extension WBComposeViewController: WBComposePicCellDelegate {
     /// 实现代理方法  添加或替换
     func addOrReplacePicture(cell: WBComposePicCell) {
+        //获取选中 item 下标
+        selectedIndex = (pictureView.indexPath(for: cell)?.item)!
         
+        //创建系统相册
+        let imagePicker = UIImagePickerController()
+        imagePicker.delegate = self
+        present(imagePicker, animated: true, completion: nil)
     }
     
     /// 删除
     func deletePicture(cell: WBComposePicCell) {
-        
+        let index = (pictureView.indexPath(for: cell)?.item)!
+        dataSourceArr.remove(at: index)
+        //刷新 collectionView
+        pictureView.reloadData()
     }
 
-    
 }
 
+// MARK: - UIImagePickerControllerDelegate, UINavigationControllerDelegate
+extension WBComposeViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    /// 完成图片选中
+    ///
+    /// - Parameters:
+    ///   - picker: UIImagePickerController
+    ///   - info: 图片参数
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        
+        let image = info[UIImagePickerControllerOriginalImage] as! UIImage
+        
+        //判断图片是添加，替换
+        if selectedIndex == dataSourceArr.count {
+            //选中的是加号按钮,添加图片
+            dataSourceArr.append(image)
+        }else {
+            //替换
+            dataSourceArr[selectedIndex] = image
+        }
+        
+        //刷新 collectionView
+        pictureView.reloadData()
+        
+        //dismiss
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+}
 
 
 // MARK: - UICollectionViewDelegate, UICollectionViewDataSource
