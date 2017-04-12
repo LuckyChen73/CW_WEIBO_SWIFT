@@ -16,6 +16,25 @@ class WBComposePicCell: UICollectionViewCell {
     /// 删除图片的按钮
     lazy var deleteButton: UIButton = UIButton(title: nil, target: self, selector: #selector(deletePicture), events: UIControlEvents.touchUpInside, bgImage: "compose_photo_close")
     
+    
+    var image: UIImage? {
+        didSet{
+            if let image = image { // 有值就给 cell的按钮设置图片
+                addOrReplaceButton.setBackgroundImage(image, for: .normal)
+                addOrReplaceButton.setBackgroundImage(image, for: .highlighted)
+            } else {
+                addOrReplaceButton.setBackgroundImage(UIImage(named: "compose_pic_add"), for: .normal)
+                addOrReplaceButton.setBackgroundImage(UIImage(named: "compose_pic_add_highlighted"), for: .highlighted)
+            }
+            
+            //如果image有值, 删除按钮就显示
+            deleteButton.isHidden = image == nil
+
+        }
+    }
+    
+    
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
