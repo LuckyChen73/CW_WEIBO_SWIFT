@@ -10,6 +10,8 @@ import UIKit
 
 private let identifier = "identifier"
 
+private let maxPicCount = 8
+
 class WBComposeViewController: UIViewController {
     /// 发布按钮
     lazy var composeBtn: UIButton = {
@@ -60,6 +62,10 @@ class WBComposeViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChangeFrame(notification:)), name: NSNotification.Name.UIKeyboardWillChangeFrame, object: nil)
     }
 
+    /// 数据源数组
+    var dataSourceArr: [UIImage] = [UIImage(named:"compose_toolbar_picture_highlighted")!, UIImage(named:"compose_toolbar_picture_highlighted")!,
+                                    UIImage(named:"compose_toolbar_picture_highlighted")!,UIImage(named:"compose_toolbar_picture_highlighted")!,UIImage(named:"compose_toolbar_picture_highlighted")!,UIImage(named:"compose_toolbar_picture_highlighted")!]
+    
 }
 
 // MARK: - 搭建 UI
@@ -96,8 +102,8 @@ extension WBComposeViewController {
         //设置button是否可以点击必须在将button添加到父视图上之后, 才可以生效
         composeBtn.isEnabled = false
         
-        
-        //标题师傅
+    
+        //标题
         let title = UILabel(title: nil, alignment: .center)
         let titleText = NSMutableAttributedString(string: "发布微博\n", attributes: [NSForegroundColorAttributeName: UIColor.darkGray, NSFontAttributeName: UIFont.boldSystemFont(ofSize: 15)])
         
@@ -164,7 +170,7 @@ extension WBComposeViewController {
     
     /// 设置配图视图
     func addPictureView() {
-        pictureView.backgroundColor = UIColor.yellow
+        pictureView.backgroundColor = UIColor.init(white: 0.9, alpha: 1)
         textView.addSubview(pictureView)
         pictureView.snp.makeConstraints { (make) in
             make.left.equalTo(textView).offset(10)
@@ -189,7 +195,7 @@ extension WBComposeViewController: UICollectionViewDelegate, UICollectionViewDat
     
     /// 多少个 item
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 9
+        return dataSourceArr.count == maxPicCount ? maxPicCount : dataSourceArr.count + 1
     }
     
     /// 选中 item 时会调用
