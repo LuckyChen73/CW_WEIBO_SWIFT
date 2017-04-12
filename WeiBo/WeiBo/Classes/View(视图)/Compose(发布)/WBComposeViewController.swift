@@ -56,6 +56,19 @@ class WBComposeViewController: UIViewController {
     /// 选中 item 下标
     var selectedIndex: Int = 0
     
+    /// 记录键盘类型： 0是系统键盘，1是自定义键盘
+    var keyboardType: Int = 0
+    
+    /// toolbar 是否执行动画
+    var isAnimation: Bool = true
+    
+    /// 自定义键盘
+    lazy var customKeyboard: WBCustomKeyboard = {
+        let mykeyborad = WBCustomKeyboard(frame: CGRect(x: 0, y: 0, width: screenWidh, height: 216))
+        mykeyborad.backgroundColor = UIColor.red
+        return mykeyborad
+    }()
+    
     // 释放通知
     deinit {
         NotificationCenter.default.removeObserver(self)
@@ -302,8 +315,6 @@ extension WBComposeViewController {
         if dataSourceArr.count > 0 {
             // UIImagePNGRepresentation 把图片转换成二进制数据
             imageData = UIImagePNGRepresentation(dataSourceArr[0])
-            
-            print("======******\(imageData)======*******")
         }
         
         NetworkTool.shared.updateStatus(status: status, imageData: imageData) { (response) in
@@ -322,37 +333,55 @@ extension WBComposeViewController {
         
     }
     
-    /// 改变键盘
+    /// 切换键盘
     func changeKeyBoard() {
-        print("改变键盘")
+    
+        isAnimation = false
+        textView.resignFirstResponder() // 收起键盘
+        isAnimation = true
+        
+        //是系统键盘，切换到自定义键盘
+        if keyboardType == 0 {
+            textView.inputView = self.customKeyboard
+            keyboardType = 1
+            
+        }else {
+            textView.inputView = nil
+            keyboardType = 0
+        }
+        // 弹出键盘
+        textView.becomeFirstResponder()
     }
     
     /// 键盘将要改变 frame的时候调用
     ///
     /// - Parameter notification: 通知
     @objc fileprivate func keyboardWillChangeFrame(notification: Notification) {
-        //取到 userInfo
-        if let userInfo = notification.userInfo, let rect = userInfo[UIKeyboardFrameEndUserInfoKey] as? NSValue, let animation = userInfo[UIKeyboardAnimationDurationUserInfoKey] as? TimeInterval {
-            //键盘将要移动到的 y 坐标的值
-            let endY = rect.cgRectValue.origin.y
-            let offset = endY - screenHeight //偏移值
-            
-            //更新 toolBar 的约束
-            toolBar.snp.updateConstraints({ (make) in
-                make.bottom.equalTo(self.view).offset(offset)
-            })
-            
-            //给 toolBar 添加动画
-            UIView.animate(withDuration: animation, animations: { 
-                self.view.layoutIfNeeded()
-            })
-            
+        if isAnimation == true {
+            //取到 userInfo
+            if let userInfo = notification.userInfo, let rect = userInfo[UIKeyboardFrameEndUserInfoKey] as? NSValue, let animation = userInfo[UIKeyboardAnimationDurationUserInfoKey] as? TimeInterval {
+                //键盘将要移动到的 y 坐标的值
+                let endY = rect.cgRectValue.origin.y
+                let offset = endY - screenHeight //偏移值
+                
+                //更新 toolBar 的约束
+                toolBar.snp.updateConstraints({ (make) in
+                    make.bottom.equalTo(self.view).offset(offset)
+                })
+                
+                //给 toolBar 添加动画
+                UIView.animate(withDuration: animation, animations: {
+                    self.view.layoutIfNeeded()
+                })
+                
+            }
         }
     }
     
-    
 }
 
+
+// MARK: - 文本输入代理
 extension WBComposeViewController: UITextViewDelegate {
     
     /// 文本变动

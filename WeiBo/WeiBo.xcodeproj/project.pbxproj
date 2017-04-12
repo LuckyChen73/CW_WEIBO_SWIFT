@@ -21,6 +21,8 @@
 		1F7636661E9CF9B700E0A906 /* WBTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7636651E9CF9B700E0A906 /* WBTextView.swift */; };
 		1F7636681E9E498000E0A906 /* WBComposePicCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7636671E9E498000E0A906 /* WBComposePicCell.swift */; };
 		1F76366A1E9E627D00E0A906 /* NetworkTool+compose.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7636691E9E627D00E0A906 /* NetworkTool+compose.swift */; };
+		1F76366D1E9E76DB00E0A906 /* WBCustomKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F76366C1E9E76DB00E0A906 /* WBCustomKeyboard.swift */; };
+		1F76366F1E9E77A500E0A906 /* WBKeyboardToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F76366E1E9E77A500E0A906 /* WBKeyboardToolbar.swift */; };
 		1F8520E41E90C46F00260C16 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8520E31E90C46F00260C16 /* AppDelegate.swift */; };
 		1F8520E61E90C46F00260C16 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8520E51E90C46F00260C16 /* ViewController.swift */; };
 		1F8520E91E90C46F00260C16 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F8520E71E90C46F00260C16 /* Main.storyboard */; };
@@ -108,6 +110,8 @@
 		1F7636651E9CF9B700E0A906 /* WBTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBTextView.swift; sourceTree = "<group>"; };
 		1F7636671E9E498000E0A906 /* WBComposePicCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBComposePicCell.swift; sourceTree = "<group>"; };
 		1F7636691E9E627D00E0A906 /* NetworkTool+compose.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NetworkTool+compose.swift"; sourceTree = "<group>"; };
+		1F76366C1E9E76DB00E0A906 /* WBCustomKeyboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBCustomKeyboard.swift; sourceTree = "<group>"; };
+		1F76366E1E9E77A500E0A906 /* WBKeyboardToolbar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBKeyboardToolbar.swift; sourceTree = "<group>"; };
 		1F8520E01E90C46F00260C16 /* WeiBo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeiBo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F8520E31E90C46F00260C16 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1F8520E51E90C46F00260C16 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -215,6 +219,15 @@
 			path = "PhotoBroser(图片浏览器)";
 			sourceTree = "<group>";
 		};
+		1F76366B1E9E76C000E0A906 /* CustomKeyboard(自定义键盘) */ = {
+			isa = PBXGroup;
+			children = (
+				1F76366C1E9E76DB00E0A906 /* WBCustomKeyboard.swift */,
+				1F76366E1E9E77A500E0A906 /* WBKeyboardToolbar.swift */,
+			);
+			path = "CustomKeyboard(自定义键盘)";
+			sourceTree = "<group>";
+		};
 		1F8520D71E90C46F00260C16 = {
 			isa = PBXGroup;
 			children = (
@@ -313,6 +326,7 @@
 		1F8520FE1E910CCB00260C16 /* Compose(发布) */ = {
 			isa = PBXGroup;
 			children = (
+				1F76366B1E9E76C000E0A906 /* CustomKeyboard(自定义键盘) */,
 				1F7636631E9CEC8C00E0A906 /* WBComposeViewController.swift */,
 				1F7636651E9CF9B700E0A906 /* WBTextView.swift */,
 				1F7636671E9E498000E0A906 /* WBComposePicCell.swift */,
@@ -636,6 +650,7 @@
 				1F9053CB1E953D7400B65122 /* WBUserModel.swift in Sources */,
 				1FC51CE41E934ECA00C05565 /* Common.swift in Sources */,
 				1F8521161E911B5900260C16 /* WBMessageController.swift in Sources */,
+				1F76366F1E9E77A500E0A906 /* WBKeyboardToolbar.swift in Sources */,
 				1F8521681E91432700260C16 /* UIColor+extension.swift in Sources */,
 				1F8521551E913A8700260C16 /* ConstraintMakerEditable.swift in Sources */,
 				1F8521511E913A8700260C16 /* ConstraintLayoutGuideDSL.swift in Sources */,
@@ -647,6 +662,7 @@
 				1F85210E1E910E8C00260C16 /* WBMainController.swift in Sources */,
 				1F8521561E913A8700260C16 /* ConstraintMakerExtendable.swift in Sources */,
 				1F7634921E9679F500E0A906 /* WBStatusViewModel.swift in Sources */,
+				1F76366D1E9E76DB00E0A906 /* WBCustomKeyboard.swift in Sources */,
 				1F85211E1E91309900260C16 /* WBVisitorView.swift in Sources */,
 				1F8520E61E90C46F00260C16 /* ViewController.swift in Sources */,
 				1F0370E01E95097700C701A1 /* UIIamge+draw.swift in Sources */,
