@@ -36,7 +36,7 @@ class WBStatusToolBar: UIView {
 extension WBStatusToolBar {
     
     func retweeted(button: UIButton) {
-        print("转发微博")
+//        print("转发微博")
     }
 }
 

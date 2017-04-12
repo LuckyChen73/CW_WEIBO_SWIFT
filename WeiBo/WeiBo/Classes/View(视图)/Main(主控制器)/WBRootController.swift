@@ -52,12 +52,10 @@ class WBRootController: UIViewController {
 
 // MARK: - 加载数据
 extension WBRootController {
-    
     func loadData() {
         
-        print("刷新了")
+//        print("刷新了")
     }
-    
 }
 
 
@@ -131,8 +129,6 @@ extension WBRootController: WBVisitorViewDelegate {
 extension WBRootController {
     //接收通知后的事件
     func loginSuccess() {
-        
-         print("你好")
         
         visitorView?.removeFromSuperview()
         

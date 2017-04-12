@@ -99,7 +99,7 @@ extension WBLogInController: UIWebViewDelegate {
                 //使用 code 获取 token
                 NetworkTool.shared.requestToken(code: code, callBack: { (tokenDict) in
                     //空合运算符，如果 tokenDict 没有值就会打印 ?? 后面的值
-                    print(tokenDict ?? "没有token")
+//                    print(tokenDict ?? "没有token")
 
                     //获取用户名和头像
                     if let tokenDict = tokenDict as? [String: Any] {
@@ -108,7 +108,7 @@ extension WBLogInController: UIWebViewDelegate {
                         
                         //调用网络中间层的分类中获取用户信息的方法
                         NetworkTool.shared.requestUser(uid: uid, accessToken: token, callBack: { (userDict) in
-                            print(userDict ?? "没有用户信息")
+//                            print(userDict ?? "没有用户信息")
                             
                             //判断 userDict 是否有值
                             if var userDict = userDict as? [String: Any] {

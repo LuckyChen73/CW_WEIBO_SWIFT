@@ -88,15 +88,11 @@ extension WBComposePicCell {
     
     /// 添加或更换图片
     @objc fileprivate func addOrReplacePicture() {
-        print("添加或更换")
-        
         delegate?.addOrReplacePicture(cell: self)
     }
     
     /// 删除图片
     @objc fileprivate func deletePicture() {
-         print("删除")
-        
         delegate?.deletePicture(cell: self)
     }
 }

@@ -109,7 +109,7 @@ extension WBStatusPictureView {
 // MARK: - 事件处理
 extension WBStatusPictureView {
     @objc func imageClicked(tap: UITapGestureRecognizer) {
-        print(tap)
+//        print(tap)
         
         //需要将当前的配图视图的所有图片的 url 数组和被点击的图片的 index 传给图片视图控制浏览器
         var index = tap.view!.tag - baseTag

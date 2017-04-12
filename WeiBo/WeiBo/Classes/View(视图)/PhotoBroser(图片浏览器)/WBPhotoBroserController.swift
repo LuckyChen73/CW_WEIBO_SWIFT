@@ -97,7 +97,6 @@ extension WBPhotoBroserController: UIPageViewControllerDataSource {
         let currentIndex = (viewController as! WBPhotoViewController).index
         //再判断
         if currentIndex == 0 {
-            print("到头了")
             return nil
         }
         
@@ -117,7 +116,6 @@ extension WBPhotoBroserController: UIPageViewControllerDataSource {
         let currentIndex = (viewController as! WBPhotoViewController).index
         //判断是否到尾
         if currentIndex == pic_urls.count - 1 {
-            print("到尾了")
             return nil
 
         }
