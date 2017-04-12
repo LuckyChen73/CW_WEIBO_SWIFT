@@ -50,6 +50,24 @@ class NetworkTool: AFHTTPSessionManager {
         }
     }
     
-    
+    /// 网络中间层: 发起二进制的文件数据请求
+    ///
+    /// - Parameters:
+    ///   - url: url字符串
+    ///   - parameters: 文本参数
+    ///   - data: 文件的二进制数据
+    ///   - name: 服务器接收文件数据所需要的key
+    ///   - fileName: 建议服务器保存的文件的名字
+    ///   - callBack: 完成回调
+    func upload(url: String, parameters: Any?, data: Data, name: String, fileName: String, callBack: @escaping (Any?)->()) {
+        self.post(url, parameters: parameters, constructingBodyWith: { (formData) in
+            formData.appendPart(withFileData: data, name: name, fileName: fileName, mimeType: "application/octet-stream")
+        }, progress: nil, success: { (_, response) in
+            callBack(response)
+        }) { (_, error) in
+            print(error)
+            callBack(nil)
+        }
+    }
     
 }

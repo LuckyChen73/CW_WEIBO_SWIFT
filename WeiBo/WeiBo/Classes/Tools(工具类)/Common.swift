@@ -35,7 +35,19 @@ let loginSuccessNotification = Notification.Name(rawValue: "loginSuccessNotifica
 let pictureViewClickedNotification = Notification.Name(rawValue: "pictureViewClickedNotification")
 
 
+//MARK: - 延迟执行的全局的方法
 
+/// 延迟执行的方法
+///
+/// - Parameters:
+///   - seconds: 秒数
+///   - afterToDo: 需要延迟执行的闭包(就是需要延迟执行的那件事)
+func after(_ seconds: Int, _ afterToDo: @escaping ()->()) {
+    let deadlineTime = DispatchTime.now() + .seconds(seconds)
+    DispatchQueue.main.asyncAfter(deadline: deadlineTime) {
+        afterToDo()
+    }
+}
 
 
 

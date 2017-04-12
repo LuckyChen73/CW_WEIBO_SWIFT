@@ -64,4 +64,41 @@ extension UIImage {
     }
 
 
+    
+    /// 重设图片的大小
+    ///
+    /// - Parameters:
+    ///   - color: 颜色
+    ///   - size: 大小
+    ///   - callBack: 完成回调
+    func resizeImage(color: UIColor = UIColor.white, size: CGSize = CGSize(width: 1, height: 1), callBack:@escaping (UIImage?)->()) {
+        
+        DispatchQueue.global().async {
+            let rect = CGRect(origin: CGPoint.zero, size: size)
+            
+            //1. 开始图形上下文
+            UIGraphicsBeginImageContext(size)
+            
+            //2. 设置颜色
+            color.setFill()
+            
+            //3. 颜色填充
+            UIRectFill(rect)
+            
+            self.draw(in: rect)
+            
+            //4. 从图形上下文获取图片
+            let image = UIGraphicsGetImageFromCurrentImageContext()
+            
+            //5. 关闭图形上下文
+            UIGraphicsEndImageContext()
+            
+            //在主线程更新UI
+            DispatchQueue.main.async {
+                callBack(image)
+            }
+        }
+    }
+    
+    
 }

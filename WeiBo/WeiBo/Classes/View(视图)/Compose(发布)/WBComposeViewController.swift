@@ -222,22 +222,24 @@ extension WBComposeViewController: UIImagePickerControllerDelegate, UINavigation
     ///   - info: 图片参数
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         
-        let image = info[UIImagePickerControllerOriginalImage] as! UIImage
+        let originalImage = info[UIImagePickerControllerOriginalImage] as! UIImage
+        originalImage.resizeImage(size: CGSize(width:100, height:100)) { (image) in
         
-        //判断图片是添加，替换
-        if selectedIndex == dataSourceArr.count {
-            //选中的是加号按钮,添加图片
-            dataSourceArr.append(image)
-        }else {
-            //替换
-            dataSourceArr[selectedIndex] = image
+            //判断图片是添加，替换
+            if self.selectedIndex == self.dataSourceArr.count {
+                //选中的是加号按钮,添加图片
+                self.dataSourceArr.append(image!)
+            }else {
+                //替换
+                self.dataSourceArr[self.selectedIndex] = image!
+            }
+            
+            //刷新 collectionView
+            self.pictureView.reloadData()
+            
+            //dismiss
+            self.dismiss(animated: true, completion: nil)
         }
-        
-        //刷新 collectionView
-        pictureView.reloadData()
-        
-        //dismiss
-        self.dismiss(animated: true, completion: nil)
     }
     
 }
@@ -293,11 +295,29 @@ extension WBComposeViewController {
         //显示正在转动的菊花
         SVProgressHUD.show()
         let status = (textView.text)!
-        NetworkTool.shared.updateStatus(status: status) { (response) in
+        
+        //默认值为 nil
+        var imageData: Data?
+        
+        if dataSourceArr.count > 0 {
+            // UIImagePNGRepresentation 把图片转换成二进制数据
+            imageData = UIImagePNGRepresentation(dataSourceArr[0])
+            
+            print("======******\(imageData)======*******")
+        }
+        
+        NetworkTool.shared.updateStatus(status: status, imageData: imageData) { (response) in
             //消除菊花
             SVProgressHUD.dismiss()
             
-            self.dismiss(animated: true, completion: nil)
+            //重设第一响应者，收起键盘
+            self.textView.resignFirstResponder()
+            
+            //延迟一秒执行
+            after(1, { 
+                self.dismiss(animated: true, completion: nil)
+            })
+            
         }
         
     }
