@@ -43,7 +43,7 @@ class WBComposeViewController: UIViewController {
         
         collectionView.dataSource = self
         collectionView.delegate = self
-        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: identifier)
+        collectionView.register(WBComposePicCell.self, forCellWithReuseIdentifier: identifier)
         
         return collectionView
     }()
@@ -181,6 +181,7 @@ extension WBComposeViewController {
     
     
     
+    
 }
 
 // MARK: - UICollectionViewDelegate, UICollectionViewDataSource
@@ -188,7 +189,7 @@ extension WBComposeViewController: UICollectionViewDelegate, UICollectionViewDat
     
     /// 返回每一个 item
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath) as! WBComposePicCell
         cell.backgroundColor = UIColor.randomColor()
         return cell
     }
