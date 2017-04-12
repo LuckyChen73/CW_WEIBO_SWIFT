@@ -20,13 +20,22 @@ class WBComposeViewController: UIViewController {
         return composeBtn
     }()
     
+    //1. 创建一个toolBar
+    lazy var toolBar = UIToolbar()
+    
+    // 释放通知
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
         
+        //监听键盘的变化
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChangeFrame(notification:)), name: NSNotification.Name.UIKeyboardWillChangeFrame, object: nil)
     }
-
 
 }
 
@@ -96,9 +105,12 @@ extension WBComposeViewController {
     
     /// 添加 toolBar
     func addToolBar() {
-        //1. 创建一个toolBar
-        let toolBar = UIToolbar()
+
         self.view.addSubview(toolBar)
+        
+        //设置toolBar的背景图片
+        toolBar.setShadowImage(UIImage.pureImage(color: UIColor(white: 0.9, alpha: 0.9)), forToolbarPosition: .any)
+        toolBar.setBackgroundImage(UIImage(named: "compose_toolbar_background"), forToolbarPosition: .any, barMetrics: .default)
         
         //设置toolBar的自动布局
         //toolBar有默认高度, 所以不需要设高度
@@ -152,7 +164,30 @@ extension WBComposeViewController {
         print("改变键盘")
     }
     
-    
+    /// 键盘将要改变 frame的时候调用
+    ///
+    /// - Parameter notification: 通知
+    @objc fileprivate func keyboardWillChangeFrame(notification: Notification) {
+        //取到 userInfo
+        if let userInfo = notification.userInfo, let rect = userInfo[UIKeyboardFrameEndUserInfoKey] as? NSValue, let animation = userInfo[UIKeyboardAnimationDurationUserInfoKey] as? TimeInterval {
+            //键盘将要移动到的 y 坐标的值
+            let endY = rect.cgRectValue.origin.y
+            let offset = endY - screenHeight //偏移值
+            
+            //更新 toolBar 的约束
+            toolBar.snp.updateConstraints({ (make) in
+                make.bottom.equalTo(self.view).offset(offset)
+            })
+            
+            //给 toolBar 添加动画
+            UIView.animate(withDuration: animation, animations: { 
+                self.view.layoutIfNeeded()
+            })
+            
+        }
+        
+        
+    }
     
     
 }
