@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SVProgressHUD
 
 private let identifier = "identifier"
 
@@ -288,6 +289,17 @@ extension WBComposeViewController {
     /// 发布微博
     func compose() {
         print("发布微博")
+        
+        //显示正在转动的菊花
+        SVProgressHUD.show()
+        let status = (textView.text)!
+        NetworkTool.shared.updateStatus(status: status) { (response) in
+            //消除菊花
+            SVProgressHUD.dismiss()
+            
+            self.dismiss(animated: true, completion: nil)
+        }
+        
     }
     
     /// 改变键盘
