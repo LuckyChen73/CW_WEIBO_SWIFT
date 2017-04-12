@@ -8,7 +8,18 @@
 
 import UIKit
 
+//协议
+protocol WBComposePicCellDelegate: NSObjectProtocol {
+    //添加或替换图片
+    func addOrReplacePicture(cell: WBComposePicCell)
+    //删除图片
+    func deletePicture(cell: WBComposePicCell)
+}
+
+
 class WBComposePicCell: UICollectionViewCell {
+    // 代理属性
+    weak var delegate: WBComposePicCellDelegate?
     
     /// 添加或替换图片的按钮
     lazy var addOrReplaceButton: UIButton = UIButton(title: nil, target: self, selector: #selector(addOrReplacePicture), events: UIControlEvents.touchUpInside, bgImage: "compose_pic_add")
@@ -32,7 +43,6 @@ class WBComposePicCell: UICollectionViewCell {
 
         }
     }
-    
     
     
     override init(frame: CGRect) {
@@ -77,15 +87,17 @@ extension WBComposePicCell {
 extension WBComposePicCell {
     
     /// 添加或更换图片
-    func addOrReplacePicture() {
-        
+    @objc fileprivate func addOrReplacePicture() {
         print("添加或更换")
+        
+        delegate?.addOrReplacePicture(cell: self)
     }
     
     /// 删除图片
-    func deletePicture() {
-        
+    @objc fileprivate func deletePicture() {
          print("删除")
+        
+        delegate?.deletePicture(cell: self)
     }
 }
 
