@@ -9,7 +9,7 @@
 import UIKit
 import SDWebImage
 
-let baseTag = 888
+fileprivate let baseTag = 888
 
 class WBStatusPictureView: UIView {
 
