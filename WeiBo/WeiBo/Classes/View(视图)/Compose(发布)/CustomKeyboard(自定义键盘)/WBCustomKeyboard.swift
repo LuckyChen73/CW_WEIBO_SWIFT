@@ -28,7 +28,7 @@ fileprivate class EmotionLayout: UICollectionViewFlowLayout
 class WBCustomKeyboard: UIView {
 
     //测试数据数组
-    var dataSourceArr = [[1, 2, 3], [1, 2], [1, 2, 3, 4], [1, 2]]
+    var dataSourceArr = WBEmotionTool.shared.dataSourceArr
     
     /// 表情的collectionView
     lazy var emotionView: UICollectionView = {
