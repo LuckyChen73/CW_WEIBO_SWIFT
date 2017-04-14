@@ -89,7 +89,8 @@ extension WBCustomKeyboard: WBKeyboardToolbarDelegate {
         let indexPath = IndexPath(item: 0, section: section)
         //滚动到对应路径的item
         emotionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: false)
-        
+        //分页指示器跟着连动
+        setupPageControl(indexPath: indexPath)
     }
     
 }
