@@ -32,7 +32,11 @@ let globalColor: UIColor = UIColor.orange
 //登录成功通知
 let loginSuccessNotification = Notification.Name(rawValue: "loginSuccessNotification")
 
+//点击配图视图的单张图片的通知
 let pictureViewClickedNotification = Notification.Name(rawValue: "pictureViewClickedNotification")
+
+//点击表情键盘的按钮的通知
+let emotionButtonClickedNotification = Notification.Name(rawValue: "emotionButtonClickedNotification")
 
 
 //MARK: - 延迟执行的全局的方法

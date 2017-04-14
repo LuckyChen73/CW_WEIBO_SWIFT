@@ -102,13 +102,28 @@ extension WBEmotionCell {
 extension WBEmotionCell {
     
     func emotionClicked(button: UIButton) {
-        
+        //获取到被点击的表情的按钮的tag
         let tag = button.tag - baseTag
         
+        //是否是插入操作
+        var isInsert = true
+        
+        //是否是删除操作, 如果是删除操作, 传递一个action, 告诉接收者是删除事件
         if tag == 20 {
             print("删除")
+            isInsert = false
+            let userInfo: [String: Any] = ["action": isInsert]
+            let notification = Notification(name: emotionButtonClickedNotification, object: nil, userInfo: userInfo)
+            NotificationCenter.default.post(notification)
         } else {
             print("输入")
+            //如果是插入操作,将需要插入的表情模型传出
+            let emotionModel = emotions?[tag]
+            //将表情和插入操作一起作为字典参数传过去
+            let userInfo: [String: Any] = ["emotion": emotionModel!, "action": isInsert]
+            let notification = Notification(name: emotionButtonClickedNotification, object: nil, userInfo: userInfo)
+            NotificationCenter.default.post(notification)
+            
         }
         
         

@@ -81,10 +81,41 @@ class WBComposeViewController: UIViewController {
         
         //监听键盘的变化
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChangeFrame(notification:)), name: NSNotification.Name.UIKeyboardWillChangeFrame, object: nil)
+   
+        //接收插入或是删除的通知
+        NotificationCenter.default.addObserver(self, selector: #selector(insertOrDeleteEmotion(notification:)), name: emotionButtonClickedNotification, object: nil)
+    
     }
 
 
 }
+
+// MARK: - 处理插入或删除文本的操作
+extension WBComposeViewController {
+    
+    @objc fileprivate func insertOrDeleteEmotion(notification: Notification) {
+        
+        //print(notification)
+        if let userInfo = notification.userInfo, let action = userInfo["action"] as? Bool {
+            //删除操作
+            if action == false {
+                print("删除")
+            }
+            //插入操作
+            else {
+                // 取出表情
+                if let emotion = userInfo["emotion"] as? WBEmotionModel {
+                    print("插入")
+                    
+                }
+            }
+        }
+
+    }
+    
+    
+}
+
 
 // MARK: - 搭建 UI
 extension WBComposeViewController {
@@ -101,6 +132,7 @@ extension WBComposeViewController {
         addToolBar()
         // 添加配图视图
         addPictureView()
+        
         
     }
     
