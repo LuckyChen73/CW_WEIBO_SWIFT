@@ -39,7 +39,7 @@ class WBCustomKeyboard: UIView {
         collectionView.isPagingEnabled = true
         collectionView.delegate = self
         
-        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: identifier)
+        collectionView.register(WBEmotionCell.self, forCellWithReuseIdentifier: identifier)
         
         return collectionView
     }()
@@ -183,24 +183,17 @@ extension WBCustomKeyboard {
 extension WBCustomKeyboard: UICollectionViewDataSource {
     //多少组
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return dataSourceArr.count
+        return dataSourceArr.count //这里返回4个大组
     }
     //每组多少 item
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return dataSourceArr[section].count
+        return dataSourceArr[section].count // 返回每个大组里的小组的个数
     }
     //具体 item
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath)
-        cell.backgroundColor = UIColor.randomColor()
-        
-        //在创建 lab 之前先将之前的创建的 lab 对应的 view 移除，这样就可以防止 cell 的重用
-        cell.contentView.viewWithTag(55)?.removeFromSuperview()
-        let lable = UILabel(title: "section:\(indexPath.section), item:\(indexPath.item)", fontSize: 40, alignment: .center)
-        lable.sizeToFit()
-        lable.tag = 55
-        lable.center = cell.contentView.center
-        cell.contentView.addSubview(lable)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath) as! WBEmotionCell
+        //先通过组取，再通过item取，得到一维模型数组
+        cell.emotions = dataSourceArr[indexPath.section][indexPath.item]
         
         return cell
     }
