@@ -27,6 +27,9 @@ fileprivate class EmotionLayout: UICollectionViewFlowLayout
 
 class WBCustomKeyboard: UIView {
 
+    //测试数据数组
+    var dataSourceArr = [[1, 2, 3], [1, 2], [1, 2, 3, 4], [1, 2]]
+    
     /// 表情的collectionView
     lazy var emotionView: UICollectionView = {
         //创建collectionView
@@ -46,6 +49,11 @@ class WBCustomKeyboard: UIView {
         let pageControl = UIPageControl()
         pageControl.numberOfPages = 4
         pageControl.currentPage = 0
+        
+        pageControl.isEnabled = false
+        //默认显示4页
+        pageControl.numberOfPages = self.dataSourceArr[0].count
+        
         pageControl.setValue(UIImage(named: "compose_keyboard_dot_normal"), forKey: "_pageImage")//默认的小图片
         pageControl.setValue(UIImage(named: "compose_keyboard_dot_selected"), forKey: "_currentPageImage") // 选中的图片
         
@@ -59,8 +67,7 @@ class WBCustomKeyboard: UIView {
         return toolBar
     }()
     
-    //测试数据数组
-    var dataSourceArr = [[1, 2, 3], [1, 2], [1, 2, 3, 4], [1, 2]]
+    
 
     
     override init(frame: CGRect) {
@@ -114,11 +121,12 @@ extension WBCustomKeyboard: UICollectionViewDelegate {
                 //取到 cell1所在的下标路径
                 let indexPath1 = emotionView.indexPath(for: cell1)
                 toolBar.selectedIndex = (indexPath1?.section)!
+                setupPageControl(indexPath: indexPath1!)
                 
             }else {
                 let indexPath2 = emotionView.indexPath(for: cell2)
                 toolBar.selectedIndex = (indexPath2?.section)!
-                
+                setupPageControl(indexPath: indexPath2!)
             }
             
             
@@ -139,8 +147,6 @@ extension WBCustomKeyboard {
         addSubview(toolBar)
         
         emotionView.backgroundColor = UIColor.yellow
-        pageControl.backgroundColor = UIColor.green
-        toolBar.backgroundColor = UIColor.blue
         
         emotionView.snp.makeConstraints { (make) in
             make.left.right.top.equalTo(self)
@@ -159,6 +165,13 @@ extension WBCustomKeyboard {
             make.height.equalTo(37)
         }
  
+    }
+    
+    
+    /// 创建分页指示器
+    func setupPageControl(indexPath: IndexPath) {
+        pageControl.numberOfPages = dataSourceArr[indexPath.section].count
+        pageControl.currentPage = indexPath.item
     }
     
     
