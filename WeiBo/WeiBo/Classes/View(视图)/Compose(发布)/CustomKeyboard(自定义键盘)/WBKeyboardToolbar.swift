@@ -12,6 +12,19 @@ fileprivate let baseTag = 88
 
 class WBKeyboardToolbar: UIStackView {
 
+    /// 记录选中的button
+    var selectedButton: UIButton?
+    
+    var selectedIndex: Int = 0 {
+        didSet {
+            let selectedTag = selectedIndex + baseTag
+            let button = viewWithTag(selectedTag) as! UIButton
+            selectedButton?.isSelected = false
+            button.isSelected = true
+            selectedButton = button
+        }
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         //水平还是垂直分布
@@ -21,6 +34,9 @@ class WBKeyboardToolbar: UIStackView {
         
         setupUI()
     }
+    
+    
+    
     
     required init(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -58,6 +74,12 @@ extension WBKeyboardToolbar {
             //和addSubView的效果是一样的
             addArrangedSubview(button)
             
+            //默认选中第一个按钮
+            if index == 0 {
+                button.isSelected = true
+                selectedButton = button
+            }
+            
         }
         
         
@@ -74,7 +96,9 @@ extension WBKeyboardToolbar {
 extension WBKeyboardToolbar {
     /// 切换键盘
     func toggleKeyobard(button: UIButton) {
-        
+        selectedButton?.isSelected = false
+        button.isSelected = true
+        selectedButton = button
         
         
     }
