@@ -65,14 +65,14 @@ class WBComposeViewController: UIViewController {
     /// 自定义键盘
     lazy var customKeyboard: WBCustomKeyboard = {
         let mykeyborad = WBCustomKeyboard(frame: CGRect(x: 0, y: 0, width: screenWidh, height: 216))
-        mykeyborad.backgroundColor = UIColor.red
+        mykeyborad.backgroundColor = UIColor(patternImage: UIImage(named: "emoticon_keyboard_background")!)
         return mykeyborad
     }()
     
     // 释放通知
-    deinit {
-        NotificationCenter.default.removeObserver(self)
-    }
+//    deinit {
+//        NotificationCenter.default.removeObserver(self)
+//    }
     
     
     override func viewDidLoad() {
@@ -373,11 +373,9 @@ extension WBComposeViewController {
                 UIView.animate(withDuration: animation, animations: {
                     self.view.layoutIfNeeded()
                 })
-                
             }
         }
     }
-    
 }
 
 

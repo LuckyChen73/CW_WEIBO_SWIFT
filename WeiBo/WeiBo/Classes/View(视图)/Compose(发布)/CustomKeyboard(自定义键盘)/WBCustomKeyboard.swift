@@ -10,20 +10,31 @@ import UIKit
 
 fileprivate let identifier = "emotion"
 
+
+/// UICollectionViewFlowLayoutl类
+fileprivate class EmotionLayout: UICollectionViewFlowLayout
+{
+    override func prepare() {
+        super.prepare()
+        //设置layout
+        minimumLineSpacing = 0
+        minimumInteritemSpacing = 0
+        itemSize = CGSize(width: screenWidh, height: 150)
+        scrollDirection = .horizontal
+    }
+
+}
+
 class WBCustomKeyboard: UIView {
 
     /// 表情的collectionView
     lazy var emotionView: UICollectionView = {
-        //设置layout
-        let layout = UICollectionViewFlowLayout()
-        let cellWH = (screenWidh - 40)/3
-        layout.itemSize = CGSize(width: cellWH, height: cellWH)
-        layout.minimumLineSpacing = 10
-        layout.minimumInteritemSpacing = 10
-        
         //创建collectionView
-        let collectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout)
+        let collectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: EmotionLayout())
         collectionView.dataSource = self
+        collectionView.showsHorizontalScrollIndicator = false
+        collectionView.isPagingEnabled = true
+        
         collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: identifier)
         
         return collectionView
@@ -32,6 +43,11 @@ class WBCustomKeyboard: UIView {
     /// pageControl 分页指示器
     lazy var pageControl: UIPageControl = {
         let pageControl = UIPageControl()
+        pageControl.numberOfPages = 4
+        pageControl.currentPage = 0
+        pageControl.setValue(UIImage(named: "compose_keyboard_dot_normal"), forKey: "_pageImage")//默认的小图片
+        pageControl.setValue(UIImage(named: "compose_keyboard_dot_selected"), forKey: "_currentPageImage") // 选中的图片
+        
         return pageControl
     }()
     
@@ -63,19 +79,19 @@ extension WBCustomKeyboard {
         
         emotionView.snp.makeConstraints { (make) in
             make.left.right.top.equalTo(self)
-            make.height.equalTo(150)
+            make.height.equalTo(160)
         }
         
         pageControl.snp.makeConstraints { (make) in
-            make.top.equalTo(emotionView.snp.bottom).offset(10)
-            make.height.equalTo(30)
+            make.top.equalTo(emotionView.snp.bottom)
+            make.height.equalTo(19)
             make.left.right.equalTo(self)
             make.centerX.equalTo(self)
         }
         
         toolBar.snp.makeConstraints { (make) in
             make.left.right.bottom.equalTo(self)
-            make.height.equalTo(36)
+            make.height.equalTo(37)
         }
 
         
