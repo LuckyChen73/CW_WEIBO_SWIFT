@@ -92,6 +92,7 @@
 		1FC51CE21E9347F900C05565 /* NetworkTool+Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC51CE11E9347F900C05565 /* NetworkTool+Login.swift */; };
 		1FC51CE41E934ECA00C05565 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC51CE31E934ECA00C05565 /* Common.swift */; };
 		1FC51CE61E9394E500C05565 /* WBUserAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC51CE51E9394E500C05565 /* WBUserAccount.swift */; };
+		1FFF83341EA1031B00F4B552 /* WBEmotionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FFF83331EA1031B00F4B552 /* WBEmotionModel.swift */; };
 		67179E1939EBAFFA5E876D4C /* Pods_WeiBo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7608C7B377F7D9B05BA881D /* Pods_WeiBo.framework */; };
 /* End PBXBuildFile section */
 
@@ -184,6 +185,7 @@
 		1FC51CE11E9347F900C05565 /* NetworkTool+Login.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NetworkTool+Login.swift"; sourceTree = "<group>"; };
 		1FC51CE31E934ECA00C05565 /* Common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
 		1FC51CE51E9394E500C05565 /* WBUserAccount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBUserAccount.swift; sourceTree = "<group>"; };
+		1FFF83331EA1031B00F4B552 /* WBEmotionModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBEmotionModel.swift; sourceTree = "<group>"; };
 		4E7289ED921CA0819BD97ECC /* Pods-WeiBo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeiBo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WeiBo/Pods-WeiBo.debug.xcconfig"; sourceTree = "<group>"; };
 		7F6FDDDA984CB1827CE52D43 /* Pods-WeiBo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeiBo.release.xcconfig"; path = "Pods/Target Support Files/Pods-WeiBo/Pods-WeiBo.release.xcconfig"; sourceTree = "<group>"; };
 		D7608C7B377F7D9B05BA881D /* Pods_WeiBo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WeiBo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -275,6 +277,7 @@
 				1F9053C61E953D5200B65122 /* WBPictureModel.swift */,
 				1F9053C81E953D6400B65122 /* WBStatusModel.swift */,
 				1F9053CA1E953D7400B65122 /* WBUserModel.swift */,
+				1FFF83331EA1031B00F4B552 /* WBEmotionModel.swift */,
 			);
 			path = "Model(模型)";
 			sourceTree = "<group>";
@@ -653,6 +656,7 @@
 				1F76366F1E9E77A500E0A906 /* WBKeyboardToolbar.swift in Sources */,
 				1F8521681E91432700260C16 /* UIColor+extension.swift in Sources */,
 				1F8521551E913A8700260C16 /* ConstraintMakerEditable.swift in Sources */,
+				1FFF83341EA1031B00F4B552 /* WBEmotionModel.swift in Sources */,
 				1F8521511E913A8700260C16 /* ConstraintLayoutGuideDSL.swift in Sources */,
 				1F7634F31E99495C00E0A906 /* WBPhotoViewController.swift in Sources */,
 				1F85211A1E911B8B00260C16 /* WBProfileController.swift in Sources */,
