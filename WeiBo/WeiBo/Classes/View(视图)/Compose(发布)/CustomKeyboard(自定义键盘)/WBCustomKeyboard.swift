@@ -34,6 +34,7 @@ class WBCustomKeyboard: UIView {
         collectionView.dataSource = self
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.isPagingEnabled = true
+        collectionView.delegate = self
         
         collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: identifier)
         
@@ -85,6 +86,50 @@ extension WBCustomKeyboard: WBKeyboardToolbarDelegate {
     }
     
 }
+
+// MARK: - 监听手动拖拽emotionView滚动的代理 UICollectionViewDelegate
+extension WBCustomKeyboard: UICollectionViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        //1.拿到两个 cells
+        let cells = emotionView.visibleCells
+        //2.获取 cell在屏幕显示的区域
+        if cells.count > 1 {
+            let cell1 = cells[0]
+            let cell2 = cells[1]
+            
+            //判断 offset与 cell 的 originX 的差值的绝对值的大小，绝对值越小，显示区域越大
+            let offset = scrollView.contentOffset.x
+            let originX1 = cell1.frame.origin.x
+            let originX2 = cell2.frame.origin.x
+            
+//            print("offset:  \(offset)")
+//            print("originX1:\(originX1)")
+//            print("originX2:\(originX2)")
+//            print("================================")
+
+            let origin1 = abs(offset - originX1)
+            let origin2 = abs(offset - originX2)
+          
+            if origin1 < origin2 {
+                //取到 cell1所在的下标路径
+                let indexPath1 = emotionView.indexPath(for: cell1)
+                toolBar.selectedIndex = (indexPath1?.section)!
+                
+            }else {
+                let indexPath2 = emotionView.indexPath(for: cell2)
+                toolBar.selectedIndex = (indexPath2?.section)!
+                
+            }
+            
+            
+        }
+        
+        
+        
+    }
+    
+}
+
 
 // MARK: - UI 搭建
 extension WBCustomKeyboard {
