@@ -38,7 +38,6 @@ extension NetworkTool {
                     callBack(nil)
                 }
             }
-            
         }) { (_, error) in
             print(error)
             callBack(nil)

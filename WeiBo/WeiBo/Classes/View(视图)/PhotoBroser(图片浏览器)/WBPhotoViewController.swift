@@ -71,7 +71,7 @@ extension WBPhotoViewController {
         let url = URL(string: pic_urls[index])
         
         SDWebImageManager.shared().downloadImage(with: url!, options: [], progress: nil) { (image, _, _, _, _) in
-            print("~~~~~\(image)~~~~")
+            
             if let image = image {
                 //先给图片赋值
                 self.imageView.image = image

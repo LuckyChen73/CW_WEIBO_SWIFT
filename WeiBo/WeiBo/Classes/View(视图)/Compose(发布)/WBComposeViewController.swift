@@ -285,7 +285,7 @@ extension WBComposeViewController: UICollectionViewDelegate, UICollectionViewDat
     
     /// 选中 item 时会调用
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print(indexPath.item)
+//        print(indexPath.item)
     }
     
 }

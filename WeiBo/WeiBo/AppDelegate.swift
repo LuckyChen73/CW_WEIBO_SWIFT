@@ -18,6 +18,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         //print(NSHomeDirectory())
         
+//        print(WBUserAccount.shared.access_token)
+        
         
         window = UIWindow(frame: UIScreen.main.bounds)
         
