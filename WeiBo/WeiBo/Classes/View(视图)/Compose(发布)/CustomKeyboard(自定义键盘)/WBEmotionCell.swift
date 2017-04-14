@@ -49,14 +49,20 @@ class WBEmotionCell: UICollectionViewCell {
 
 // MARK: - UI 搭建
 extension WBEmotionCell {
-    
     func setupUI() {
         
         //1. 创建二十一个button
         let buttonWH = screenWidh/7
         let firstRect = CGRect(x: 0, y: 0, width: buttonWH, height: buttonWH)
         for i in 0..<21 {
-            let button = UIButton(title: nil, target: self, selector: #selector(emotionClicked(button:)), image: nil)
+            var image: String?
+            
+            //最后一个 button，是删除
+            if i == 20 {
+                image = "compose_emotion_delete"
+            }
+            
+            let button = UIButton(title: nil, target: self, selector: #selector(emotionClicked(button:)), image: image)
             button.backgroundColor = UIColor.randomColor()
             button.tag = i + baseTag
             
@@ -80,7 +86,13 @@ extension WBEmotionCell {
     
     func emotionClicked(button: UIButton) {
         
+        let tag = button.tag - baseTag
         
+        if tag == 20 {
+            print("删除")
+        } else {
+            print("输入")
+        }
         
         
     }
