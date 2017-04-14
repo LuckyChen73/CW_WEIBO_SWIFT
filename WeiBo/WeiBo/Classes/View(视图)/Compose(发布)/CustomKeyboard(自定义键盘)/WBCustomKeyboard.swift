@@ -52,7 +52,15 @@ class WBCustomKeyboard: UIView {
     }()
     
     /// 底部的toolBar
-    lazy var toolBar: WBKeyboardToolbar = WBKeyboardToolbar()
+    lazy var toolBar: WBKeyboardToolbar = {
+        let toolBar = WBKeyboardToolbar()
+        toolBar.delegate = self
+        return toolBar
+    }()
+    
+    //测试数据数组
+    var dataSourceArr = [[1, 2, 3], [1, 2], [1, 2, 3, 4], [1, 2]]
+
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -65,9 +73,21 @@ class WBCustomKeyboard: UIView {
     
 }
 
+// MARK: - 底部键盘工具条代理 WBKeyboardToolbarDelegate
+extension WBCustomKeyboard: WBKeyboardToolbarDelegate {
+    /// 实现代理方法
+    func toggleKeyboard(section: Int) {
+        //先取到要移动到的 item 的下标路径
+        let indexPath = IndexPath(item: 0, section: section)
+        //滚动到对应路径的item
+        emotionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: false)
+        
+    }
+    
+}
+
 // MARK: - UI 搭建
 extension WBCustomKeyboard {
-    
     func setupUI() {
         addSubview(emotionView)
         addSubview(pageControl)
@@ -93,8 +113,7 @@ extension WBCustomKeyboard {
             make.left.right.bottom.equalTo(self)
             make.height.equalTo(37)
         }
-
-        
+ 
     }
     
     
@@ -103,17 +122,27 @@ extension WBCustomKeyboard {
 
 // MARK: - 数据源方法
 extension WBCustomKeyboard: UICollectionViewDataSource {
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 6
-    }
+    //多少组
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 4
+        return dataSourceArr.count
     }
-    
+    //每组多少 item
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return dataSourceArr[section].count
+    }
+    //具体 item
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath)
         cell.backgroundColor = UIColor.randomColor()
+        
+        //在创建 lab 之前先将之前的创建的 lab 对应的 view 移除，这样就可以防止 cell 的重用
+        cell.contentView.viewWithTag(55)?.removeFromSuperview()
+        let lable = UILabel(title: "section:\(indexPath.section), item:\(indexPath.item)", fontSize: 40, alignment: .center)
+        lable.sizeToFit()
+        lable.tag = 55
+        lable.center = cell.contentView.center
+        cell.contentView.addSubview(lable)
+        
         return cell
     }
     

@@ -10,8 +10,21 @@ import UIKit
 
 fileprivate let baseTag = 88
 
-class WBKeyboardToolbar: UIStackView {
 
+/// 协议
+protocol WBKeyboardToolbarDelegate: NSObjectProtocol {
+    /// 代理方法
+    ///
+    /// - Parameter section: <#section description#>
+    func toggleKeyboard(section: Int)
+}
+
+
+class WBKeyboardToolbar: UIStackView {
+    
+    /// 代理
+    weak var delegate: WBKeyboardToolbarDelegate?
+    
     /// 记录选中的button
     var selectedButton: UIButton?
     
@@ -34,10 +47,7 @@ class WBKeyboardToolbar: UIStackView {
         
         setupUI()
     }
-    
-    
-    
-    
+
     required init(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -81,15 +91,8 @@ extension WBKeyboardToolbar {
             }
             
         }
-        
-        
-        
-        
-        
+
     }
-    
-    
-    
 }
 
 // MARK: - 点击事件的处理
@@ -100,7 +103,8 @@ extension WBKeyboardToolbar {
         button.isSelected = true
         selectedButton = button
         
-        
+        //响应代理方法
+        delegate?.toggleKeyboard(section: button.tag - baseTag)
     }
     
     
