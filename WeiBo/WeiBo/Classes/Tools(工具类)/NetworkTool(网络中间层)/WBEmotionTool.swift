@@ -66,6 +66,14 @@ class WBEmotionTool: NSObject {
         if let dicArr = NSArray(contentsOfFile: path) as? [[String: Any]] {
             //再转为模型数组
             emotionModelArr = NSArray.yy_modelArray(with: WBEmotionModel.self, json: dicArr) as! [WBEmotionModel]
+            
+            for model in emotionModelArr {
+                //图片表情
+                if model.type == 0 {
+                    model.fullPngPath = (path as NSString).deletingLastPathComponent + "/" + model.png!
+                }
+            }
+            
         }
         
         return emotionModelArr

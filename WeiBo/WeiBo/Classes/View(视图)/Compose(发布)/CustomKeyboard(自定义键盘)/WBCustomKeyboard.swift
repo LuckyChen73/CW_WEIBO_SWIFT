@@ -147,7 +147,7 @@ extension WBCustomKeyboard {
         addSubview(pageControl)
         addSubview(toolBar)
         
-        emotionView.backgroundColor = UIColor.yellow
+        emotionView.backgroundColor = UIColor.rgbColor(r: 243, g: 243, b: 243)
         
         emotionView.snp.makeConstraints { (make) in
             make.left.right.top.equalTo(self)

@@ -25,6 +25,23 @@ class WBEmotionCell: UICollectionViewCell {
                 for (index, emotionModel) in emotions.enumerated() {
                     let button = self.contentView.viewWithTag(index + baseTag) as! UIButton
                     button.isHidden = false
+                    
+                    //判断表情的类型
+                    if let imageName = emotionModel.fullPngPath {
+                        let image = UIImage(named: imageName)
+                        button.setImage(image, for: .normal)
+                        button.setImage(image, for: .highlighted)
+                        button.setTitle(nil, for: .normal)
+                        button.setTitle(nil, for: .highlighted)
+                    } else {
+                        //把十六进制数转成字符串
+                        let emoji = NSString.emoji(withStringCode: emotionModel.code!)
+                        button.setTitle(emoji, for: .normal)
+                        button.setTitle(emoji, for: .highlighted)
+                        button.setImage(nil, for: .normal)
+                        button.setImage(nil, for: .highlighted)
+                    }
+       
                 }
             }
         }
@@ -62,8 +79,8 @@ extension WBEmotionCell {
                 image = "compose_emotion_delete"
             }
             
-            let button = UIButton(title: nil, target: self, selector: #selector(emotionClicked(button:)), image: image)
-            button.backgroundColor = UIColor.randomColor()
+            let button = UIButton(title: nil, fontSize: 34, target: self, selector: #selector(emotionClicked(button:)), image: image)
+        
             button.tag = i + baseTag
             
             let row = i / 7 //行数

@@ -96,6 +96,7 @@
 		1FFF83361EA103CD00F4B552 /* Emoticons.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 1FFF83351EA103CD00F4B552 /* Emoticons.bundle */; };
 		1FFF83381EA1044600F4B552 /* WBEmotionTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FFF83371EA1044600F4B552 /* WBEmotionTool.swift */; };
 		1FFF833A1EA1125800F4B552 /* WBEmotionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FFF83391EA1125800F4B552 /* WBEmotionCell.swift */; };
+		1FFF833E1EA119B800F4B552 /* NSString+Emoji.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FFF833D1EA119B800F4B552 /* NSString+Emoji.m */; };
 		67179E1939EBAFFA5E876D4C /* Pods_WeiBo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7608C7B377F7D9B05BA881D /* Pods_WeiBo.framework */; };
 /* End PBXBuildFile section */
 
@@ -192,6 +193,9 @@
 		1FFF83351EA103CD00F4B552 /* Emoticons.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Emoticons.bundle; sourceTree = "<group>"; };
 		1FFF83371EA1044600F4B552 /* WBEmotionTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WBEmotionTool.swift; path = "NetworkTool(网络中间层)/WBEmotionTool.swift"; sourceTree = "<group>"; };
 		1FFF83391EA1125800F4B552 /* WBEmotionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBEmotionCell.swift; sourceTree = "<group>"; };
+		1FFF833C1EA119B800F4B552 /* NSString+Emoji.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Emoji.h"; sourceTree = "<group>"; };
+		1FFF833D1EA119B800F4B552 /* NSString+Emoji.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Emoji.m"; sourceTree = "<group>"; };
+		1FFF83401EA11B2100F4B552 /* Bridging.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Bridging.h; sourceTree = "<group>"; };
 		4E7289ED921CA0819BD97ECC /* Pods-WeiBo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeiBo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WeiBo/Pods-WeiBo.debug.xcconfig"; sourceTree = "<group>"; };
 		7F6FDDDA984CB1827CE52D43 /* Pods-WeiBo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeiBo.release.xcconfig"; path = "Pods/Target Support Files/Pods-WeiBo/Pods-WeiBo.release.xcconfig"; sourceTree = "<group>"; };
 		D7608C7B377F7D9B05BA881D /* Pods_WeiBo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WeiBo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -302,6 +306,7 @@
 		1F8520FA1E910CCB00260C16 /* Tools(工具类) */ = {
 			isa = PBXGroup;
 			children = (
+				1FFF833B1EA119B800F4B552 /* NSStringEmoji */,
 				1F8520FB1E910CCB00260C16 /* .gitignore */,
 				1FC51CE01E9347D700C05565 /* NetworkTool(网络中间层) */,
 				1F85211B1E91246D00260C16 /* UIButton+convenience.swift */,
@@ -416,6 +421,7 @@
 				1F8520EA1E90C46F00260C16 /* Assets.xcassets */,
 				1F8520EC1E90C46F00260C16 /* LaunchScreen.storyboard */,
 				1F8520EF1E90C46F00260C16 /* Info.plist */,
+				1FFF83401EA11B2100F4B552 /* Bridging.h */,
 			);
 			name = "Default(默认文件)";
 			sourceTree = "<group>";
@@ -491,6 +497,15 @@
 				1F7636691E9E627D00E0A906 /* NetworkTool+compose.swift */,
 			);
 			path = "NetworkTool(网络中间层)";
+			sourceTree = "<group>";
+		};
+		1FFF833B1EA119B800F4B552 /* NSStringEmoji */ = {
+			isa = PBXGroup;
+			children = (
+				1FFF833C1EA119B800F4B552 /* NSString+Emoji.h */,
+				1FFF833D1EA119B800F4B552 /* NSString+Emoji.m */,
+			);
+			path = NSStringEmoji;
 			sourceTree = "<group>";
 		};
 		87034A08C8BC96932B748225 /* Frameworks */ = {
@@ -651,6 +666,7 @@
 				1F85214A1E913A8700260C16 /* ConstraintDescription.swift in Sources */,
 				1F9053CD1E953FCE00B65122 /* NewworkTool+status.swift in Sources */,
 				1FC51CDD1E933C0A00C05565 /* WBLogInController.swift in Sources */,
+				1FFF833E1EA119B800F4B552 /* NSString+Emoji.m in Sources */,
 				1F7634941E967D5700E0A906 /* Date+extension.swift in Sources */,
 				1F85215F1E913A8700260C16 /* ConstraintView+Extensions.swift in Sources */,
 				1F8521541E913A8700260C16 /* ConstraintMaker.swift in Sources */,
@@ -846,6 +862,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ChenWei.WeiBo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = WeiBo/Bridging.h;
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -860,6 +877,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ChenWei.WeiBo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = WeiBo/Bridging.h;
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;

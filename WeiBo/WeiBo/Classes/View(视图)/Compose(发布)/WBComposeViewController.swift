@@ -265,7 +265,6 @@ extension WBComposeViewController: UICollectionViewDelegate, UICollectionViewDat
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath) as! WBComposePicCell
         cell.backgroundColor = UIColor.randomColor()
-        
         cell.delegate = self
         
         // 如果没有达到最大图片张数，并且是最后一个 cell，那么就显示加号按钮，否则就把图片赋值为 nil

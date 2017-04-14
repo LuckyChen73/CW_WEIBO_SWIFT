@@ -16,6 +16,9 @@ class WBEmotionModel: NSObject {
     /// 表情的图片名
     var png: String?
     
+    /// 全路径
+    var fullPngPath: String?
+    
     /// 表情类型, 0代表图片表情, 1代表emoji表情
     var type: Int = 0
     
