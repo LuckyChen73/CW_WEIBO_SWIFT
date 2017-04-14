@@ -93,6 +93,7 @@
 		1FC51CE41E934ECA00C05565 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC51CE31E934ECA00C05565 /* Common.swift */; };
 		1FC51CE61E9394E500C05565 /* WBUserAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC51CE51E9394E500C05565 /* WBUserAccount.swift */; };
 		1FFF83341EA1031B00F4B552 /* WBEmotionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FFF83331EA1031B00F4B552 /* WBEmotionModel.swift */; };
+		1FFF83361EA103CD00F4B552 /* Emoticons.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 1FFF83351EA103CD00F4B552 /* Emoticons.bundle */; };
 		67179E1939EBAFFA5E876D4C /* Pods_WeiBo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7608C7B377F7D9B05BA881D /* Pods_WeiBo.framework */; };
 /* End PBXBuildFile section */
 
@@ -186,6 +187,7 @@
 		1FC51CE31E934ECA00C05565 /* Common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
 		1FC51CE51E9394E500C05565 /* WBUserAccount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBUserAccount.swift; sourceTree = "<group>"; };
 		1FFF83331EA1031B00F4B552 /* WBEmotionModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBEmotionModel.swift; sourceTree = "<group>"; };
+		1FFF83351EA103CD00F4B552 /* Emoticons.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Emoticons.bundle; sourceTree = "<group>"; };
 		4E7289ED921CA0819BD97ECC /* Pods-WeiBo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeiBo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WeiBo/Pods-WeiBo.debug.xcconfig"; sourceTree = "<group>"; };
 		7F6FDDDA984CB1827CE52D43 /* Pods-WeiBo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeiBo.release.xcconfig"; path = "Pods/Target Support Files/Pods-WeiBo/Pods-WeiBo.release.xcconfig"; sourceTree = "<group>"; };
 		D7608C7B377F7D9B05BA881D /* Pods_WeiBo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WeiBo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -224,6 +226,7 @@
 		1F76366B1E9E76C000E0A906 /* CustomKeyboard(自定义键盘) */ = {
 			isa = PBXGroup;
 			children = (
+				1FFF83351EA103CD00F4B552 /* Emoticons.bundle */,
 				1F76366C1E9E76DB00E0A906 /* WBCustomKeyboard.swift */,
 				1F76366E1E9E77A500E0A906 /* WBKeyboardToolbar.swift */,
 			);
@@ -564,6 +567,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1FFF83361EA103CD00F4B552 /* Emoticons.bundle in Resources */,
 				1F8521121E9110FC00260C16 /* main.json in Resources */,
 				1F85210B1E910CCB00260C16 /* .gitignore in Resources */,
 				1F8521081E910CCB00260C16 /* .gitignore in Resources */,
