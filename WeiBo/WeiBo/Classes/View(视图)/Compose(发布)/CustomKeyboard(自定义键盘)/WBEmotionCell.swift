@@ -58,10 +58,7 @@ class WBEmotionCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    
-    
-    
-    
+
 }
 
 // MARK: - UI 搭建

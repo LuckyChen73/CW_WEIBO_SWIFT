@@ -100,6 +100,8 @@ extension WBComposeViewController {
             //删除操作
             if action == false {
                 print("删除")
+                //删除
+                textView.deleteBackward()
             }
             //插入操作
             else {
@@ -107,13 +109,12 @@ extension WBComposeViewController {
                 if let emotion = userInfo["emotion"] as? WBEmotionModel {
                     print("插入")
                     
+                    textView.insertEmotion(emotion: emotion)
                 }
             }
         }
 
     }
-    
-    
 }
 
 

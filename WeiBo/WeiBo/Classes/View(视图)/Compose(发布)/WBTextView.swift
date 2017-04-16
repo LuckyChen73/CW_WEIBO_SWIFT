@@ -92,12 +92,80 @@ extension WBTextView {
         
     }
     
-    
-    
 }
 
 
+// MARK: - 插入表情
+extension WBTextView {
+    /// 插入表情
+    func insertEmotion(emotion: WBEmotionModel) {
+        //如果是 emoji 表情
+        if emotion.type == 1 {
+            //把十六进制数转换成表情字符串
+            let emotion = NSString.emoji(withStringCode: emotion.code!)
+            //插入字符串
+            self.insertText(emotion!)
+            
+        }else {
+            //1.创建一个不可变的表情的富文本
+            
+            //用表情去创建一个富文本的附件
+            let attachMent = NSTextAttachment()
+            //给富文本的附件设置图片
+            attachMent.image = UIImage(named: emotion.fullPngPath!)
+            //给附件设置大小和位置
+             attachMent.bounds = CGRect(x: 0, y: -3, width: self.font!.lineHeight, height: self.font!.lineHeight)
+            //使用附件创建不可变的富文本
+            let attachmentString = NSAttributedString(attachment: attachMent)
+            
+            
+            //2.通过不可变的富文本创建一个可变的表情的富文本
+            let mattachmentString = NSMutableAttributedString(attributedString: attachmentString)
+            //给表情富文本添加属性
+            mattachmentString.addAttributes([NSFontAttributeName: self.font!], range: NSMakeRange(0, mattachmentString.length))
+            
+            
+            //3. 获取当前的 textView 的富文本的副本
+            let attributedString = self.attributedText.copy() as! NSAttributedString
+            //用 textView 的富文本生成一个可变的富文本
+            let mattributedString = NSMutableAttributedString(attributedString: attributedString)
+            
+            
+            //4. 取到光标的位置
+            var range = self.selectedRange
+            
+            
+            //5. 向富文本中插入一个表情文本
+            mattributedString.replaceCharacters(in: range, with: attachmentString)
+            
+            
+            //6. 插入完成之后，将光标往后移动一个长度
+            range.location += 1
+            range.length = 0
+            
+            
+            //7. 给 textView 的富文本设置文本属性
+            mattributedString.addAttributes([NSFontAttributeName: self.font!], range: NSMakeRange(0, mattributedString.length))
+            
+            
+            //8. 设置 attributeText 的属性值
+            self.attributedText = mattributedString
+            
+            
+            //9. 重新定位光标
+            self.selectedRange = range
+        }
+        
+        //手动发通知
+        let notification = Notification(name: Notification.Name.UITextViewTextDidChange)
+        NotificationCenter.default.post(notification)
+        
+        //手动调用代理
+        self.delegate?.textViewDidChange!(self)
+        
+    }
 
+}
 
 
 

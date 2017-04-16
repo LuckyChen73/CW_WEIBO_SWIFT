@@ -67,9 +67,7 @@ class WBCustomKeyboard: UIView {
         return toolBar
     }()
     
-    
 
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupUI()
@@ -129,14 +127,8 @@ extension WBCustomKeyboard: UICollectionViewDelegate {
                 toolBar.selectedIndex = (indexPath2?.section)!
                 setupPageControl(indexPath: indexPath2!)
             }
-            
-            
         }
-        
-        
-        
     }
-    
 }
 
 

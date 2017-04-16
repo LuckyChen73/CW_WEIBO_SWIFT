@@ -11,6 +11,8 @@
 		1F0370DE1E95066500C701A1 /* WBWelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0370DD1E95066500C701A1 /* WBWelcomeView.swift */; };
 		1F0370E01E95097700C701A1 /* UIIamge+draw.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0370DF1E95097700C701A1 /* UIIamge+draw.swift */; };
 		1F0370E21E950AD900C701A1 /* Bundle+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0370E11E950AD900C701A1 /* Bundle+extension.swift */; };
+		1F32A8581EA26F4100911C84 /* FFLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F32A8571EA26F4100911C84 /* FFLabel.swift */; };
+		1F32A85A1EA26FD800911C84 /* UILabel+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F32A8591EA26FD800911C84 /* UILabel+extension.swift */; };
 		1F7634921E9679F500E0A906 /* WBStatusViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7634911E9679F500E0A906 /* WBStatusViewModel.swift */; };
 		1F7634941E967D5700E0A906 /* Date+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7634931E967D5700E0A906 /* Date+extension.swift */; };
 		1F7634961E9726DE00E0A906 /* WBRetweetedStatusCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7634951E9726DE00E0A906 /* WBRetweetedStatusCell.swift */; };
@@ -105,6 +107,8 @@
 		1F0370DD1E95066500C701A1 /* WBWelcomeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBWelcomeView.swift; sourceTree = "<group>"; };
 		1F0370DF1E95097700C701A1 /* UIIamge+draw.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIIamge+draw.swift"; sourceTree = "<group>"; };
 		1F0370E11E950AD900C701A1 /* Bundle+extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Bundle+extension.swift"; sourceTree = "<group>"; };
+		1F32A8571EA26F4100911C84 /* FFLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FFLabel.swift; path = "../../../../../../上课源码/FFLabel.swift"; sourceTree = "<group>"; };
+		1F32A8591EA26FD800911C84 /* UILabel+extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILabel+extension.swift"; sourceTree = "<group>"; };
 		1F7634911E9679F500E0A906 /* WBStatusViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBStatusViewModel.swift; sourceTree = "<group>"; };
 		1F7634931E967D5700E0A906 /* Date+extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Date+extension.swift"; path = "NetworkTool(网络中间层)/Date+extension.swift"; sourceTree = "<group>"; };
 		1F7634951E9726DE00E0A906 /* WBRetweetedStatusCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBRetweetedStatusCell.swift; sourceTree = "<group>"; };
@@ -306,6 +310,7 @@
 		1F8520FA1E910CCB00260C16 /* Tools(工具类) */ = {
 			isa = PBXGroup;
 			children = (
+				1F32A8571EA26F4100911C84 /* FFLabel.swift */,
 				1FC51CE31E934ECA00C05565 /* Common.swift */,
 				1FFF833B1EA119B800F4B552 /* NSStringEmoji */,
 				1F8520FB1E910CCB00260C16 /* .gitignore */,
@@ -318,6 +323,7 @@
 				1F0370E11E950AD900C701A1 /* Bundle+extension.swift */,
 				1F7634931E967D5700E0A906 /* Date+extension.swift */,
 				1FFF83371EA1044600F4B552 /* WBEmotionTool.swift */,
+				1F32A8591EA26FD800911C84 /* UILabel+extension.swift */,
 			);
 			path = "Tools(工具类)";
 			sourceTree = "<group>";
@@ -683,6 +689,7 @@
 				1F8521681E91432700260C16 /* UIColor+extension.swift in Sources */,
 				1F8521551E913A8700260C16 /* ConstraintMakerEditable.swift in Sources */,
 				1FFF83341EA1031B00F4B552 /* WBEmotionModel.swift in Sources */,
+				1F32A85A1EA26FD800911C84 /* UILabel+extension.swift in Sources */,
 				1F8521511E913A8700260C16 /* ConstraintLayoutGuideDSL.swift in Sources */,
 				1F7634F31E99495C00E0A906 /* WBPhotoViewController.swift in Sources */,
 				1F85211A1E911B8B00260C16 /* WBProfileController.swift in Sources */,
@@ -725,6 +732,7 @@
 				1FFF833A1EA1125800F4B552 /* WBEmotionCell.swift in Sources */,
 				1F9053C91E953D6400B65122 /* WBStatusModel.swift in Sources */,
 				1F8521201E9133F700260C16 /* UIImageView+extension.swift in Sources */,
+				1F32A8581EA26F4100911C84 /* FFLabel.swift in Sources */,
 				1F8521621E913A8700260C16 /* Debugging.swift in Sources */,
 				1F8521501E913A8700260C16 /* ConstraintLayoutGuide.swift in Sources */,
 				1F8521591E913A8700260C16 /* ConstraintMakerRelatable.swift in Sources */,
@@ -859,6 +867,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = WeiBo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ChenWei.WeiBo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -874,6 +883,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = WeiBo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ChenWei.WeiBo;
 				PRODUCT_NAME = "$(TARGET_NAME)";

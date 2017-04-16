@@ -72,7 +72,9 @@ class WBOriginalStatusView: UIView {
     lazy var vipIcon: UIImageView = UIImageView(imageName: "avatar_grassroot")
     
     /// 用户的昵称
-    lazy var userNameLable: UILabel = UILabel(title: "小王爱睡觉")
+//    lazy var userNameLable: FFLabel = FFLabel(title: "小王爱睡觉")
+    lazy var userNameLable: FFLabel = FFLabel(title: nil, textColor: UIColor.darkGray)
+    
     
     /// 用户的皇冠的等级图标
     lazy var levelIcon: UIImageView = UIImageView(imageName: "common_icon_membership_level6")
@@ -83,7 +85,7 @@ class WBOriginalStatusView: UIView {
     lazy var timeLable: UILabel = UILabel(title: "两小时前", titleColor: UIColor.lightGray, fontSize: 12)
     
     //添加一个微博正文的label
-    lazy var statusLabel: UILabel = UILabel(title: nil)
+    lazy var statusLabel: FFLabel = FFLabel(title: nil, textColor: UIColor.darkGray)
     
     //添加配图视图
     let statusPictureView: WBStatusPictureView = WBStatusPictureView()

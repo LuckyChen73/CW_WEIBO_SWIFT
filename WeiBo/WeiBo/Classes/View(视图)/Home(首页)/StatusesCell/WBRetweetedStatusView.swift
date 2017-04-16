@@ -9,6 +9,7 @@
 import UIKit
 import SDWebImage
 
+
 class WBRetweetedStatusView: UIView {
     //真实数据赋值
     var statusViewModel: WBStatusViewModel? {
@@ -38,7 +39,7 @@ class WBRetweetedStatusView: UIView {
 
     
     //添加一个微博正文的label
-    lazy var retweetedStatusLabel: UILabel = UILabel(title: nil)
+    lazy var retweetedStatusLabel: FFLabel = FFLabel(title: nil, textColor: UIColor.darkGray)
     
     //添加配图视图
     let statusPictureView: WBStatusPictureView = WBStatusPictureView()
